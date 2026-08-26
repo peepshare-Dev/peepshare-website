@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="สมัครร้านค้า Partner Shop กับ PEEP SHARE">
+  <title>Partner Shop — PEEP SHARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config={theme:{extend:{colors:{accent:'#ff4d00',ink:'#131313',paper:'#f0f0f0',mist:'#dcdcdc'},fontFamily:{sans:['Noto Sans Thai','Inter','ui-sans-serif','system-ui','sans-serif'],display:['Space Grotesk','Noto Sans Thai','ui-sans-serif','system-ui','sans-serif']}}}}
+  </script>
+  <style>
+    html{scroll-behavior:smooth} body{background:#f0f0f0}
+    .form-bg{background:radial-gradient(circle at 50% 0%,rgba(255,77,0,.09) 0,transparent 30%),#f0f0f0}
+    .field{width:100%;border:1px solid rgba(19,19,19,.14);border-radius:14px;background:#fff;padding:13px 16px;color:#131313;outline:none;transition:.2s}
+    .field:focus{border-color:#ff4d00;box-shadow:0 0 0 3px rgba(255,77,0,.1)} .field::placeholder{color:rgba(19,19,19,.35)}
+    .upload{border:2px dashed rgba(19,19,19,.14);transition:.2s}.upload:hover{border-color:#ff4d00;background:rgba(255,77,0,.03)}
+  </style>
+</head>
+<body class="font-sans text-ink antialiased">
+  <header class="sticky top-0 z-40 border-b border-black/5 bg-paper/90 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+      <a href="/" class="font-display text-2xl font-bold text-accent">Agero.</a>
+      <div class="hidden items-center gap-8 text-sm text-gray-600 md:flex">
+      </div>
+    </nav>
+  </header>
+
+  <main class="form-bg px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-5xl">
+      <div class="mb-10 text-center">
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-xs font-bold uppercase tracking-wide text-white"><span class="h-2 w-2 rounded-full bg-accent"></span>Peep Share</div>
+        <h1 class="font-display text-3xl font-bold sm:text-5xl">แบบฟอร์มสมัครร้านค้ากับ PEEP SHARE</h1>
+        <p class="mx-auto mt-4 max-w-2xl text-gray-600">ลงทะเบียนร้านค้าเพื่อเข้าร่วมโปรโมชั่นและแสดงร้านค้าบนแอป PEEP SHARE</p>
+      </div>
+
+      <section class="mb-7 rounded-3xl border border-black/5 bg-white p-6 shadow-xl shadow-black/5 sm:p-9">
+        <h2 class="mb-6 font-display text-lg font-bold">ร้านค้าที่ลงทะเบียนกับ PEEP SHARE จะได้รับ:</h2>
+        <div class="grid gap-5 text-sm text-gray-700 sm:grid-cols-2">
+          <div class="flex items-center gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-accent">✦</span>พื้นที่โปรโมชั่นในแอปโดยไม่มีค่าใช้จ่าย</div>
+          <div class="flex items-center gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-accent">◉</span>การสนับสนุนด้านคอนเทนต์ดีไซน์จากทีม JTS</div>
+          <div class="flex items-center gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-accent">⌁</span>การโปรโมทภายในแอปเพื่อเข้าถึงผู้ใช้งาน</div>
+          <div class="flex items-center gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-accent">☷</span>ร้านค้าสามารถกำหนดเงื่อนไขโปรโมชั่นได้เอง</div>
+        </div>
+      </section>
+
+      <form id="shopForm" class="rounded-3xl border border-black/5 bg-white p-6 shadow-2xl shadow-black/5 sm:p-10" enctype="multipart/form-data">
+        <p class="mb-8 text-sm text-gray-600"><span class="mr-2 text-accent">✓</span>ช่องที่มีเครื่องหมาย <b class="text-red-500">*</b> จำเป็นต้องกรอก</p>
+        <div class="space-y-7">
+          <div><label for="shopName" class="mb-2 block text-sm font-semibold">ชื่อร้านค้า <b class="text-red-500">*</b></label><input id="shopName" name="shopName" class="field" placeholder="เช่น PEEP Cafe" required></div>
+          <div>
+            <label for="shopLogo" class="mb-2 block text-sm font-semibold">โลโกร้านค้า <b class="text-red-500">*</b></label>
+            <label for="shopLogo" class="upload flex min-h-44 cursor-pointer flex-col items-center justify-center rounded-2xl p-6 text-center"><span class="mb-3 text-3xl text-accent">▧</span><b>คลิกเพื่ออัปโหลดโลโก้</b><span id="logoName" class="mt-2 text-xs text-gray-500">PNG, JPG (สูงสุด ~5MB)</span></label>
+            <input id="shopLogo" name="shopLogo" class="sr-only" type="file" accept="image/png,image/jpeg" required>
+          </div>
+          <div><label for="location" class="mb-1 block text-sm font-semibold">Location ของร้าน <b class="text-red-500">*</b></label><p class="mb-2 text-xs text-gray-500">วางลิงก์ Google Maps ของร้าน</p><input id="location" name="location" class="field" type="url" placeholder="https://maps.google.com/..." required></div>
+          <div><label for="hours" class="mb-2 block text-sm font-semibold">เวลาเปิด-ปิดร้าน <b class="text-red-500">*</b></label><input id="hours" name="hours" class="field" placeholder="เช่น จันทร์-ศุกร์ 09:00-18:00" required></div>
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div><label for="contactName" class="mb-2 block text-sm font-semibold">ชื่อผู้ติดต่อ <b class="text-red-500">*</b></label><input id="contactName" name="contactName" class="field" placeholder="ชื่อ-นามสกุล" required></div>
+            <div><label for="phone" class="mb-2 block text-sm font-semibold">เบอร์โทรผู้ติดต่อ <b class="text-red-500">*</b></label><input id="phone" name="phone" class="field" type="tel" placeholder="08x-xxx-xxxx" required></div>
+          </div>
+          <div><label for="category" class="mb-2 block text-sm font-semibold">หมวดหมู่ร้านค้า <b class="text-red-500">*</b></label><select id="category" name="category" class="field" required><option value="" disabled selected>เลือกหมวดหมู่</option><option>อาหารและเครื่องดื่ม</option><option>แฟชั่นและความงาม</option><option>สุขภาพและฟิตเนส</option><option>บริการ</option><option>ท่องเที่ยวและที่พัก</option><option>อื่น ๆ</option></select></div>
+          <div><label for="channels" class="mb-1 block text-sm font-semibold">ช่องทางติดต่อร้าน <b class="text-red-500">*</b></label><p class="mb-2 text-xs text-gray-500">เช่น Facebook, Instagram, LINE OA, Website</p><textarea id="channels" name="channels" class="field min-h-28 resize-y" placeholder="Facebook: ...&#10;IG: @...&#10;LINE OA: @..." required></textarea></div>
+          <div><label for="promotion" class="mb-2 block text-sm font-semibold">รายละเอียดคูปอง / โปรโมชั่น <b class="text-red-500">*</b></label><textarea id="promotion" name="promotion" class="field min-h-32 resize-y" placeholder="อธิบายโปรโมชั่นหรือคูปองที่ต้องการให้ลูกค้าได้รับ" required></textarea></div>
+          <div><label for="details" class="mb-2 block text-sm font-semibold">รายละเอียดร้านค้า <span class="font-normal text-gray-400">(ไม่บังคับ)</span></label><textarea id="details" name="details" class="field min-h-32 resize-y" placeholder="เล่าเรื่องราวหรือจุดเด่นของร้าน"></textarea></div>
+          <div>
+            <label for="images" class="mb-1 block text-sm font-semibold">รูปภาพร้านหรือสินค้า <span class="font-normal text-gray-400">(ไม่บังคับ)</span></label><p class="mb-2 text-xs text-gray-500">อัปโหลดได้หลายรูป</p>
+            <label for="images" class="upload flex h-44 w-full cursor-pointer flex-col items-center justify-center rounded-2xl p-5 text-center sm:w-56"><span class="mb-3 text-2xl text-gray-500">⇧</span><span class="text-sm font-medium">เพิ่มรูป</span><span id="imagesName" class="mt-2 text-xs text-gray-400"></span></label>
+            <input id="images" name="images" class="sr-only" type="file" accept="image/png,image/jpeg" multiple>
+          </div>
+          <label class="flex cursor-pointer items-start gap-3 rounded-2xl border border-black/10 bg-paper/40 p-4 text-sm leading-relaxed"><input name="consent" class="mt-1 h-5 w-5 shrink-0 accent-[#ff4d00]" type="checkbox" required><span>ยอมรับ <a href="#" class="font-medium text-accent hover:underline">เงื่อนไขการสมัครร้านค้า</a> และ <a href="#" class="font-medium text-accent hover:underline">นโยบายความเป็นส่วนตัว</a> ของ PEEP SHARE</span></label>
+          <button class="w-full rounded-2xl bg-ink px-6 py-4 font-semibold text-white transition-colors hover:bg-black" type="submit">ส่งใบสมัครร้านค้า</button>
+          <p id="status" class="hidden rounded-2xl bg-green-50 p-4 text-center text-sm font-medium text-green-700" role="status">รับข้อมูลเรียบร้อยแล้ว ขอบคุณที่สมัครเป็น Partner Shop</p>
+        </div>
+      </form>
+      <p class="mt-10 text-center text-xs text-gray-500">© 2026 PEEP SHARE · JTS Team</p>
+    </div>
+  </main>
+  <script>
+    document.getElementById('shopLogo').addEventListener('change',e=>document.getElementById('logoName').textContent=e.target.files[0]?.name||'PNG, JPG (สูงสุด ~5MB)');
+    document.getElementById('images').addEventListener('change',e=>document.getElementById('imagesName').textContent=e.target.files.length?`เลือกแล้ว ${e.target.files.length} รูป`:'' );
+    document.getElementById('shopForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('status').classList.remove('hidden')});
+  </script>
+</body>
+</html>

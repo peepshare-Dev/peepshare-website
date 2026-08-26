@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Partner with Agero to create bold brands and digital experiences.">
+  <title>Partner — Agero</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: '#ff4d00',
+            ink: '#131313',
+            paper: '#f0f0f0',
+            mist: '#dcdcdc',
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #f0f0f0; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .shop-form-bg { background: radial-gradient(circle at 50% 0%, #fff4d8 0, transparent 38%), linear-gradient(135deg, #ffd8cf 0%, #fff0ce 50%, #ffc6b8 100%); }
+    .shop-field { width: 100%; border: 1px solid rgba(19,19,19,.14); border-radius: 14px; background: rgba(255,255,255,.72); padding: 13px 16px; color: #131313; outline: none; transition: border-color .2s, box-shadow .2s; }
+    .shop-field:focus { border-color: #ff4d00; box-shadow: 0 0 0 3px rgba(255,77,0,.1); }
+    .shop-field::placeholder { color: rgba(19,19,19,.35); }
+    .upload-box { border: 2px dashed rgba(19,19,19,.14); transition: border-color .2s, background-color .2s; }
+    .upload-box:hover { border-color: #ff4d00; background: rgba(255,77,0,.03); }
+  </style>
+</head>
+
+<body class="font-sans text-ink antialiased">
+  <div class="flex justify-center pt-4">
+    <div class="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-1.5 text-xs text-white">
+      <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+      Available for New Projects
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-40 mt-4 border-b border-black/5 bg-paper/80 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+      <a href="/" class="font-display text-2xl font-bold text-accent">Agero.</a>
+
+      <div class="hidden items-center gap-8 text-sm text-gray-600 md:flex">
+        <a href="/partner/" class="font-medium text-ink">Partner</a>
+        <a href="/event/" class="transition-colors hover:text-ink">Event</a>
+        <a href="/shop/" class="transition-colors hover:text-ink">Shop</a>
+      </div>
+
+      <a href="/#contact" class="hidden items-center rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-black sm:inline-flex">Contact</a>
+
+      <button id="menuBtn" class="-mr-2 p-2 md:hidden" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </nav>
+
+    <div id="mobileMenu" class="hidden flex-col gap-1 px-6 pb-5 text-sm text-gray-700 md:hidden">
+      <a href="/partner/" class="py-2 font-medium text-ink">Partner</a>
+      <a href="/event/" class="py-2">Event</a>
+      <a href="/shop/" class="py-2">Shop</a>
+      <a href="/#contact" class="py-2 font-medium text-ink">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="mx-auto max-w-6xl px-6 pb-24 pt-20 text-center sm:pt-28">
+      <p class="mb-6 text-sm text-gray-500">(Partner with Agero)</p>
+      <h1 class="font-display text-5xl font-bold leading-[.95] sm:text-7xl lg:text-8xl">
+        Better work happens<br>
+        <span class="text-accent">together.</span>
+      </h1>
+      <p class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-gray-600">
+        We collaborate with studios, agencies, founders, and technology teams to turn ambitious ideas into memorable brands and digital products.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        </a>
+        <a href="/partner/shop/" class="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-black">
+          Partner shop
+        </a>
+        <a href="#partnerships" class="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-black">
+          Partner coupon
+        </a>
+      </div>
+    </section>
+
+    <section class="reveal mx-auto max-w-7xl px-6 pb-24">
+      <div class="grid min-h-[420px] items-end overflow-hidden rounded-[32px] bg-black p-8 text-white sm:p-12 lg:p-16">
+        <div class="max-w-3xl">
+          <p class="mb-5 text-sm text-white/50">A flexible creative partner</p>
+          <h2 class="font-display text-3xl font-semibold leading-tight sm:text-5xl">
+            Your expertise, paired with our design craft — one team from kickoff to launch.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <section id="partnerships" class="reveal mx-auto max-w-6xl px-6 py-24">
+      <div class="mb-14 max-w-2xl">
+        <p class="mb-4 text-sm text-gray-500">(Ways to partner)</p>
+        <h2 class="font-display text-4xl font-bold sm:text-6xl">Built around your team</h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-3">
+        <article class="flex min-h-[300px] flex-col justify-between rounded-3xl bg-gray-100 p-8">
+          <span class="text-sm text-gray-400">01</span>
+          <div>
+            <h3 class="mb-3 font-display text-2xl font-bold">Agency Partner</h3>
+            <p class="leading-relaxed text-gray-600">Add senior design capacity to your projects while keeping your client relationship and workflow intact.</p>
+          </div>
+        </article>
+        <article class="flex min-h-[300px] flex-col justify-between rounded-3xl bg-accent p-8 text-white">
+          <span class="text-sm text-white/60">02</span>
+          <div>
+            <h3 class="mb-3 font-display text-2xl font-bold">Technology Partner</h3>
+            <p class="leading-relaxed text-white/80">Pair product and engineering expertise with brand, UX, and interface design that feels cohesive.</p>
+          </div>
+        </article>
+        <article class="flex min-h-[300px] flex-col justify-between rounded-3xl bg-gray-700 p-8 text-white">
+          <span class="text-sm text-white/50">03</span>
+          <div>
+            <h3 class="mb-3 font-display text-2xl font-bold">Referral Partner</h3>
+            <p class="leading-relaxed text-white/70">Connect the right founders with Agero and create long-term value through a trusted referral relationship.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="reveal mx-auto max-w-5xl px-6 py-24">
+      <div class="grid gap-12 md:grid-cols-2">
+        <div>
+          <p class="mb-4 text-sm text-gray-500">(How it works)</p>
+          <h2 class="font-display text-4xl font-bold sm:text-5xl">Simple from day one</h2>
+        </div>
+        <ol class="divide-y divide-black/10 border-t border-black/10">
+          <li class="grid grid-cols-[40px_1fr] gap-4 py-6"><span class="text-gray-400">01</span><div><h3 class="font-medium">Start a conversation</h3><p class="mt-2 text-sm leading-relaxed text-gray-500">Tell us about your team, opportunity, and the kind of partnership you have in mind.</p></div></li>
+          <li class="grid grid-cols-[40px_1fr] gap-4 py-6"><span class="text-gray-400">02</span><div><h3 class="font-medium">Shape the collaboration</h3><p class="mt-2 text-sm leading-relaxed text-gray-500">We align on roles, communication, scope, and a working model that suits both teams.</p></div></li>
+          <li class="grid grid-cols-[40px_1fr] gap-4 py-6"><span class="text-gray-400">03</span><div><h3 class="font-medium">Create and grow</h3><p class="mt-2 text-sm leading-relaxed text-gray-500">We deliver together, learn from the process, and build a relationship beyond one project.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="reveal mx-auto max-w-7xl px-6 pb-10 pt-24">
+      <div class="rounded-[32px] bg-black px-6 py-20 text-center text-white sm:px-10 sm:py-28">
+        <p class="mb-5 text-sm text-white/50">Have something in mind?</p>
+        <h2 class="font-display text-4xl font-bold sm:text-6xl">Let’s create more, together.</h2>
+        <p class="mx-auto mt-6 max-w-xl text-white/60">Share your idea, opportunity, or partnership proposal with our team.</p>
+        <a href="/#contact" class="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-medium text-ink transition-colors hover:bg-white/90">Become a partner →</a>
+      </div>
+    </section>
+
+    <section id="partner-shop-form" class="shop-form-bg hidden px-4 py-20 sm:px-6 sm:py-28">
+      <div class="mx-auto max-w-5xl">
+        <div class="mb-10 text-center">
+          <div class="mb-6 inline-flex items-center gap-2 rounded-full bg-white/55 px-4 py-2 text-xs font-bold uppercase tracking-wide text-accent">
+            <span class="h-2 w-2 rounded-full bg-accent"></span> Peep Share
+          </div>
+          <h2 class="font-display text-3xl font-bold sm:text-5xl">แบบฟอร์มสมัครร้านค้ากับ PEEP SHARE</h2>
+          <p class="mx-auto mt-4 max-w-2xl text-gray-600">ลงทะเบียนร้านค้าเพื่อเข้าร่วมโปรโมชั่นและแสดงร้านค้าบนแอป PEEP SHARE</p>
+        </div>
+
+        <div class="mb-7 rounded-3xl border border-black/5 bg-white/90 p-6 shadow-xl shadow-orange-900/5 sm:p-9">
+          <h3 class="mb-6 font-display text-lg font-bold">ร้านค้าที่ลงทะเบียนกับ PEEP SHARE จะได้รับ:</h3>
+          <div class="grid gap-5 text-sm text-gray-700 sm:grid-cols-2">
+            <div class="flex items-center gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-lg text-accent">✦</span><span>พื้นที่โปรโมชั่นในแอปโดยไม่มีค่าใช้จ่าย</span></div>
+            <div class="flex items-center gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-lg text-accent">◉</span><span>การสนับสนุนด้านคอนเทนต์ดีไซน์จากทีม JTS</span></div>
+            <div class="flex items-center gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-lg text-accent">⌁</span><span>การโปรโมทภายในแอปเพื่อเข้าถึงผู้ใช้งาน</span></div>
+            <div class="flex items-center gap-4"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 text-lg text-accent">☷</span><span>ร้านค้าสามารถกำหนดเงื่อนไขโปรโมชั่นได้เอง</span></div>
+          </div>
+        </div>
+
+        <form id="partnerShopApplication" class="rounded-3xl border border-black/5 bg-white/95 p-6 shadow-2xl shadow-orange-900/10 sm:p-10" enctype="multipart/form-data">
+          <p class="mb-8 text-sm text-gray-600"><span class="mr-2 text-accent">✓</span>ช่องที่มีเครื่องหมาย <span class="font-bold text-red-500">*</span> จำเป็นต้องกรอก</p>
+
+          <div class="space-y-7">
+            <div>
+              <label for="shopName" class="mb-2 block text-sm font-semibold">ชื่อร้านค้า <span class="text-red-500">*</span></label>
+              <input id="shopName" name="shopName" class="shop-field" type="text" placeholder="เช่น PEEP Cafe" required>
+            </div>
+
+            <div>
+              <label for="shopLogo" class="mb-2 block text-sm font-semibold">โลโกร้านค้า <span class="text-red-500">*</span></label>
+              <label class="upload-box flex min-h-44 cursor-pointer flex-col items-center justify-center rounded-2xl p-6 text-center" for="shopLogo">
+                <span class="mb-3 text-3xl text-accent">▧</span>
+                <span class="font-semibold">คลิกเพื่ออัปโหลดโลโก้</span>
+                <span id="shopLogoName" class="mt-2 text-xs text-gray-500">PNG, JPG (สูงสุด ~5MB)</span>
+              </label>
+              <input id="shopLogo" name="shopLogo" class="sr-only" type="file" accept="image/png,image/jpeg" required>
+            </div>
+
+            <div>
+              <label for="shopLocation" class="mb-1 block text-sm font-semibold">Location ของร้าน <span class="text-red-500">*</span></label>
+              <p class="mb-2 text-xs text-gray-500">วางลิงก์ Google Maps ของร้าน</p>
+              <input id="shopLocation" name="shopLocation" class="shop-field" type="url" placeholder="https://maps.google.com/..." required>
+            </div>
+
+            <div>
+              <label for="openingHours" class="mb-2 block text-sm font-semibold">เวลาเปิด-ปิดร้าน <span class="text-red-500">*</span></label>
+              <input id="openingHours" name="openingHours" class="shop-field" type="text" placeholder="เช่น จันทร์-ศุกร์ 09:00-18:00" required>
+            </div>
+
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label for="contactName" class="mb-2 block text-sm font-semibold">ชื่อผู้ติดต่อ <span class="text-red-500">*</span></label>
+                <input id="contactName" name="contactName" class="shop-field" type="text" placeholder="ชื่อ-นามสกุล" required>
+              </div>
+              <div>
+                <label for="contactPhone" class="mb-2 block text-sm font-semibold">เบอร์โทรผู้ติดต่อ <span class="text-red-500">*</span></label>
+                <input id="contactPhone" name="contactPhone" class="shop-field" type="tel" placeholder="08x-xxx-xxxx" required>
+              </div>
+            </div>
+
+            <div>
+              <label for="shopCategory" class="mb-2 block text-sm font-semibold">หมวดหมู่ร้านค้า <span class="text-red-500">*</span></label>
+              <select id="shopCategory" name="shopCategory" class="shop-field" required>
+                <option value="" selected disabled>เลือกหมวดหมู่</option>
+                <option>อาหารและเครื่องดื่ม</option><option>แฟชั่นและความงาม</option><option>สุขภาพและฟิตเนส</option><option>บริการ</option><option>ท่องเที่ยวและที่พัก</option><option>อื่น ๆ</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="shopChannels" class="mb-1 block text-sm font-semibold">ช่องทางติดต่อร้าน <span class="text-red-500">*</span></label>
+              <p class="mb-2 text-xs text-gray-500">เช่น Facebook, Instagram, LINE OA, Website</p>
+              <textarea id="shopChannels" name="shopChannels" class="shop-field min-h-28 resize-y" placeholder="Facebook: ...&#10;IG: @...&#10;LINE OA: @..." required></textarea>
+            </div>
+
+            <div>
+              <label for="promotionDetails" class="mb-2 block text-sm font-semibold">รายละเอียดคูปอง / โปรโมชั่น <span class="text-red-500">*</span></label>
+              <textarea id="promotionDetails" name="promotionDetails" class="shop-field min-h-32 resize-y" placeholder="อธิบายโปรโมชั่นหรือคูปองที่ต้องการให้ลูกค้าได้รับ" required></textarea>
+            </div>
+
+            <div>
+              <label for="shopDetails" class="mb-2 block text-sm font-semibold">รายละเอียดร้านค้า <span class="font-normal text-gray-400">(ไม่บังคับ)</span></label>
+              <textarea id="shopDetails" name="shopDetails" class="shop-field min-h-32 resize-y" placeholder="เล่าเรื่องราวหรือจุดเด่นของร้าน"></textarea>
+            </div>
+
+            <div>
+              <label for="shopImages" class="mb-1 block text-sm font-semibold">รูปภาพร้านหรือสินค้า <span class="font-normal text-gray-400">(ไม่บังคับ)</span></label>
+              <p class="mb-2 text-xs text-gray-500">อัปโหลดได้หลายรูป</p>
+              <label class="upload-box flex h-44 w-full cursor-pointer flex-col items-center justify-center rounded-2xl p-5 text-center sm:w-56" for="shopImages">
+                <span class="mb-3 text-2xl text-gray-500">⇧</span><span class="text-sm font-medium">เพิ่มรูป</span><span id="shopImagesName" class="mt-2 text-xs text-gray-400"></span>
+              </label>
+              <input id="shopImages" name="shopImages" class="sr-only" type="file" accept="image/png,image/jpeg" multiple>
+            </div>
+
+            <label class="flex cursor-pointer items-start gap-3 rounded-2xl border border-black/10 bg-paper/40 p-4 text-sm leading-relaxed">
+              <input name="consent" class="mt-1 h-5 w-5 shrink-0 accent-[#ff4d00]" type="checkbox" required>
+              <span>ยอมรับ <a href="#" class="font-medium text-accent hover:underline">เงื่อนไขการสมัครร้านค้า</a> และ <a href="#" class="font-medium text-accent hover:underline">นโยบายความเป็นส่วนตัว</a> ของ PEEP SHARE</span>
+            </label>
+
+            <button type="submit" class="w-full rounded-2xl bg-accent px-6 py-4 font-semibold text-white transition-colors hover:bg-orange-600">ส่งใบสมัครร้านค้า</button>
+            <p id="shopFormStatus" class="hidden rounded-2xl bg-green-50 p-4 text-center text-sm font-medium text-green-700" role="status">รับข้อมูลเรียบร้อยแล้ว ขอบคุณที่สมัครเป็น Partner Shop</p>
+          </div>
+        </form>
+
+        <p class="mt-10 text-center text-xs text-gray-500">© 2026 PEEP SHARE · JTS Team</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-10 rounded-t-[32px] bg-gradient-to-b from-black to-accent/40 text-white">
+    <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:px-10">
+      <div class="mb-16 grid grid-cols-2 gap-10 sm:grid-cols-3">
+        <div>
+          <p class="mb-4 text-sm text-white/40">Navigation</p>
+          <ul class="space-y-2 font-medium">
+            <li><a href="/" class="hover:text-accent">Home</a></li>
+            <li><a href="/partner/" class="hover:text-accent">Partner</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="mb-4 text-sm text-white/40">Social</p>
+          <ul class="space-y-2 font-medium"><li><a href="#" class="hover:text-accent">Twitter(X)</a></li><li><a href="#" class="hover:text-accent">LinkedIn</a></li><li><a href="#" class="hover:text-accent">Dribbble</a></li></ul>
+        </div>
+        <div>
+          <p class="mb-4 text-sm text-white/40">Pages</p>
+          <ul class="space-y-2 font-medium"><li><a href="/" class="hover:text-accent">Home</a></li><li><a href="/partner/" class="hover:text-accent">Partner</a></li></ul>
+        </div>
+      </div>
+      <div class="flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
+        <span>© 2025 Agero. All rights reserved.</span><a href="#" class="hover:text-white">Back to top ↑</a>
+      </div>
+    </div>
+    <div class="overflow-hidden leading-none"><p class="-mb-[4vw] select-none text-center font-display text-[20vw] font-bold text-white/10">Agero</p></div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuButton.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex', isOpen);
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+    document.getElementById('shopLogo').addEventListener('change', (event) => {
+      document.getElementById('shopLogoName').textContent = event.target.files[0]?.name || 'PNG, JPG (สูงสุด ~5MB)';
+    });
+    document.getElementById('shopImages').addEventListener('change', (event) => {
+      const count = event.target.files.length;
+      document.getElementById('shopImagesName').textContent = count ? `เลือกแล้ว ${count} รูป` : '';
+    });
+    document.getElementById('partnerShopApplication').addEventListener('submit', (event) => {
+      event.preventDefault();
+      document.getElementById('shopFormStatus').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
