@@ -1,575 +1,447 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agero — Home (Tailwind rebuild)</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PEEP SHARE — a new lifestyle platform that connects communities, content, and cloud experiences.">
+  <title>PEEP SHARE — Lifestyle Connected</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090a0c;
+      --surface: #111216;
+      --surface-2: #17181d;
+      --text: #f6f6f7;
+      --muted: #8d8e94;
+      --line: rgba(255,255,255,.1);
+      --accent: #ff6500;
+      --accent-2: #ff8a1f;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-width: 320px; overflow-x: hidden; color: var(--text); background: var(--bg); font-family: Inter, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .eyebrow { margin: 0 0 14px; color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .section-title { margin: 0; font-size: clamp(34px, 5vw, 68px); line-height: .98; letter-spacing: -.055em; }
+    .accent { color: var(--accent); }
+    .muted { color: var(--muted); }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    header { position: fixed; inset: 0 0 auto; z-index: 50; background: rgba(9,10,12,.78); border-bottom: 1px solid transparent; backdrop-filter: blur(18px); transition: border-color .2s; }
+    header.scrolled { border-color: var(--line); }
+    .nav { min-height: 74px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 34px; }
+    .brand { display: inline-flex; align-items: center; justify-self: start; gap: 14px; font-size: 20px; font-weight: 800; letter-spacing: -.035em; }
+    .brand-logo { width: 42px; height: 42px; object-fit: contain; }
+    .brand-peep { color: #fff; }
+    .brand-share { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; justify-self: center; gap: 30px; color: #b4b5b9; font-size: 12px; }
+    .nav-links a { transition: color .2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta, .primary-btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 700; transition: transform .2s, background .2s; }
+    .nav-cta { justify-self: end; padding: 11px 19px; font-size: 11px; }
+    .nav-cta:hover, .primary-btn:hover { background: var(--accent-2); transform: translateY(-2px); }
+    .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; color: white; background: transparent; cursor: pointer; }
+    .mobile-menu { display: none; padding: 0 20px 20px; border-top: 1px solid var(--line); }
+    .mobile-menu a { display: block; padding: 13px 0; color: #c3c4c7; font-size: 14px; }
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          accent: '#ff4d00',
-          ink: '#131313',
-          paper: '#f0f0f0',
-          mist: '#dcdcdc',
-        },
-        fontFamily: {
-          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-          display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        },
-      },
-    },
-  }
-</script>
+    .hero { min-height: 780px; position: relative; display: flex; align-items: flex-start; padding-top: 150px; overflow: hidden; background:
+      radial-gradient(circle at 50% 68%, rgba(255,99,0,.66), rgba(255,99,0,.19) 24%, transparent 53%),
+      linear-gradient(180deg, #090a0c 0%, #0b0b0d 44%, #291208 100%); }
+    .hero::after { content: ""; position: absolute; inset: auto 0 0; height: 38%; background: linear-gradient(180deg, transparent, rgba(255,87,0,.18)); pointer-events: none; }
+    .hero-copy { position: relative; z-index: 2; text-align: center; }
+    .hero .eyebrow { display: inline-flex; align-items: center; justify-content: center; margin: 0 0 28px; padding: 12px 28px; border: 2px solid var(--accent); border-radius: 999px; color: var(--accent); font-size: 15px; font-weight: 700; line-height: 1; letter-spacing: .02em; }
+    .hero h1 { max-width: none; margin: 0 auto; font-size: clamp(42px, 5.2vw, 68px); line-height: 1; letter-spacing: -.045em; white-space: nowrap; }
+    .hero-subtitle { max-width: 610px; margin: 24px auto 0; color: #a7a8ac; font-size: 15px; line-height: 1.7; }
+    .hero-device { width: min(720px, 80vw); margin: 34px auto -115px; position: relative; z-index: 2; filter: drop-shadow(0 35px 55px rgba(0,0,0,.4)); }
+    .floating-card {
+      position: absolute;
+      z-index: 3;
+      width: 259px;
+      min-height: 114px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      padding: 32px;
+      border: 3px solid #5e5e5e;
+      border-radius: 20px;
+      background: rgba(18,19,26,.55);
+      box-shadow: 0 0 10px rgba(107,107,107,.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      text-align: left;
+    }
+    .floating-card b { display: block; margin: 0; color: var(--accent); font-size: 18px; line-height: 1.2; }
+    .floating-card > span { color: #fff; font-size: 14px; font-weight: 600; line-height: 1.45; }
+    .floating-card .card-badge { align-self: flex-start; margin-bottom: 1px; padding: 5px 13px; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent); font-size: 10px; font-weight: 600; line-height: 1; }
+    .card-heading { display: flex; align-items: center; gap: 10px; }
+    .card-heading .card-badge { margin: 0; }
+    .float-left { left: 55px; top: 365px; }
+    .float-right-top { right: 65px; top: 290px; }
+    .float-right-bottom { right: 142px; top: 500px; }
+    .ticker { position: relative; z-index: 5; width: 100vw; min-width: 100%; margin-left: calc(50% - 50vw); padding: 11px 0; overflow: hidden; background: var(--accent); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .08em; white-space: nowrap; }
+    .ticker-track { width: max-content; display: flex; animation: ticker 25s linear infinite; }
+    .ticker-group { display: flex; flex: none; align-items: center; gap: 28px; padding-right: 28px; }
+    .ticker-item { flex: none; }
+    .ticker-dot { flex: none; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
 
-<style>
-  html { scroll-behavior: smooth; }
-  body { background:#f0f0f0; }
+    .features { padding: 120px 0 100px; overflow: hidden; }
+    .feature-heading { text-align: left; }
+    .feature-heading .eyebrow { margin-bottom: 20px; }
+    .feature-tabs { display: grid; grid-template-columns: repeat(7, auto); align-items: end; justify-content: space-between; gap: 24px; margin: 66px 0 64px; border-bottom: 1px solid rgba(255,255,255,.5); }
+    .feature-tabs button { position: relative; min-width: 70px; padding: 0 8px 26px; border: 0; color: #85868b; background: transparent; font-size: 12px; cursor: pointer; transition: color .2s; }
+    .feature-tabs button:hover { color: #fff; }
+    .feature-tabs button.active { display: inline-flex; align-items: center; justify-content: center; gap: 5px; color: var(--accent); font-weight: 700; }
+    .feature-tabs button.active::before { content: ""; width: 6px; height: 6px; flex: 0 0 6px; border-radius: 50%; background: var(--accent); }
+    .feature-stage { position: relative; max-width: 900px; margin: auto; text-align: center; }
+    .feature-stage::before { content: "PEEPS CLOUD • PEEPS CLOUD • PEEPS CLOUD • PEEPS CLOUD •"; position: absolute; left: 0; top: 45%; z-index: -1; width: max-content; transform: translate(-20%,-50%); color: rgba(129,55,13,.64); font-size: clamp(70px, 11vw, 145px); font-weight: 800; white-space: nowrap; letter-spacing: -.055em; animation: feature-marquee 18s linear infinite; }
+    @keyframes feature-marquee { from { transform: translate(-20%,-50%); } to { transform: translate(-55%,-50%); } }
+    .feature-image { width: min(650px, 92%); margin: auto; border-radius: 18px; box-shadow: 0 30px 100px rgba(255,73,0,.15); }
+    .feature-copy { max-width: 640px; margin: 30px auto 0; }
+    .feature-copy p { margin: 0 0 22px; color: #d1d1d3; font-size: 13px; line-height: 1.65; }
+    .chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 9px 16px; border: 0; border-radius: 999px; background: #55565d; color: #fff; font-size: 10px; }
 
-  /* ---- marquee (logos + tickers) ---- */
-  .marquee-track { display:flex; width:max-content; animation: marquee 28s linear infinite; }
-  .marquee-track.reverse { animation-direction: reverse; }
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
+    .reviews { padding: 105px 0; background: #090a0c; }
+    .reviews-head { margin-bottom: 56px; }
+    .reviews-viewport { position: relative; max-height: 500px; overflow: hidden; transition: max-height .8s ease; }
+    .reviews-viewport.expanded { max-height: 1400px; padding-bottom: 76px; }
+    .reviews-columns { display: grid; grid-template-columns: repeat(3, 1fr); align-items: start; gap: 18px; }
+    .review-column { display: flex; flex-direction: column; gap: 18px; }
+    .review-card { min-height: 150px; padding: 24px; border-radius: 16px; background: #efeff3; color: #16171a; display: flex; flex-direction: column; }
+    .review-card.tall { min-height: 220px; }
+    .review-card.medium { min-height: 178px; }
+    .review-card p { flex: 1; margin: 0 0 24px; font-size: 15px; line-height: 1.45; }
+    .review-person { display: flex; align-items: center; gap: 12px; }
+    .review-person img { width: 34px; height: 34px; }
+    .review-person b { font-size: 12px; letter-spacing: .04em; }
+    .review-fade { position: absolute; z-index: 2; inset: auto 0 0; height: 180px; background: linear-gradient(180deg, rgba(9,10,12,0), #090a0c 88%); pointer-events: none; transition: opacity .3s; }
+    .reviews-viewport.expanded .review-fade { opacity: 0; }
+    .reviews-action { position: absolute; z-index: 3; left: 50%; bottom: 10px; transform: translateX(-50%); }
+    .primary-btn { min-width: 170px; padding: 14px 24px; font-size: 13px; cursor: pointer; }
 
-  /* ---- scroll reveal ---- */
-  .reveal { opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.is-visible { opacity:1; transform: translateY(0); }
+    .download { padding: 100px 0 110px; background: radial-gradient(circle at 78% 46%, rgba(87,29,13,.24), transparent 42%), #0c0909; }
+    .download .container { width: min(calc(100% - 40px), 1000px); }
+    .download-title { margin: 0; font-size: clamp(70px, 10vw, 144px); line-height: .9; letter-spacing: -.075em; }
+    .download-platforms { display: grid; grid-template-columns: 310px 1fr; gap: 24px; margin-top: 74px; }
+    .platform-heading { margin: 0 0 22px; font-size: clamp(22px, 3vw, 32px); color: #aaa9ad; }
+    .platform-heading.available { color: var(--accent); }
+    .platform-icons { display: flex; gap: 14px; }
+    .platform-icon { width: 60px; height: 60px; display: block; border: 0; border-radius: 0; background: none; padding: 0; }
+    .platform-icon img, .platform-image { width: 60px; height: 60px; display: block; object-fit: contain; border: 0; background: none; }
+    .platform-icon-text { font-size: 22px; color: white; line-height: 1; }
+    .download-grid { height: 405px; display: grid; grid-template-columns: 310px minmax(0, 1fr); gap: 22px; margin-top: 28px; }
+    .stats-image { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; }
+    .showcase-carousel { position: relative; min-width: 0; overflow: hidden; border-radius: 24px; background: #111216; touch-action: pan-y; }
+    .showcase-track { height: 100%; display: flex; transition: transform .55s cubic-bezier(.22,.61,.36,1); }
+    .showcase-slide { min-width: 100%; min-height: 100%; }
+    .showcase-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .carousel-controls { position: absolute; right: 28px; bottom: 26px; z-index: 2; display: flex; gap: 10px; }
+    .carousel-btn { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.35); border-radius: 50%; background: rgba(70,70,73,.88); color: #fff; cursor: pointer; font-size: 20px; transition: background .2s, transform .2s; }
+    .carousel-btn:hover { background: var(--accent); transform: scale(1.05); }
 
-  /* ---- accordion caret ---- */
-  details > summary { list-style:none; cursor:pointer; }
-  details > summary::-webkit-details-marker { display:none; }
-  details[open] .faq-icon { transform: rotate(45deg); }
-  .faq-icon { transition: transform .2s ease; }
+    .faq { padding: 76px 0 72px; border-top: 1px solid rgba(255,255,255,.04); background: #090a0c; }
+    .faq .container { width: min(calc(100% - 40px), 1080px); }
+    .faq h2 { margin: 0 0 46px; font-size: clamp(30px,4vw,42px); letter-spacing: -.045em; }
+    details { overflow: hidden; border-bottom: 1px solid rgba(255,255,255,.11); }
+    details:first-of-type { border-top: 0; }
+    summary { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; gap: 20px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 700; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: #fff; font-size: 20px; font-weight: 400; }
+    details[open] summary::after { content: "−"; color: var(--accent); }
+    details p { max-width: 970px; margin: -4px 0 22px; color: #85868b; font-size: 12px; line-height: 1.75; }
 
-  /* ---- tab underline ---- */
-  .tab-btn[data-active="true"] { color:#131313; }
-  .tab-btn[data-active="true"] .tab-dot { opacity:1; }
-</style>
+    footer { padding: 76px 0 44px; border-top: 1px solid rgba(255,255,255,.08); background: #190a06; }
+    footer .container { width: min(calc(100% - 40px), 1080px); }
+    .footer-grid { min-height: 210px; display: grid; grid-template-columns: 1fr auto; gap: 70px; }
+    .footer-logo-row { display: flex; align-items: center; gap: 14px; font-size: 22px; font-weight: 800; }
+    .footer-logo-row img { width: 38px; height: 38px; }
+    .footer-tagline { margin: 28px 0 22px; color: #68666a; font-size: 14px; line-height: 1.55; }
+    .footer-email { color: #fff; font-size: 12px; font-weight: 600; }
+    .footer-links { min-width: 205px; }
+    .footer-links a { display: block; margin: 0 0 22px; color: #fff; font-size: 14px; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-bottom { margin-top: 38px; display: flex; justify-content: space-between; align-items: end; color: #5f5d61; font-size: 10px; }
+    .socials { display: flex; gap: 14px; }
+    .socials a { width: 45px; height: 45px; display: block; border: 0; background: none; transition: transform .2s, opacity .2s; }
+    .socials a:hover { opacity: .8; transform: translateY(-2px); }
+    .socials img { width: 57px; height: 57px; display: block; object-fit: contain; }
+
+    @media (max-width: 820px) {
+      .nav { grid-template-columns: 1fr auto auto; }
+      .nav-links { display: none; }
+      .menu-btn { display: grid; place-items: center; }
+      .nav-cta { margin-left: 0; }
+      .mobile-menu.open { display: block; }
+      .hero { min-height: 680px; padding-top: 130px; }
+      .hero h1 { white-space: normal; }
+      .floating-card { display: none; }
+      .hero-device { width: 96vw; margin-top: 50px; }
+      .reviews-columns { grid-template-columns: 1fr 1fr; }
+      .review-column:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
+      .download-grid { grid-template-columns: 1fr; }
+      .download-platforms { grid-template-columns: 1fr 1fr; }
+      .download-grid { height: auto; }
+      .stats-image { width: 310px; height: 405px; max-height: none; object-position: center; }
+      .showcase-carousel { height: 405px; min-height: 0; }
+      .footer-grid { grid-template-columns: 1fr auto; }
+      .feature-tabs { display: flex; justify-content: flex-start; gap: 10px; overflow-x: auto; scrollbar-width: none; }
+      .feature-tabs::-webkit-scrollbar { display: none; }
+      .feature-tabs button { flex: 0 0 auto; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      .nav { min-height: 64px; gap: 10px; }
+      .nav-cta { padding: 9px 13px; font-size: 9px; }
+      .brand { gap: 9px; font-size: 14px; }
+      .brand-logo { width: 34px; height: 34px; }
+      .hero { min-height: 600px; padding-top: 116px; }
+      .hero-subtitle { font-size: 12px; }
+      .hero-device { margin-top: 46px; margin-bottom: -50px; }
+      .features, .reviews, .download, .faq { padding-block: 78px; }
+      .download-platforms { grid-template-columns: 1fr; gap: 30px; margin-top: 50px; }
+      .download-grid { margin-top: 36px; }
+      .stats-image { width: 100%; height: auto; aspect-ratio: 400 / 520; }
+      .showcase-carousel { height: 300px; min-height: 0; }
+      .carousel-controls { right: 16px; bottom: 16px; }
+      .reviews-columns { grid-template-columns: 1fr; }
+      .review-column:last-child { grid-column: auto; display: flex; }
+      .reviews-viewport { max-height: 570px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
-
-<body class="font-sans text-ink antialiased">
-
-<!-- ============ NAV ============ -->
-<div class="flex justify-center pt-4">
-  <div class="inline-flex items-center gap-2 rounded-full bg-ink text-white text-xs px-4 py-1.5">
-    <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
-    Available for New Projects
-  </div>
-</div>
-
-<header class="sticky top-0 z-40 mt-4 bg-paper/80 backdrop-blur-md border-b border-black/5">
-  <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
-    <a href="/" class="font-display font-bold text-2xl text-accent">Agero.</a>
-
-    <div class="hidden md:flex items-center gap-8 text-sm text-gray-600">
-      <a href="/partner/" class="hover:text-ink transition-colors">Partner</a>
-      <a href="/event/" class="hover:text-ink transition-colors">Event</a>
-      <a href="/shop/" class="hover:text-ink transition-colors">Shop</a>
+<body>
+  <header id="header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="/" aria-label="PEEP SHARE home"><img class="brand-logo" src="/assets/Footer%20Square%20Logo.png" alt=""><span><span class="brand-peep">PEEP</span> <span class="brand-share">SHARE</span></span></a>
+      <div class="nav-links">
+        <a href="#features">Works</a><a href="#download">Services</a><a href="#reviews">About</a><a href="#faq">Blog</a><a href="#features">Event</a>
+      </div>
+      <a class="nav-cta" href="/partner/shop/">Partner Shop</a>
+      <button class="menu-btn" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#features">Works</a><a href="#download">Services</a><a href="#reviews">About</a><a href="#faq">Blog</a><a href="#features">Event</a><a href="/partner/">Partner</a>
     </div>
+  </header>
 
-    <a href="#contact" class="hidden sm:inline-flex items-center rounded-full bg-ink text-white text-sm font-medium px-5 py-2.5 hover:bg-black transition-colors">
-      Contact
-    </a>
-
-    <button id="menuBtn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-  </nav>
-
-  <div id="mobileMenu" class="hidden md:hidden flex flex-col gap-1 px-6 pb-5 text-sm text-gray-700">
-    <a href="/partner/" class="py-2">Partner</a>
-    <a href="/event/" class="py-2">Event</a>
-    <a href="/shop/" class="py-2">Shop</a>
-    <a href="#contact" class="py-2 font-medium text-ink">Contact</a>
-  </div>
-</header>
-
-<!-- ============ HERO ============ -->
-<section class="max-w-5xl mx-auto px-6 pt-16 pb-10 text-center">
-  <div class="flex items-center justify-center gap-3 mb-8">
-    <div class="flex -space-x-3">
-      <img class="h-8 w-8 rounded-full ring-2 ring-paper object-cover" src="https://framerusercontent.com/images/LdiJIgo7vhBde0WiWHd48uSzxU.png?width=512&height=512" alt="">
-      <img class="h-8 w-8 rounded-full ring-2 ring-paper object-cover" src="https://framerusercontent.com/images/I9yoNS4RgoWEeRpJDtgEIoLAd4Y.png?width=512&height=512" alt="">
-      <img class="h-8 w-8 rounded-full ring-2 ring-paper object-cover" src="https://framerusercontent.com/images/G5E86VA7DStEga3pPtCu3nwW1qE.png?width=512&height=512" alt="">
-    </div>
-    <span class="text-sm text-gray-600">Trusted by founders.</span>
-  </div>
-
-  <h1 class="font-display font-bold leading-[1.05] text-4xl sm:text-6xl">
-    Effortless
-    <img src="https://framerusercontent.com/images/luFfRKwjQbMAmBeknRUvUg7XY.svg?width=82&height=64" alt="" class="inline-block h-11 sm:h-16 w-auto align-middle rounded-2xl mx-1">
-    <span class="text-accent">Design</span><br class="hidden sm:block">
-    for
-    <img src="https://framerusercontent.com/images/q6Lt0wxatBudeFMJylqNDhblWfw.png?width=325&height=256" alt="" class="inline-block h-11 sm:h-16 w-auto align-middle rounded-2xl mx-1 object-cover">
-    Design Startups<br class="hidden sm:block">
-    <span class="text-gray-400">based in</span> London,
-    <img src="https://framerusercontent.com/images/SEe6jn6sx24EVdMsr0kTyBN4Ok.png?width=324&height=256" alt="" class="inline-block h-11 sm:h-16 w-auto align-middle rounded-2xl mx-1 object-cover">
-    <span class="text-gray-400">UK</span>
-  </h1>
-
-  <p class="mt-8 max-w-xl mx-auto text-gray-600">
-    We make it easy for startups to launch, grow, and scale with clean, conversion-focused designs — no delays, no drama.
-  </p>
-
-  <a href="/partner/" class="mt-8 inline-flex items-center gap-2 rounded-full bg-ink text-white text-sm font-medium px-6 py-3 hover:bg-black transition-colors">
-    View Plans
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-  </a>
-</section>
-
-<div class="max-w-6xl mx-auto px-6 pb-16 reveal">
-  <img src="https://framerusercontent.com/images/dT5S1njJpyHvznBNeTmMAwfBcqQ.png?width=2848&height=1604" alt="Selected work collage" class="w-full rounded-[28px] object-cover">
-</div>
-
-<!-- ============ CLIENT LOGOS ============ -->
-<div class="border-y border-black/5 bg-paper py-10 overflow-hidden">
-  <div class="marquee-track gap-16 items-center opacity-60">
-    <div class="flex gap-16 items-center pr-16">
-      <img class="h-6" src="https://framerusercontent.com/images/zhMiNUjAyE25vd6XOETCIwS38.svg" alt="logo">
-      <img class="h-7" src="https://framerusercontent.com/images/nmwtsE1SWD34rSXL3OhLE7CTn0.svg" alt="logo">
-      <img class="h-6" src="https://framerusercontent.com/images/nfabfL1KTOOmw22T9soWodkE5Q.svg" alt="logo">
-      <img class="h-6" src="https://framerusercontent.com/images/3cWSgJFsUVvZeOw9LdQmTOSVFhE.svg" alt="logo">
-      <img class="h-8" src="https://framerusercontent.com/images/a7Kro6KCxVC4flJbVgr0ESqxBV0.svg" alt="logo">
-      <img class="h-6" src="https://framerusercontent.com/images/oqkjAivG8qVmaPBg07Z4Yst8rwk.svg" alt="logo">
-    </div>
-    <div class="flex gap-16 items-center pr-16" aria-hidden="true">
-      <img class="h-6" src="https://framerusercontent.com/images/zhMiNUjAyE25vd6XOETCIwS38.svg" alt="">
-      <img class="h-7" src="https://framerusercontent.com/images/nmwtsE1SWD34rSXL3OhLE7CTn0.svg" alt="">
-      <img class="h-6" src="https://framerusercontent.com/images/nfabfL1KTOOmw22T9soWodkE5Q.svg" alt="">
-      <img class="h-6" src="https://framerusercontent.com/images/3cWSgJFsUVvZeOw9LdQmTOSVFhE.svg" alt="">
-      <img class="h-8" src="https://framerusercontent.com/images/a7Kro6KCxVC4flJbVgr0ESqxBV0.svg" alt="">
-      <img class="h-6" src="https://framerusercontent.com/images/oqkjAivG8qVmaPBg07Z4Yst8rwk.svg" alt="">
-    </div>
-  </div>
-</div>
-
-<!-- ============ WHY CLIENTS LOVE US ============ -->
-<section class="max-w-4xl mx-auto px-6 py-24 text-center reveal">
-  <p class="text-sm text-gray-500 mb-6">(Why clients love Agero)</p>
-  <h2 class="font-display font-semibold text-2xl sm:text-4xl leading-snug">
-    <span class="text-ink">We help fast moving digital startups launch sharper</span>
-    <span class="text-gray-400">brands and websites — with clarity, speed, and no drama.</span>
-  </h2>
-</section>
-
-<!-- ============ STATS + TESTIMONIAL ============ -->
-<section class="max-w-6xl mx-auto px-6 pb-24 grid md:grid-cols-2 gap-6 reveal">
-  <div class="bg-gray-500 rounded-3xl p-8 flex flex-col justify-between text-white gap-8">
-    <div>
-      <div class="font-display font-bold text-5xl">150+</div>
-      <div class="text-sm text-white/80 mt-2">Finalized Projects</div>
-    </div>
-    <div>
-      <div class="font-display font-bold text-5xl">98%</div>
-      <div class="text-sm text-white/80 mt-2">Client satisfaction rate</div>
-    </div>
-    <div>
-      <div class="font-display font-bold text-5xl">$1M</div>
-      <div class="text-sm text-white/80 mt-2">Gross Revenue</div>
-    </div>
-  </div>
-
-  <div id="testimonial" class="relative rounded-3xl overflow-hidden min-h-[320px] flex items-end p-8 text-white bg-cover bg-center transition-all duration-500"
-       style="background-image:linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.75)), url('https://framerusercontent.com/images/aR3TKcVMliXQPWIhQTclJhXcTMg.png?width=1600&height=1200')">
-    <div>
-      <p id="tQuote" class="font-display text-xl sm:text-2xl leading-snug mb-4">
-        &ldquo;Franklin turned our ideas into a sharp, clean brand. Fast, easy, and right on point.&rdquo;
-      </p>
-      <p class="text-sm text-white/80"><span id="tName">Jordan Moore</span> — <span id="tRole">Founder, NovaTech</span></p>
-    </div>
-    <div class="absolute top-6 right-6 flex gap-2">
-      <button onclick="prevTestimonial()" class="h-9 w-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center">‹</button>
-      <button onclick="nextTestimonial()" class="h-9 w-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center">›</button>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WORKS ============ -->
-<section class="bg-black text-white rounded-[32px] max-w-7xl mx-auto px-6 sm:px-10 py-20 reveal">
-  <p class="text-white/50 max-w-sm mb-16">
-    We've partnered with businesses across industries to help them achieve their goals. Here's a look at some of our selected work.
-  </p>
-
-  <div class="space-y-10">
-
-    <!-- Work 1 -->
-    <div class="grid md:grid-cols-[1fr_auto] gap-10 items-start border-t border-white/10 pt-10">
-      <img src="https://framerusercontent.com/images/nURHcgFo9S6zVF3j0ly85sSmvE.png?width=1488&height=920" alt="Archin Design Studio" class="rounded-2xl w-full max-w-xl object-cover">
-      <div class="grid grid-cols-2 gap-x-12 gap-y-6 text-sm min-w-[260px]">
-        <div><p class="text-white/40 mb-1">Year</p><p class="font-display font-bold text-xl">2025</p></div>
-        <div><p class="text-white/40 mb-1">Role</p><p>Lead Designer</p></div>
-        <div class="col-span-2">
-          <p class="text-white/40 mb-1">Services</p>
-          <p>Website Design</p><p>Product Design</p><p>Branding</p><p>Development</p>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-copy">
+        <p class="eyebrow">INTRODUCING PEEP SHARE</p>
+        <h1>Lifesync with <span class="accent">PEEP SHARE</span></h1>
+        <p class="hero-subtitle">Connect your lifestyle, community, and digital world in one seamless experience. Discover more, share more, and live every moment together.</p>
+        <div class="floating-card float-left"><div class="card-heading"><b>AI ASSISTANT</b><span class="card-badge">NEW</span></div><span>Every Chat File, Stored in the Cloud.</span></div>
+        <div class="floating-card float-right-top"><b>PEEP Chat</b><span>Every Chat File, Stored in the Cloud.</span></div>
+        <div class="floating-card float-right-bottom"><b>PEEP Chat</b><span>Every Chat File, Stored in the Cloud.</span></div>
+        <img class="hero-device" src="/assets/Group%201000002778.png" alt="PEEP SHARE mobile application">
+      </div>
+    </section>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <div class="ticker-group">
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+        </div>
+        <div class="ticker-group">
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
+          <span class="ticker-dot">•</span><span class="ticker-item">#LIFESYNC TECHNOLOGY</span><span class="ticker-dot">•</span><span class="ticker-item">#PEEP SHARE REDESIGN 2026</span>
         </div>
       </div>
     </div>
 
-    <!-- Work 2 -->
-    <div class="grid md:grid-cols-[1fr_auto] gap-10 items-start border-t border-white/10 pt-10">
-      <img src="https://framerusercontent.com/images/j4kitBgDVx6ElGDAGtpxlM7RoHg.png?width=1488&height=920" alt="VNTNR" class="rounded-2xl w-full max-w-xl object-cover">
-      <div class="grid grid-cols-2 gap-x-12 gap-y-6 text-sm min-w-[260px]">
-        <div><p class="text-white/40 mb-1">Year</p><p class="font-display font-bold text-xl">2018</p></div>
-        <div><p class="text-white/40 mb-1">Role</p><p>Logo Designer</p></div>
-        <div class="col-span-2">
-          <p class="text-white/40 mb-1">Services</p>
-          <p>Designing</p><p>Branding</p><p>Redesigning</p><p>Development</p>
+    <section class="features" id="features">
+      <div class="container reveal">
+        <div class="feature-heading"><p class="eyebrow">[Feature]</p><h2 class="section-title">Our all <span class="accent">FEATURE</span></h2></div>
+        <div class="feature-tabs" role="tablist">
+          <button data-feature="chat">Chat</button><button class="active" data-feature="cloud">Cloud</button><button data-feature="translate">AI Translate</button><button data-feature="community">Community</button><button data-feature="event">Event</button><button data-feature="coupon">Coupon</button><button data-feature="talk">Talk</button>
+        </div>
+        <div class="feature-stage">
+          <img class="feature-image" id="featureImage" src="/assets/MY%20Cloud%20%20-%20EN.png" alt="PEEP SHARE Cloud feature">
+          <div class="feature-copy"><p id="featureText">พื้นที่ส่วนตัวของคุณ เก็บไฟล์สำคัญ ปลอดภัย เข้าถึงง่าย รองรับทุกไฟล์ พร้อมฟีเจอร์ Notes ให้คุณจดบันทึกได้อย่างเต็มที่ รวมถึงออกแบบการจัดเก็บและเพิ่มพื้นที่ได้ทุกเมื่อที่คุณต้องการ</p><div class="chips"><span class="chip">#ปลอดภัย</span><span class="chip">#เข้าถึงง่าย</span><span class="chip">#รองรับทุกไฟล์</span></div></div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Work 3 -->
-    <div class="grid md:grid-cols-[1fr_auto] gap-10 items-start border-t border-white/10 pt-10">
-      <img src="https://framerusercontent.com/images/4be4S5coR2QthuRAfsb7USMjRZ0.png?width=1488&height=920" alt="Candreva" class="rounded-2xl w-full max-w-xl object-cover">
-      <div class="grid grid-cols-2 gap-x-12 gap-y-6 text-sm min-w-[260px]">
-        <div><p class="text-white/40 mb-1">Year</p><p class="font-display font-bold text-xl">2023</p></div>
-        <div><p class="text-white/40 mb-1">Role</p><p>Website Designer</p></div>
-        <div class="col-span-2">
-          <p class="text-white/40 mb-1">Services</p>
-          <p>Branding</p><p>Revamp</p><p>Development</p><p>Designing</p>
+    <section class="reviews" id="reviews">
+      <div class="container reveal">
+        <div class="reviews-head"><h2 class="section-title">Customer <span class="accent">Review</span></h2></div>
+        <div class="reviews-viewport" id="reviewsViewport">
+          <div class="reviews-columns">
+            <div class="review-column">
+              <article class="review-card"><p>Habitline made my mornings feel manageable again.</p><div class="review-person"><img src="/assets/solar_user-circle-bold.png" alt=""><b>M****</b></div></article>
+              <article class="review-card medium"><p>The weekly insights are what sold me. They show exactly where I fall off and help me adjust without feeling guilty or overwhelmed.</p><div class="review-person"><img src="/assets/solar_user-circle-bold.png" alt=""><b>D*****</b></div></article>
+              <article class="review-card tall"><p>This is the first habit app that doesn't overwhelm me. Everything feels calm, structured, and intentional.</p><div class="review-person"><img src="/assets/solar_user-circle-bold.png" alt=""><b>A*******</b></div></article>
+            </div>
+            <div class="review-column">
+              <article class="review-card tall"><p>I used to ignore reminders from other apps, but these feel calm and well-timed. It's like the app knows when I'm actually able to do something.</p><div class="review-person"><img src="/assets/solar_user-circle-bold.png" alt=""><b>E******</b></div></article>
+              <article class="review-card medium"><p>Focus blocks changed the way I work. I get more done in two hours now than what used to take half a day.</p><div class="review-person"><img src="/assets/solar_user-circle-bold.png" alt=""><b>L******</b></div></article>
+              <article class="review-card medium"><p>The structured timelines help me manage my day easily. Highly recommended.</p><div class="review-person"><img src="/assets/solar_user-circle-bold.png" alt=""><b>K*****</b></div></article>
+            </div>
+            <div class="review-column">
+              <article class="review-card"><p>It's the first habit app that doesn't overwhelm me.</p><div class="review-person"><img src="/assets/solar_user-circle-bold.png" alt=""><b>H******</b></div></article>
+              <article class="review-card"><p>I actually stick to my routines now. Small steps finally add up.</p><div class="review-person"><img src="/assets/solar_user-circle-bold.png" alt=""><b>P*******</b></div></article>
+              <article class="review-card medium"><p>Feels tailored to my day and keeps me motivated.</p><div class="review-person"><img src="/assets/solar_user-circle-bold.png" alt=""><b>S********</b></div></article>
+            </div>
+          </div>
+          <div class="review-fade"></div>
+          <div class="reviews-action"><button class="primary-btn" id="reviewsToggle" type="button" aria-expanded="false">View all Reviews</button></div>
         </div>
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section class="max-w-5xl mx-auto px-6 py-24 text-center reveal">
-  <p class="text-sm text-gray-500 mb-10">(Services)</p>
-
-  <div class="flex flex-wrap justify-center gap-10 border-b border-black/10 pb-6 mb-10 text-sm">
-    <button class="tab-btn flex items-center gap-2 text-gray-400" data-tab="web" onclick="setTab('web')">Web Design</button>
-    <button class="tab-btn flex items-center gap-2 text-gray-400" data-active="true" data-tab="brand" onclick="setTab('brand')">
-      <span class="tab-dot h-1.5 w-1.5 rounded-full bg-accent opacity-0"></span>Brand Design
-    </button>
-    <button class="tab-btn flex items-center gap-2 text-gray-400" data-tab="logo" onclick="setTab('logo')">Logo Design</button>
-  </div>
-
-  <div class="overflow-hidden mb-12 select-none">
-    <div id="tabMarquee" class="marquee-track font-display font-bold text-6xl sm:text-8xl text-accent gap-8"></div>
-  </div>
-
-  <div class="grid md:grid-cols-2 gap-10 items-center text-left">
-    <img id="tabImage" src="https://framerusercontent.com/images/L3jNOIvjVNNJ9KYGN7ZewlhM4.png" alt="" class="rounded-2xl w-full max-h-80 object-cover">
-    <div>
-      <p id="tabText" class="text-lg text-gray-700 mb-6">We build bold, cohesive brand identities that leave a lasting impression.</p>
-      <div id="tabTags" class="flex flex-wrap gap-3">
-        <span class="rounded-full bg-gray-700 text-white text-xs px-4 py-2">Visual Identity</span>
-        <span class="rounded-full bg-gray-700 text-white text-xs px-4 py-2">Style Guides</span>
-        <span class="rounded-full bg-gray-700 text-white text-xs px-4 py-2">Brand Strategy</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FOUNDER ============ -->
-<section class="max-w-6xl mx-auto px-6 py-24 reveal">
-  <h2 class="font-display font-bold text-5xl sm:text-7xl text-black/10 mb-10 text-center sm:text-left">Meet Franklin</h2>
-
-  <div class="grid md:grid-cols-[380px_1fr] gap-12">
-    <div class="relative rounded-2xl overflow-hidden">
-      <img src="https://framerusercontent.com/images/cdiudTEW8MSbl2008vSYXSq9ndI.png" alt="Franklin Clinton" class="w-full h-full object-cover">
-      <img src="https://framerusercontent.com/images/JpJ9ryMkQp811zxkS5X8I8Igdo.png" alt="Award winning designer since 2020" class="absolute bottom-4 right-4 h-20 w-20">
-      <div class="absolute bottom-4 left-4 flex gap-2">
-        <a href="#" class="h-9 w-9 rounded-full bg-black/50 flex items-center justify-center text-white text-sm">X</a>
-        <a href="#" class="h-9 w-9 rounded-full bg-black/50 flex items-center justify-center text-white text-sm">D</a>
-        <a href="#" class="h-9 w-9 rounded-full bg-black/50 flex items-center justify-center text-white text-sm">IG</a>
-      </div>
-    </div>
-
-    <div>
-      <h3 class="font-display font-bold text-3xl mb-4">The Founder</h3>
-      <p class="text-gray-600 leading-relaxed mb-8">
-        Franklin Clinton is a visual designer focused on crafting bold, functional design systems. He works with creative
-        teams and startups to build standout brands and seamless digital experiences. Based in London, he balances clarity
-        with character — and enjoys experimenting with motion design and interactive visuals in his spare time.
-      </p>
-
-      <div class="divide-y divide-black/10 border-t border-black/10">
-        <div class="flex justify-between py-4"><span>Founder at Agero</span><span class="text-gray-400">2024–Now</span></div>
-        <div class="flex justify-between py-4"><span>Brand Designer at Google</span><span class="text-gray-400">2023–2024</span></div>
-        <div class="flex justify-between py-4"><span>Web Designer at Shopify</span><span class="text-gray-400">2018–2023</span></div>
-        <div class="flex justify-between py-4"><span>Junior Designer at Meta</span><span class="text-gray-400">2015–2018</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ AWARDS ============ -->
-<section class="max-w-4xl mx-auto px-6 py-24 text-center reveal">
-  <p class="text-sm text-gray-500 mb-4">(Awards)</p>
-  <h2 class="font-display font-bold text-5xl sm:text-6xl mb-14">Awards Winning</h2>
-
-  <div class="divide-y divide-black/10 border-t border-black/10 text-sm sm:text-base">
-    <div class="flex flex-col sm:flex-row justify-between gap-2 py-6">
-      <span class="text-gray-400">Awwwards</span><span>SOTY 2023 – 1st Winner</span><span class="text-gray-400">Archin</span>
-    </div>
-    <div class="flex flex-col sm:flex-row justify-between gap-2 py-6">
-      <span class="text-gray-400">CSS Awards</span><span>Top 5 Best of eCommerce Websites 2023</span><span class="text-gray-400">VNTNR</span>
-    </div>
-    <div class="flex flex-col sm:flex-row justify-between gap-2 py-6">
-      <span class="text-gray-400">CSS Awards</span><span>Winner – US Behance Portfolio Review 2024</span><span class="text-gray-400">Aeorim</span>
-    </div>
-    <div class="flex flex-col sm:flex-row justify-between gap-2 py-6">
-      <span class="text-gray-400">Dribbble</span><span>Top 10 Best of Mobile App Design 2024</span><span class="text-gray-400">Swat Co.</span>
-    </div>
-    <div class="flex flex-col sm:flex-row justify-between gap-2 py-6">
-      <span class="text-gray-400">FWA Awards</span><span>Winner – Best of Architecture Website 2025</span><span class="text-gray-400">Unerio</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRICING ============ -->
-<section class="max-w-4xl mx-auto px-6 py-24 reveal">
-  <p class="text-sm text-gray-500 mb-4 text-center">(Pricing Plan)</p>
-  <h2 class="font-display font-bold text-5xl sm:text-6xl mb-14 text-center">Explore Pricing</h2>
-
-  <div class="space-y-6">
-    <!-- Standard -->
-    <div class="bg-gray-100 rounded-3xl p-8 sm:p-10 grid sm:grid-cols-2 gap-8">
-      <div>
-        <div class="h-10 w-10 rounded-xl bg-ink text-white flex items-center justify-center mb-6">✦</div>
-        <h3 class="font-display font-bold text-2xl mb-3">Standard Plan</h3>
-        <p class="text-gray-500 text-sm mb-8">Ideal for lean teams or startups needing clean, fast design delivery for websites or branding assets.</p>
-        <div class="flex justify-between text-sm border-t border-black/10 pt-4">
-          <span class="text-gray-500">Delivery Time</span><span>4–6 weeks</span>
+    <section class="download" id="download">
+      <div class="container reveal">
+        <h2 class="download-title">Download</h2>
+        <div class="download-platforms">
+          <div><h3 class="platform-heading available">Available Now!</h3><div class="platform-icons"><a class="platform-icon" href="#" aria-label="Download on the App Store"><img src="/assets/Frame 15978847379.png" alt=""></a><a class="platform-icon" href="#" aria-label="Download for Android"><img src="/assets/Frame 1597884735.png" alt=""></a></div></div>
+          <div><h3 class="platform-heading">Comming Soon</h3><div class="platform-icons"><img class="platform-image" src="/assets/Frame%2015978847389.png" alt="Windows coming soon"><img class="platform-image" src="/assets/Frame%201597884740.png" alt="Desktop coming soon"></div></div>
+        </div>
+        <div class="download-grid">
+          <img class="stats-image" src="/assets/stats-card.png" alt="PEEP SHARE download statistics">
+          <div class="showcase-carousel" id="showcaseCarousel" aria-roledescription="carousel" aria-label="PEEP SHARE platform showcase">
+            <div class="showcase-track" id="showcaseTrack">
+              <div class="showcase-slide"><img src="/assets/showcase-card%20(1).png" alt="PEEP SHARE available across platforms"></div>
+              <div class="showcase-slide"><img src="/assets/MY%20Cloud%20%20-%20EN.png" alt="PEEP Cloud experience"></div>
+              <div class="showcase-slide"><img src="/assets/Group%201000002778.png" alt="PEEP SHARE mobile applications"></div>
+            </div>
+            <div class="carousel-controls"><button class="carousel-btn" id="carouselPrev" type="button" aria-label="Previous slide">‹</button><button class="carousel-btn" id="carouselNext" type="button" aria-label="Next slide">›</button></div>
+          </div>
         </div>
       </div>
-      <div>
-        <p class="font-display font-bold text-4xl mb-1">$500<span class="text-base font-normal text-gray-400"> /month</span></p>
-        <ul class="mt-6 space-y-3 text-sm">
-          <li class="flex gap-3"><span class="h-5 w-5 rounded-full bg-gray-200 flex items-center justify-center shrink-0">✓</span>You provide the wireframe</li>
-          <li class="flex gap-3"><span class="h-5 w-5 rounded-full bg-gray-200 flex items-center justify-center shrink-0">✓</span>Visual design using Figma &amp; Framer</li>
-          <li class="flex gap-3"><span class="h-5 w-5 rounded-full bg-gray-200 flex items-center justify-center shrink-0">✓</span>Focused on website or branding only</li>
-          <li class="flex gap-3"><span class="h-5 w-5 rounded-full bg-gray-200 flex items-center justify-center shrink-0">✓</span>Weekday turnaround (Mon–Fri)</li>
-        </ul>
-        <button class="mt-8 w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-ink text-white text-sm font-medium px-6 py-3 hover:bg-black">Get Started →</button>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container reveal">
+        <h2>Help & Frequently Asked Questions</h2>
+        <details open><summary>What is PEEPSHARE?</summary><p>PeepShare คือแอปพลิเคชันที่สร้างขึ้นเพื่อการสื่อสารส่วนตัวที่ปลอดภัย เชื่อมต่อความสัมพันธ์อย่างง่ายดาย พร้อมรองรับ AI และคลาวด์จัดเก็บไฟล์ความละเอียดสูง</p></details>
+        <details><summary>What functions does PEEPSHARE offer?</summary><p>PEEPSHARE รวมฟังก์ชัน Chat, Cloud, AI Translate, Community, Event, Coupon และ Talk เพื่อให้ทุกการเชื่อมต่ออยู่ในพื้นที่เดียวกัน</p></details>
+        <details><summary>How does AI Assistant work?</summary><p>AI Assistant ช่วยแปลภาษา สรุปเนื้อหา ค้นหาข้อมูล และสนับสนุนการสื่อสารโดยคำนึงถึงบริบทและความเป็นส่วนตัวของผู้ใช้งาน</p></details>
+        <details><summary>Is my data secure?</summary><p>ข้อมูลของคุณได้รับการปกป้องด้วยระบบรักษาความปลอดภัย การควบคุมสิทธิ์เข้าถึง และโครงสร้างคลาวด์ที่ออกแบบมาเพื่อความเป็นส่วนตัว</p></details>
       </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-logo-row"><img src="/assets/Footer%20Square%20Logo.png" alt="PEEP SHARE logo"><span>PEEP SHARE</span></div><p class="footer-tagline">Let’s “ PEEPSHARE ”<br>keep your memories.</p><a class="footer-email" href="mailto:support@peepshare.me">support@peepshare.me</a></div>
+        <nav class="footer-links" aria-label="Footer navigation"><a href="#">นโยบายความเป็นส่วนตัว</a><a href="#faq">ศูนย์ช่วยเหลือ</a><a href="/partner/">เกี่ยวกับ</a><a href="#">ข้อกำหนดการใช้บริการ</a></nav>
+      </div>
+      <div class="footer-bottom"><span>© 2026 PEEP SHARE. All rights reserved.</span><div class="socials"><a href="#" aria-label="Facebook"><img src="/assets/Frame%201597884737.png" alt=""></a><a href="#" aria-label="Instagram"><img src="/assets/Frame%201597884738.png" alt=""></a><a href="#" aria-label="TikTok"><img src="/assets/Frame%201597884739.png" alt=""></a></div></div>
     </div>
+  </footer>
 
-    <!-- Premium -->
-    <div class="bg-gradient-to-br from-black via-black to-accent rounded-3xl p-8 sm:p-10 grid sm:grid-cols-2 gap-8 text-white">
-      <div>
-        <div class="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center mb-6">◆</div>
-        <h3 class="font-display font-bold text-2xl mb-3">Premium Plan</h3>
-        <p class="text-white/60 text-sm mb-8">A complete design experience — tailored strategy, polished visuals, and flexible collaboration throughout the process.</p>
-        <div class="flex justify-between text-sm border-t border-white/15 pt-4">
-          <span class="text-white/60">Delivery Time</span><span>4–6 weeks</span>
-        </div>
-      </div>
-      <div>
-        <p class="text-white/60 text-sm mb-1">Starting at</p>
-        <p class="font-display font-bold text-4xl text-accent mb-1">$1000</p>
-        <ul class="mt-6 space-y-3 text-sm">
-          <li class="flex gap-3"><span class="h-5 w-5 rounded-full bg-white/15 flex items-center justify-center shrink-0">✓</span>Help shaping your wireframe or brief</li>
-          <li class="flex gap-3"><span class="h-5 w-5 rounded-full bg-white/15 flex items-center justify-center shrink-0">✓</span>Custom design for website, brand, or logo</li>
-          <li class="flex gap-3"><span class="h-5 w-5 rounded-full bg-white/15 flex items-center justify-center shrink-0">✓</span>High-fidelity mockups using Figma &amp; Framer</li>
-          <li class="flex gap-3"><span class="h-5 w-5 rounded-full bg-white/15 flex items-center justify-center shrink-0">✓</span>Dedicated weekday focus &amp; deeper involvement</li>
-        </ul>
-        <button class="mt-8 w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-white text-ink text-sm font-medium px-6 py-3 hover:bg-white/90">Get Started →</button>
-      </div>
-    </div>
-  </div>
-</section>
+  <script>
+    const header = document.getElementById('header');
+    addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10), { passive: true });
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuButton.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? '×' : '☰';
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); menuButton.textContent = '☰';
+    }));
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const reviewsViewport = document.getElementById('reviewsViewport');
+    const reviewsToggle = document.getElementById('reviewsToggle');
+    reviewsToggle.addEventListener('click', () => {
+      const expanded = reviewsViewport.classList.toggle('expanded');
+      reviewsToggle.setAttribute('aria-expanded', String(expanded));
+      reviewsToggle.textContent = expanded ? 'Hide Reviews' : 'View all Reviews';
+      if (!expanded) document.getElementById('reviews').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    const showcaseCarousel = document.getElementById('showcaseCarousel');
+    const showcaseTrack = document.getElementById('showcaseTrack');
+    const showcaseSlides = showcaseTrack.children.length;
+    let showcaseIndex = 0;
+    let swipeStart = 0;
+    const showSlide = index => {
+      showcaseIndex = (index + showcaseSlides) % showcaseSlides;
+      showcaseTrack.style.transform = `translateX(-${showcaseIndex * 100}%)`;
+    };
+    document.getElementById('carouselPrev').addEventListener('click', () => showSlide(showcaseIndex - 1));
+    document.getElementById('carouselNext').addEventListener('click', () => showSlide(showcaseIndex + 1));
+    showcaseCarousel.addEventListener('pointerdown', event => { swipeStart = event.clientX; });
+    showcaseCarousel.addEventListener('pointerup', event => {
+      const distance = event.clientX - swipeStart;
+      if (Math.abs(distance) > 45) showSlide(showcaseIndex + (distance < 0 ? 1 : -1));
+    });
+    const featureContent = {
+      chat: 'พูดคุยได้อย่างเป็นธรรมชาติ ส่งข้อความ รูปภาพ และไฟล์สำคัญ พร้อมเชื่อมต่อทุกบทสนทนาไว้ในที่เดียว',
+      cloud: 'พื้นที่ส่วนตัวของคุณ เก็บไฟล์สำคัญ ปลอดภัย เข้าถึงง่าย รองรับทุกไฟล์ พร้อมฟีเจอร์ Notes ให้คุณจดบันทึกได้อย่างเต็มที่ รวมถึงออกแบบการจัดเก็บและเพิ่มพื้นที่ได้ทุกเมื่อที่คุณต้องการ',
+      translate: 'สื่อสารได้อย่างไร้ขีดจำกัดด้วย AI Translate ที่ช่วยแปลข้อความได้รวดเร็วและเข้าใจบริบทของการสนทนา',
+      community: 'ค้นหาและเข้าร่วมคอมมูนิตี้ที่ตรงกับความสนใจ แลกเปลี่ยนเรื่องราว และเติบโตไปพร้อมผู้คนที่ใช่',
+      event: 'ค้นพบกิจกรรมใหม่ ลงทะเบียน และติดตามทุกอีเวนต์สำคัญของคอมมูนิตี้ได้อย่างสะดวก',
+      coupon: 'รับสิทธิพิเศษและคูปองจากร้านค้าพาร์ทเนอร์ พร้อมใช้งานและติดตามสิทธิ์ทั้งหมดได้ในที่เดียว',
+      talk: 'แชร์ความคิดเห็น เปิดพื้นที่พูดคุย และสร้างบทสนทนาที่มีความหมายกับผู้คนรอบตัวคุณ'
+    };
+    document.querySelectorAll('.feature-tabs button').forEach(button => button.addEventListener('click', () => {
+      document.querySelector('.feature-tabs .active').classList.remove('active');
+      button.classList.add('active');
+      document.getElementById('featureText').textContent = featureContent[button.dataset.feature];
+    }));
+    document.querySelectorAll('.faq details').forEach(details => {
+      const summary = details.querySelector('summary');
+      summary.addEventListener('click', event => {
+        event.preventDefault();
+        if (details.dataset.animating === 'true') return;
 
-<!-- ============ FAQ ============ -->
-<section class="max-w-4xl mx-auto px-6 py-24 reveal">
-  <div class="text-center mb-14">
-    <p class="text-sm text-gray-500 mb-4">(FAQs)</p>
-    <h2 class="font-display font-bold text-5xl sm:text-6xl mb-4">Your Questions, Answered</h2>
-    <p class="text-gray-500">Helping you understand our process and offerings at Agero.</p>
-  </div>
+        const isOpening = !details.open;
+        const startHeight = `${details.offsetHeight}px`;
+        if (isOpening) details.open = true;
+        const endHeight = `${isOpening ? details.scrollHeight : summary.offsetHeight}px`;
 
-  <div class="grid sm:grid-cols-2 gap-4">
-    <details class="bg-gray-100 rounded-2xl p-6">
-      <summary class="flex justify-between items-center font-medium">Why's Agero instead of a full-time designer?<span class="faq-icon">+</span></summary>
-      <p class="text-gray-500 text-sm mt-4">Agero gives you senior-level design without the overhead of hiring — no onboarding, benefits, or long-term commitment. Pause or cancel anytime.</p>
-    </details>
-    <details class="bg-gray-100 rounded-2xl p-6">
-      <summary class="flex justify-between items-center font-medium">How do I request a design?<span class="faq-icon">+</span></summary>
-      <p class="text-gray-500 text-sm mt-4">Send us a brief through the contact form or your dashboard. We'll scope it, confirm the timeline, and get started within 1 business day.</p>
-    </details>
-    <details class="bg-gray-100 rounded-2xl p-6" open>
-      <summary class="flex justify-between items-center font-medium">Speed of design delivery?<span class="faq-icon">+</span></summary>
-      <p class="text-gray-500 text-sm mt-4">Pretty quick! Most designs are delivered in 2–3 business days. We prioritize quality without slowing you down.</p>
-    </details>
-    <details class="bg-gray-100 rounded-2xl p-6">
-      <summary class="flex justify-between items-center font-medium">What if I don't like the design?<span class="faq-icon">+</span></summary>
-      <p class="text-gray-500 text-sm mt-4">We revise until you're happy. Every plan includes unlimited revisions within the scope of your request.</p>
-    </details>
-    <details class="bg-gray-100 rounded-2xl p-6">
-      <summary class="flex justify-between items-center font-medium">Are there any refunds?<span class="faq-icon">+</span></summary>
-      <p class="text-gray-500 text-sm mt-4">Work starts immediately, so we don't refund completed deliverables — but you can pause or cancel before your next billing cycle.</p>
-    </details>
-    <details class="bg-gray-100 rounded-2xl p-6">
-      <summary class="flex justify-between items-center font-medium">What's the Agero progress tracking like?<span class="faq-icon">+</span></summary>
-      <p class="text-gray-500 text-sm mt-4">You'll get a shared board to track every request — queued, in progress, delivered — updated in real time.</p>
-    </details>
-  </div>
-</section>
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          details.open = isOpening;
+          return;
+        }
 
-<!-- ============ CONTACT ============ -->
-<section id="contact" class="bg-black text-white rounded-[32px] max-w-7xl mx-auto px-6 sm:px-10 pt-20 pb-10 reveal">
-  <h2 class="font-display font-bold text-4xl sm:text-6xl text-white/10 text-center mb-12">Let's Connect</h2>
-
-  <div class="grid md:grid-cols-2 gap-10 items-stretch">
-    <div class="rounded-3xl bg-cover bg-center p-10 flex flex-col justify-end min-h-[320px]"
-         style="background-image:linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.85)), url('https://framerusercontent.com/images/1sREGvYWbdhqXmijCOMUIsD7A.png')">
-      <h3 class="font-display font-bold text-3xl mb-2">Got a project in mind?</h3>
-      <p class="text-white/60">Let's make something happen together.</p>
-    </div>
-
-    <form class="rounded-3xl bg-white/5 p-8 flex flex-col gap-5" onsubmit="event.preventDefault(); this.reset(); alert('Thanks! We\'ll be in touch soon.');">
-      <div>
-        <label class="text-sm text-white/60 block mb-2">Your Name</label>
-        <input required type="text" placeholder="Enter your Name" class="w-full bg-transparent border-b border-white/20 focus:border-accent outline-none py-2 placeholder:text-white/30">
-      </div>
-      <div>
-        <label class="text-sm text-white/60 block mb-2">Your Email</label>
-        <input required type="email" placeholder="Enter the Email" class="w-full bg-transparent border-b border-white/20 focus:border-accent outline-none py-2 placeholder:text-white/30">
-      </div>
-      <div>
-        <label class="text-sm text-white/60 block mb-2">Project Description</label>
-        <textarea required rows="3" placeholder="Type Here..." class="w-full bg-transparent border-b border-white/20 focus:border-accent outline-none py-2 placeholder:text-white/30 resize-none"></textarea>
-      </div>
-      <button type="submit" class="mt-2 rounded-full bg-white text-ink font-medium py-3 hover:bg-white/90">Send Now!</button>
-    </form>
-  </div>
-
-  <div class="overflow-hidden mt-16 select-none">
-    <div class="marquee-track gap-6 text-2xl sm:text-4xl font-display font-semibold text-white/70">
-      <span class="flex items-center gap-6 pr-6">franklin@agero.com ✻ franklin@agero.com ✻ franklin@agero.com ✻</span>
-      <span class="flex items-center gap-6 pr-6" aria-hidden="true">franklin@agero.com ✻ franklin@agero.com ✻ franklin@agero.com ✻</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer class="bg-gradient-to-b from-black to-accent/40 rounded-t-[32px] mt-10 text-white">
-  <div class="max-w-7xl mx-auto px-6 sm:px-10 pt-16 pb-8">
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-10 mb-16">
-      <div>
-        <p class="text-white/40 text-sm mb-4">Navigation</p>
-        <ul class="space-y-2 font-medium">
-          <li><a href="/" class="hover:text-accent">Home</a></li>
-          <li><a href="/partner/" class="hover:text-accent">Partner</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="text-white/40 text-sm mb-4">Social</p>
-        <ul class="space-y-2 font-medium">
-          <li><a href="#" class="hover:text-accent">Twitter(X)</a></li>
-          <li><a href="#" class="hover:text-accent">LinkedIn</a></li>
-          <li><a href="#" class="hover:text-accent">Dribbble</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="text-white/40 text-sm mb-4">Pages</p>
-        <ul class="space-y-2 font-medium">
-          <li><a href="/" class="hover:text-accent">Home</a></li>
-          <li><a href="/partner/" class="hover:text-accent">Partner</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="flex flex-col sm:flex-row justify-between gap-3 text-sm text-white/50 border-t border-white/10 pt-6">
-      <span>© 2025 Agero. All rights reserved.</span>
-      <span>London → <span id="clock">--:--:--</span></span>
-    </div>
-  </div>
-
-  <div class="overflow-hidden leading-none">
-    <p class="font-display font-bold text-[20vw] text-center text-white/10 -mb-[4vw] select-none">Agero</p>
-  </div>
-</footer>
-
-<script>
-  // mobile menu
-  document.getElementById('menuBtn').addEventListener('click', () => {
-    document.getElementById('mobileMenu').classList.toggle('hidden');
-  });
-
-  // live London clock
-  function tickClock() {
-    const el = document.getElementById('clock');
-    if (!el) return;
-    el.textContent = new Intl.DateTimeFormat('en-GB', {
-      timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-    }).format(new Date());
-  }
-  tickClock();
-  setInterval(tickClock, 1000);
-
-  // scroll reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // testimonial slider
-  const testimonials = [
-    { quote: "Franklin turned our ideas into a sharp, clean brand. Fast, easy, and right on point.", name: "Jordan Moore", role: "Founder, NovaTech", img: "https://framerusercontent.com/images/aR3TKcVMliXQPWIhQTclJhXcTMg.png?width=1600&height=1200" },
-    { quote: "Working with Agero felt effortless — clear communication and a final product that just works.", name: "Alexis Reyes", role: "CEO, Sottozero", img: "https://framerusercontent.com/images/69auPD1YzLBCNcO5v9D5nks5aS4.png?width=3200&height=2400" },
-    { quote: "They understood our brand instantly. The turnaround time was honestly hard to believe.", name: "Sam Whitaker", role: "Founder, VNTNR", img: "https://framerusercontent.com/images/YDnxl1a68JhgSkmG8E0skqnoFM.png?width=1600&height=1200" },
-  ];
-  let tIndex = 0;
-  function renderTestimonial() {
-    const t = testimonials[tIndex];
-    document.getElementById('tQuote').innerHTML = `&ldquo;${t.quote}&rdquo;`;
-    document.getElementById('tName').textContent = t.name;
-    document.getElementById('tRole').textContent = t.role;
-    document.getElementById('testimonial').style.backgroundImage =
-      `linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.75)), url('${t.img}')`;
-  }
-  function nextTestimonial() { tIndex = (tIndex + 1) % testimonials.length; renderTestimonial(); }
-  function prevTestimonial() { tIndex = (tIndex - 1 + testimonials.length) % testimonials.length; renderTestimonial(); }
-
-  // services tabs
-  const tabs = {
-    web: {
-      label: 'Web Design',
-      image: 'https://framerusercontent.com/images/j4kitBgDVx6ElGDAGtpxlM7RoHg.png?width=1488&height=920',
-      text: "We design fast, responsive websites that convert visitors into customers.",
-      tags: ['Responsive Design', 'Landing Pages', 'Conversion Optimization'],
-    },
-    brand: {
-      label: 'Brand Design',
-      image: 'https://framerusercontent.com/images/L3jNOIvjVNNJ9KYGN7ZewlhM4.png',
-      text: "We build bold, cohesive brand identities that leave a lasting impression.",
-      tags: ['Visual Identity', 'Style Guides', 'Brand Strategy'],
-    },
-    logo: {
-      label: 'Logo Design',
-      image: 'https://framerusercontent.com/images/nURHcgFo9S6zVF3j0ly85sSmvE.png?width=1488&height=920',
-      text: "We craft memorable marks that capture your brand's essence in a single symbol.",
-      tags: ['Wordmarks', 'Icon Design', 'Brand Marks'],
-    },
-  };
-  function setTab(key) {
-    const t = tabs[key];
-    document.querySelectorAll('.tab-btn').forEach(b => b.dataset.active = (b.dataset.tab === key) ? 'true' : 'false');
-    document.getElementById('tabImage').src = t.image;
-    document.getElementById('tabText').textContent = t.text;
-    document.getElementById('tabTags').innerHTML = t.tags
-      .map(tag => `<span class="rounded-full bg-gray-700 text-white text-xs px-4 py-2">${tag}</span>`).join('');
-
-    const repeated = Array(3).fill(t.label).join(' ✻ ') + ' ✻';
-    const group = `<span class="flex items-center gap-8 pr-8">${repeated}</span>`;
-    document.getElementById('tabMarquee').innerHTML = group + group.replace('>', ' aria-hidden="true">');
-  }
-  setTab('brand');
-</script>
-
+        details.dataset.animating = 'true';
+        const animation = details.animate(
+          { height: [startHeight, endHeight] },
+          { duration: 360, easing: 'cubic-bezier(.22, 1, .36, 1)' }
+        );
+        animation.onfinish = () => {
+          details.open = isOpening;
+          details.style.height = '';
+          delete details.dataset.animating;
+        };
+        animation.oncancel = () => {
+          details.style.height = '';
+          delete details.dataset.animating;
+        };
+      });
+    });
+  </script>
 </body>
 </html>

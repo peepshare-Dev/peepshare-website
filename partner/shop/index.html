@@ -10,20 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config={theme:{extend:{colors:{accent:'#ff4d00',ink:'#131313',paper:'#f0f0f0',mist:'#dcdcdc'},fontFamily:{sans:['Noto Sans Thai','Inter','ui-sans-serif','system-ui','sans-serif'],display:['Space Grotesk','Noto Sans Thai','ui-sans-serif','system-ui','sans-serif']}}}}
+    tailwind.config={theme:{extend:{colors:{accent:'#ff4d00',ink:'#131313',paper:'#ffffff',mist:'#f7f7f7'},fontFamily:{sans:['Noto Sans Thai','Inter','ui-sans-serif','system-ui','sans-serif'],display:['Space Grotesk','Noto Sans Thai','ui-sans-serif','system-ui','sans-serif']}}}}
   </script>
   <style>
-    html{scroll-behavior:smooth} body{background:#f0f0f0}
-    .form-bg{background:radial-gradient(circle at 50% 0%,rgba(255,77,0,.09) 0,transparent 30%),#f0f0f0}
+    html{scroll-behavior:smooth} body{background:#fff}
+    .form-bg{background:radial-gradient(circle at 50% 0%,rgba(255,77,0,.07) 0,transparent 28%),#fff}
     .field{width:100%;border:1px solid rgba(19,19,19,.14);border-radius:14px;background:#fff;padding:13px 16px;color:#131313;outline:none;transition:.2s}
     .field:focus{border-color:#ff4d00;box-shadow:0 0 0 3px rgba(255,77,0,.1)} .field::placeholder{color:rgba(19,19,19,.35)}
     .upload{border:2px dashed rgba(19,19,19,.14);transition:.2s}.upload:hover{border-color:#ff4d00;background:rgba(255,77,0,.03)}
+    main section,#shopForm{box-shadow:0 22px 55px rgba(19,19,19,.13),0 6px 18px rgba(255,77,0,.08)}
   </style>
 </head>
 <body class="font-sans text-ink antialiased">
   <header class="sticky top-0 z-40 border-b border-black/5 bg-paper/90 backdrop-blur-md">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-      <a href="/" class="font-display text-2xl font-bold text-accent">Agero.</a>
+      <a href="/" class="flex items-center gap-3 font-display text-xl font-bold" aria-label="PEEP SHARE home">
+        <img src="/assets/S__32882715.jpg" alt="" class="h-10 w-10 object-contain">
+        <span><span class="text-ink">PEEP</span> <span class="text-accent">SHARE</span></span>
+      </a>
       <div class="hidden items-center gap-8 text-sm text-gray-600 md:flex">
       </div>
     </nav>
