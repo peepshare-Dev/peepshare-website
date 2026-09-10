@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PEEP SHARE Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #07080a;
+        --card: #f5f5f3;
+        --orange: #ff681d;
+        --muted: #a3a3a8;
+        --max: 1120px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: #fff;
+        font-family: Inter, "Noto Sans Thai", sans-serif;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+      }
+      .container {
+        width: min(calc(100% - 40px), var(--max));
+        margin: auto;
+      }
+      header {
+        height: 84px;
+        display: flex;
+        align-items: center;
+        background: #08090b;
+        border-bottom: 1px solid #202126;
+      }
+      .nav {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 32px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        font-size: 20px;
+        font-weight: 800;
+      }
+      .logo {
+        width: 39px;
+        height: 39px;
+        object-fit: contain;
+      }
+      .brand span {
+        color: var(--orange);
+      }
+      nav {
+        display: flex;
+        gap: 42px;
+        color: #fff;
+        font-size: 12px;
+      }
+      nav a.active {
+        color: var(--orange);
+      }
+      .app-btn,
+      .orange-btn {
+        justify-self: end;
+        padding: 12px 25px;
+        border-radius: 30px;
+        background: var(--orange);
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .hero {
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, 0.08), #090a0d 84%),
+          url("https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=2000&q=88")
+            center/cover;
+      }
+      .hero-copy {
+        width: 52%;
+        margin-left: auto;
+        padding: 55px 0;
+      }
+      .hero h1 {
+        margin: 0 0 22px;
+        font-size: clamp(42px, 5vw, 68px);
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+      }
+      .hero-copy > p {
+        color: #ddd;
+        line-height: 1.75;
+        font-size: 14px;
+      }
+      .event-meta {
+        width: min(390px, 100%);
+        margin: 22px 0;
+        padding: 18px 24px;
+        border-radius: 15px;
+        background: rgba(48, 48, 48, 0.92);
+      }
+      .event-meta div {
+        margin: 7px 0;
+        font-size: 13px;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+      }
+      .actions a {
+        padding: 14px 28px;
+        border-radius: 28px;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .ghost-btn {
+        background: #fff;
+        color: #111;
+      }
+      .dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        padding: 22px;
+      }
+      .dots i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #555;
+      }
+      .dots i:first-child {
+        background: #fff;
+      }
+      .events-area {
+        padding: 0 0 80px;
+        background:
+          radial-gradient(circle at 92% 65%, #54200b 0, transparent 32%),
+          #08090b;
+      }
+      h2 {
+        margin: 0 0 26px;
+        font-size: 27px;
+      }
+      .recommended {
+        display: grid;
+        grid-template-columns: 1fr 1.05fr;
+        gap: 18px;
+      }
+      .feature-event img {
+        height: 320px;
+        border-radius: 7px;
+      }
+      .feature-event h3,
+      .side-copy h3 {
+        margin: 16px 0 8px;
+      }
+      .desc {
+        color: #a9a9ad;
+        font-size: 12px;
+        line-height: 1.7;
+      }
+      .small-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        color: #c4c4c6;
+        font-size: 11px;
+      }
+      .side-events {
+        display: grid;
+        gap: 18px;
+      }
+      .side-event {
+        display: grid;
+        grid-template-columns: 47% 1fr;
+        gap: 18px;
+      }
+      .side-event img {
+        height: 174px;
+        border-radius: 7px;
+      }
+      .all-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        margin: 62px 0 24px;
+      }
+      .filters {
+        display: flex;
+        gap: 28px;
+        font-size: 12px;
+      }
+      .filters .active {
+        padding: 11px 22px;
+        border-radius: 24px;
+        background: var(--orange);
+      }
+      .search {
+        width: 230px;
+        padding: 11px 17px;
+        border: 0;
+        border-radius: 24px;
+        outline: 0;
+      }
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px 14px;
+      }
+      .event-card {
+        overflow: hidden;
+        border-radius: 10px;
+        background: var(--card);
+        color: #151515;
+      }
+      .event-card img {
+        height: 180px;
+      }
+      .event-info {
+        padding: 12px 14px 15px;
+      }
+      .event-info h3 {
+        min-height: 38px;
+        margin: 0 0 9px;
+        font-size: 13px;
+      }
+      .event-info div {
+        margin-top: 5px;
+        font-size: 10px;
+        color: #444;
+      }
+      .more {
+        display: block;
+        width: max-content;
+        margin: 30px auto 0;
+        padding: 11px 27px;
+        border-radius: 30px;
+        background: var(--orange);
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .join {
+        padding: 72px 0 0;
+        overflow: hidden;
+      }
+      .join-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+      }
+      .join-title {
+        font-size: 45px;
+        line-height: 1.3;
+      }
+      .join-title span {
+        color: var(--orange);
+        font-size: 56px;
+      }
+      .hashtag {
+        padding: 15px 21px;
+        border: 2px solid #666;
+        border-radius: 10px;
+        font-size: 29px;
+        font-weight: 700;
+      }
+      .app-showcase {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        align-items: center;
+        margin-top: 55px;
+      }
+      .phone-wrap {
+        position: relative;
+        height: 490px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .phone-wrap:before {
+        content: "";
+        position: absolute;
+        width: 430px;
+        height: 430px;
+        left: 50%;
+        bottom: -20px;
+        transform: translateX(-50%);
+        background: radial-gradient(
+          circle,
+          rgba(255, 104, 29, 0.38),
+          transparent 66%
+        );
+      }
+      .phone-image {
+        position: relative;
+        z-index: 1;
+        width: 250px;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 24px 35px rgba(0, 0, 0, 0.4));
+      }
+      .app-copy .tag {
+        color: var(--orange);
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .app-copy h2 {
+        margin: 18px 0;
+        font-size: 46px;
+        line-height: 1.1;
+      }
+      .stores {
+        display: flex;
+        gap: 14px;
+        margin-top: 25px;
+      }
+      .stores img {
+        width: 78px;
+        height: auto;
+        object-fit: contain;
+      }
+      footer {
+        padding: 65px 0 40px;
+        background: #160904;
+      }
+      .footer-grid {
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer-brand p {
+        margin-top: 27px;
+        color: #777;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .footer-links {
+        display: grid;
+        gap: 17px;
+        color: #bbb;
+        font-size: 13px;
+      }
+      .copyright {
+        margin-top: 70px;
+        color: #666;
+        font-size: 10px;
+      }
+      @media (max-width: 760px) {
+        header {
+          height: 68px;
+        }
+        nav {
+          display: none;
+        }
+        .nav {
+          grid-template-columns: 1fr auto;
+        }
+        .app-btn {
+          padding: 10px 16px;
+        }
+        .hero {
+          background-position: 35% center;
+        }
+        .hero-copy {
+          width: 100%;
+          padding-top: 210px;
+          text-shadow: 0 2px 10px #000;
+        }
+        .hero h1 {
+          font-size: 38px;
+        }
+        .recommended,
+        .event-grid,
+        .app-showcase {
+          grid-template-columns: 1fr;
+        }
+        .side-event {
+          grid-template-columns: 42% 1fr;
+        }
+        .all-head {
+          display: block;
+        }
+        .filters {
+          gap: 10px;
+          overflow: auto;
+          margin-bottom: 18px;
+        }
+        .filters span {
+          white-space: nowrap;
+        }
+        .search {
+          width: 100%;
+        }
+        .join-head {
+          display: block;
+        }
+        .join-title {
+          font-size: 34px;
+        }
+        .join-title span {
+          font-size: 42px;
+        }
+        .hashtag {
+          margin-top: 25px;
+          font-size: 20px;
+        }
+        .app-copy {
+          order: -1;
+        }
+        .app-copy h2 {
+          font-size: 38px;
+        }
+        .footer-grid {
+          gap: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="/"
+          ><img
+            class="logo"
+            src="/assets/Footer%20Square%20Logo.png"
+            alt="PEEP SHARE"
+          />PEEP <span>SHARE</span></a
+        >
+        <nav>
+          <a href="/">Home</a><a class="active" href="/event/">Event</a
+          ><a href="/join/">Join with us</a
+          ><a href="/#terms">Term and Condition</a>
+        </nav>
+        <a class="app-btn" href="#download">Get the App</a>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-copy">
+            <h1>MONOMAX :<br />PREMIER LEAGUE -<br />WATCH PARTY</h1>
+            <p>
+              พรีเมียร์ลีกฤดูกาลนี้... อังก์ดูอยู่บ้านคนเดียว!<br />ชวนเพื่อน
+              ใส่เสื้อทีมโปรด แล้วมารวมพลังเชียร์สด
+            </p>
+            <div class="event-meta">
+              <div>▣ &nbsp;29 สิงหาคม 2026</div>
+              <div>◷ &nbsp;18:30 - 21:00</div>
+              <div>● &nbsp;MONO STUDIO แจ้งวัฒนะ</div>
+            </div>
+            <div class="actions">
+              <a class="orange-btn" href="/event/detail/">ดูรายละเอียด&nbsp;&nbsp; →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
+      <section class="events-area">
+        <div class="container">
+          <h2>กิจกรรมที่แนะนำ</h2>
+          <div class="recommended">
+            <article class="feature-event">
+              <img
+                src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1100&q=85"
+                alt="Community meetup"
+              />
+              <h3>PEEP Share Community Meetup 2026</h3>
+              <p class="desc">
+                งานรวมพลคอมมูนิตี้ PEEP Share ครั้งยิ่งใหญ่ พบกับกิจกรรมสุดพิเศษ
+                แลกเปลี่ยนประสบการณ์กับผู้ใช้งานจริง
+              </p>
+              <div class="small-meta">
+                ▣ 12 ตุลาคม 2026　◷ 14:00 - 18:00　● Samyan Mitrtown Hall
+              </div>
+            </article>
+            <div class="side-events">
+              <article class="side-event">
+                <img
+                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=85"
+                  alt="Workshop"
+                />
+                <div class="side-copy">
+                  <h3>Workshop: เปิดร้านค้าบน PEEP Share</h3>
+                  <p class="desc">
+                    เรียนรู้วิธีสร้างหน้าร้านออนไลน์ ตั้งแต่เริ่มต้น
+                    พร้อมเทคนิคการใช้คูปองและโปรโมชั่น
+                  </p>
+                  <div class="small-meta">
+                    ▣ 26 ตุลาคม 2026　◷ 13:00 - 16:00
+                  </div>
+                </div>
+              </article>
+              <article class="side-event">
+                <img
+                  src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=800&q=85"
+                  alt="Creator night"
+                />
+                <div class="side-copy">
+                  <h3>Creator Night — คืนของนักสร้างสรรค์</h3>
+                  <p class="desc">
+                    เปิดเวทีให้ครีเอเตอร์รุ่นใหม่มาแชร์ไอเดียและแรงบันดาลใจ
+                  </p>
+                  <div class="small-meta">
+                    ▣ 9 พฤศจิกายน 2026　◷ 19:00 - 22:00
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="all-head">
+            <div>
+              <h2>กิจกรรมทั้งหมด</h2>
+              <div class="filters">
+                <span class="active">กิจกรรมทั้งหมด</span
+                ><span>งานสัมมนาและเวิร์กช็อป</span><span>งานกีฬา</span
+                ><span>งานแข่งขัน</span>
+              </div>
+            </div>
+            <input
+              class="search"
+              placeholder="⌕  ค้นหาชื่อกิจกรรม หรือ ประเภท"
+            />
+          </div>
+          <div class="event-grid" id="eventGrid"></div>
+          <a class="more" href="#">ดูทั้งหมด</a>
+        </div>
+      </section>
+      <section class="join" id="download">
+        <div class="container">
+          <div class="join-head">
+            <div class="join-title">
+              Join Together<br /><small>[with]</small> <span>PEEP SHARE</span>
+            </div>
+            <div class="hashtag">#รวมตัวง่ายใครก็ทำได้</div>
+          </div>
+          <div class="app-showcase">
+            <div class="phone-wrap">
+              <img
+                class="phone-image"
+                src="/assets/1.png"
+                alt="PEEP Share event booking details"
+              />
+            </div>
+            <div class="app-copy">
+              <span class="tag">PEEP Share Events</span>
+              <h2>ค้นหากิจกรรม<br />ที่ใช่สำหรับคุณ</h2>
+              <p class="desc">
+                เข้าร่วมกิจกรรม Workshop, Meetup และ Community Event มากมาย<br />พร้อมพบเพื่อนใหม่และเรียนรู้สิ่งใหม่
+                ๆ ไปด้วยกัน
+              </p>
+              <div class="stores">
+                <img
+                  src="/assets/Frame%2015978847379.png"
+                  alt="Download on the App Store"
+                /><img
+                  src="/assets/Frame%201597884735.png"
+                  alt="Download for Android"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="brand">
+              <img
+                class="logo"
+                src="/assets/Footer%20Square%20Logo.png"
+                alt=""
+              />PEEP SHARE
+            </div>
+            <p>Let’s “ PEEPSHARE ”<br />keep your memories.</p>
+            <b>support@peepshare.me</b>
+          </div>
+          <div class="footer-links">
+            <a href="#">นโยบายความเป็นส่วนตัว</a><a href="#">ศูนย์ช่วยเหลือ</a
+            ><a href="#">เกี่ยวกับ</a><a href="#">ข้อกำหนดการใช้งาน</a>
+          </div>
+        </div>
+        <div class="copyright">© 2026 PEEP SHARE. All rights reserved.</div>
+      </div>
+    </footer>
+    <script>
+      const events = [
+        [
+          "Smart Sharing: แชร์ไฟล์ปลอดภัยในยุคดิจิทัล",
+          "5 ตุลาคม 2026",
+          "10:00 - 12:30",
+          "Siam Paragon Hall",
+          "photo-1497366754035-f200968a6e72",
+        ],
+        [
+          "PEEP Share × Creator Camp",
+          "18 ตุลาคม 2026",
+          "13:00 - 17:00",
+          "ICON SIAM ชั้น 6",
+          "photo-1521737711867-e3b97375f902",
+        ],
+        [
+          "Cloud Storage Workshop: จัดการพื้นที่ให้เวิร์ค",
+          "25 ตุลาคม 2026",
+          "14:00 - 16:00",
+          "AIS Design Center",
+          "photo-1524178232363-1fb2b075b655",
+        ],
+        [
+          "AI Translate Masterclass สำหรับนักเดินทาง",
+          "2 พฤศจิกายน 2026",
+          "10:00 - 12:00",
+          "Central World ชั้น 4",
+          "photo-1552664730-d307ca884978",
+        ],
+        [
+          "PEEP Share Hackathon 2026",
+          "15-16 พฤศจิกายน 2026",
+          "09:00 - 18:00",
+          "KX Knowledge Xchange",
+          "photo-1517048676732-d65bc937f952",
+        ],
+        [
+          "เทคนิคใช้คูปองเพิ่มยอดขายบน PEEP Share",
+          "22 พฤศจิกายน 2026",
+          "18:00 - 20:30",
+          "The Commons ทองหล่อ",
+          "photo-1522202176988-66273c2fd55f",
+        ],
+      ];
+      document.getElementById("eventGrid").innerHTML = events
+        .map(
+          ([title, date, time, place, image]) =>
+            `<article class="event-card"><img src="https://images.unsplash.com/${image}?auto=format&fit=crop&w=800&q=82" alt="${title}"><div class="event-info"><h3>${title}</h3><div>▣　${date}</div><div>◷　${time}</div><div>●　${place}</div></div></article>`,
+        )
+        .join("");
+    </script>
+  </body>
+</html>

@@ -83,10 +83,63 @@
       <p class="mt-10 text-center text-xs text-gray-500">© 2026 PEEP SHARE · JTS Team</p>
     </div>
   </main>
-  <script>
+  <script type="module">
+    import { validatePartnerForm, watchPartnerFormValidity } from '/scripts/partner-validator.js';
     document.getElementById('shopLogo').addEventListener('change',e=>document.getElementById('logoName').textContent=e.target.files[0]?.name||'PNG, JPG (สูงสุด ~5MB)');
     document.getElementById('images').addEventListener('change',e=>document.getElementById('imagesName').textContent=e.target.files.length?`เลือกแล้ว ${e.target.files.length} รูป`:'' );
-    document.getElementById('shopForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('status').classList.remove('hidden')});
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbwvUyUcCFcspjj61QOfZRqNdV07ncHD9Fyg6JMaHxVFhSgnkZyRiDEvWc-DEN900A-H/exec';
+    const partnerFields = {
+      shopName: '#shopName',
+      location: '#location',
+      openingHours: '#hours',
+      contactName: '#contactName',
+      phone: '#phone',
+      category: '#category',
+      channels: '#channels',
+      promotion: '#promotion',
+      details: '#details',
+      consent: '[name="consent"]',
+      logo: '#shopLogo',
+      images: '#images',
+    };
+    const partnerForm = document.getElementById('shopForm');
+    watchPartnerFormValidity(partnerForm, partnerFields);
+
+    ['phone', 'location'].forEach((id) => {
+      document.getElementById(id).addEventListener('input', (event) => event.target.setCustomValidity(''));
+    });
+    ['shopLogo', 'images'].forEach((id) => {
+      document.getElementById(id).addEventListener('change', (event) => event.target.setCustomValidity(''));
+    });
+
+    partnerForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      if (!validatePartnerForm(form, partnerFields)) return;
+      const button = form.querySelector('button[type="submit"]');
+      const status = document.getElementById('status');
+      const payload = new URLSearchParams();
+      for (const [name, value] of new FormData(form)) {
+        if (typeof value === 'string') payload.append(name, value);
+      }
+      button.disabled = true;
+      button.textContent = 'กำลังส่งข้อมูล...';
+      status.classList.add('hidden');
+      try {
+        await fetch(webAppUrl, { method: 'POST', mode: 'no-cors', body: payload });
+        status.textContent = 'รับข้อมูลเรียบร้อยแล้ว ขอบคุณที่สมัครเป็น Partner Shop';
+        status.classList.remove('hidden', 'bg-red-50', 'text-red-700');
+        status.classList.add('bg-green-50', 'text-green-700');
+        form.reset();
+      } catch (error) {
+        status.textContent = 'ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง';
+        status.classList.remove('hidden', 'bg-green-50', 'text-green-700');
+        status.classList.add('bg-red-50', 'text-red-700');
+      } finally {
+        button.disabled = false;
+        button.textContent = 'ส่งใบสมัครร้านค้า';
+      }
+    });
   </script>
 </body>
 </html>
