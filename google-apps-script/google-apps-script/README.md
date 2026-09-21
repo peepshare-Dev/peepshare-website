@@ -7,9 +7,12 @@
 1. สร้าง Google Sheet สำหรับใบสมัคร
 2. เปิด [Google Apps Script](https://script.google.com) แล้วสร้างโปรเจกต์ใหม่
 3. วางเนื้อหาจาก `Code.gs` ลงในไฟล์ `Code.gs` ของโปรเจกต์
-4. ไปที่ **Project Settings → Script properties** แล้วเพิ่ม `SPREADSHEET_ID` (รหัสใน URL ของ Sheet)
-5. กด **Deploy → Manage deployments → Edit** แล้วเลือก **New version** จากนั้นเลือก Execute as: **Me**, Who has access: **Anyone** แล้วอนุญาตสิทธิ์
-6. คัดลอก Web app URL ที่ลงท้ายด้วย `/exec`
+4. สร้างโฟลเดอร์ใน Google Drive สำหรับเก็บโลโก้และรูปภาพร้านค้า
+5. ไปที่ **Project Settings → Script properties** แล้วเพิ่ม:
+   - `SPREADSHEET_ID` — รหัสใน URL ของ Google Sheet
+   - `FOLDER_ID` — รหัสใน URL ของโฟลเดอร์ Google Drive
+6. กด **Deploy → Manage deployments → Edit** แล้วเลือก **New version** จากนั้นเลือก Execute as: **Me**, Who has access: **Anyone** แล้วอนุญาตสิทธิ์ Google Sheets และ Google Drive
+7. คัดลอก Web app URL ที่ลงท้ายด้วย `/exec`
 
 ## ตั้งค่าโปรเจกต์นี้
 

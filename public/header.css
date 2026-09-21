@@ -1,0 +1,44 @@
+/* Shared PEEP SHARE navbar identity */
+header.nav,
+header .nav,
+header > nav {
+  width: min(calc(100% - 40px), 1180px) !important;
+  margin-inline: auto !important;
+}
+header .brand,
+header a[aria-label="PEEP SHARE home"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  white-space: nowrap;
+}
+header .brand img,
+header .brand-logo,
+header .brand .logo,
+header a[aria-label="PEEP SHARE home"] > img {
+  display: block !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  object-fit: contain !important;
+}
+header .brand .mark {
+  box-sizing: border-box;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  border-width: 3px !important;
+  font-size: 8px !important;
+}
+header .brand .brand-name {
+  color: #fff !important;
+  font: inherit;
+}
+header .brand .brand-name em {
+  color: #ff6b1b !important;
+  font-style: normal;
+}
