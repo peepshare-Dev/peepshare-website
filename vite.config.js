@@ -12,6 +12,11 @@ function cleanUrlPlugin() {
   const redirect = (server) => {
     server.middlewares.use((request, response, next) => {
       const pathname = new URL(request.url, "http://localhost").pathname;
+      if (pathname === "/home" || pathname === "/home/") {
+        request.url = "/";
+        return next();
+      }
+
       const destination = cleanUrlRedirects[pathname];
       if (!destination) return next();
 
