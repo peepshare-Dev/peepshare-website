@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Join With Us — PEEP SHARE</title>
+    <title>PEEP SHARE - Join With Us</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -267,9 +267,9 @@
         width: 61px;
         height: 61px;
         place-items: center;
-        border: 2px solid #555;
+        border: 0;
         border-radius: 50%;
-        background: #232428;
+        background: transparent;
         color: #aaa;
         font-size: 9px;
         font-weight: 700;
@@ -789,12 +789,12 @@
       .logo {
         width: 66px;
         height: 66px;
-        border: 3px solid #62636a;
-        background: #2b2c31;
+        border: 0;
+        background: transparent;
       }
       .logo img {
-        filter: grayscale(1);
-        opacity: 0.72;
+        filter: none;
+        opacity: 1;
       }
       .logos .set {
         gap: 16px;
@@ -802,14 +802,17 @@
       }
       .logos .logo {
         flex: 0 0 66px;
-        background: #2b2c31 url("/assets/image%208.png") center/46px 46px
-          no-repeat;
+        background: transparent;
         color: transparent;
-        filter: grayscale(1);
-        opacity: 0.78;
+        filter: none;
+        opacity: 1;
       }
       .logos .logo img {
-        display: none;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
       }
       /* Three-step cards */
       .steps {
@@ -1916,14 +1919,14 @@
         <div class="navlinks">
           <a href="/">Home</a><a href="/event/">Event</a
           ><a class="active" href="/join/">Join with Us</a
-          ><a href="/#terms">Terms and Conditions</a>
+          ><a href="/terms-and-conditions/">Terms and Conditions</a>
         </div>
         <a class="shop-btn" href="/partner/shop/">Get the App</a
         ><button class="menu-btn" id="menuBtn">☰</button>
       </nav>
       <div class="mobile-menu" id="mobile">
         <a href="/">Home</a><a href="/event/">Event</a
-        ><a class="active" href="/join/">Join with Us</a><a href="/#terms">Terms and Conditions</a
+        ><a class="active" href="/join/">Join with Us</a><a href="/terms-and-conditions/">Terms and Conditions</a
         ><a href="/partner/shop/">Get the App</a>
       </div>
     </header>
@@ -2001,7 +2004,7 @@
       <section class="logos">
         <p>ร่วมเติบโตไปกับพาร์ทเนอร์ของเรา</p>
         <div class="track">
-          <div class="set">
+          <div class="set" id="partnerLogosPrimary">
             <span class="logo" aria-label="PEEP"></span
             ><span class="logo" aria-label="PEEP"></span
             ><span class="logo" aria-label="PEEP"></span
@@ -2035,7 +2038,7 @@
             ><span class="logo" aria-label="PEEP"></span
             ><span class="logo" aria-label="PEEP"></span>
           </div>
-          <div class="set" aria-hidden="true">
+          <div class="set" id="partnerLogosDuplicate" aria-hidden="true">
             <span class="logo"></span><span class="logo"></span
             ><span class="logo"></span><span class="logo"></span
             ><span class="logo"></span><span class="logo"></span
@@ -2139,7 +2142,7 @@
         <p class="copy">© 2026 PEEP SHARE. All rights reserved.</p>
       </div>
     </footer>
-    <footer class="site-footer"><div class="site-footer__inner"><div class="site-footer__main"><div><a class="site-footer__brand" href="/"><img src="/assets/Footer%20Square%20Logo.png" alt=""><span>PEEP SHARE</span></a><p class="site-footer__tagline">Let’s “ PEEPSHARE ”<br>keep your memories.</p><a class="site-footer__email" href="mailto:support@peepshare.me">support@peepshare.me</a></div><nav class="site-footer__links" aria-label="Footer navigation"><a href="/#terms">นโยบายความเป็นส่วนตัว</a><a href="/join/#faq">ศูนย์ช่วยเหลือ</a><a href="/">เกี่ยวกับ</a><a href="/#terms">ข้อกำหนดการใช้บริการ</a></nav></div><div class="site-footer__bottom"><span>© 2026 PEEP SHARE. All rights reserved.</span><div class="site-footer__socials"><a href="#" aria-label="Facebook"><img src="/assets/Frame%201597884737.png" alt=""></a><a href="#" aria-label="Instagram"><img src="/assets/Frame%201597884738.png" alt=""></a><a href="#" aria-label="TikTok"><img src="/assets/Frame%201597884739.png" alt=""></a></div></div></div></footer>
+    <footer class="site-footer"><div class="site-footer__inner"><div class="site-footer__main"><div><a class="site-footer__brand" href="/"><img src="/assets/Footer%20Square%20Logo.png" alt=""><span>PEEP SHARE</span></a><p class="site-footer__tagline">Let’s “ PEEPSHARE ”<br>keep your memories.</p><a class="site-footer__email" href="mailto:support@peepshare.me">support@peepshare.me</a></div><nav class="site-footer__links" aria-label="Footer navigation"><a href="/terms-and-conditions/?document=privacy">นโยบายความเป็นส่วนตัว</a><a href="/join/#faq">ศูนย์ช่วยเหลือ</a><a href="/">เกี่ยวกับ</a><a href="/terms-and-conditions/?document=terms">ข้อกำหนดการใช้บริการ</a></nav></div><div class="site-footer__bottom"><span>© 2026 PEEP SHARE. All rights reserved.</span><div class="site-footer__socials"><a href="#" aria-label="Facebook"><img src="/assets/Frame%201597884737.png" alt=""></a><a href="#" aria-label="Instagram"><img src="/assets/Frame%201597884738.png" alt=""></a><a href="#" aria-label="TikTok"><img src="/assets/Frame%201597884739.png" alt=""></a></div></div></div></footer>
     <script>
       if (location.pathname === "/")
         history.replaceState(null, "", "/home" + location.hash);
@@ -2196,6 +2199,39 @@
       window.addEventListener("hashchange", setActiveMenu);
       window.addEventListener("popstate", setActiveMenu);
       setActiveMenu();
+
+      async function loadPartnerLogos() {
+        const primary = document.getElementById("partnerLogosPrimary");
+        const duplicate = document.getElementById("partnerLogosDuplicate");
+
+        try {
+          const response = await fetch("/api/logos");
+          if (!response.ok) throw new Error("Unable to load partner logos");
+
+          const { data } = await response.json();
+          if (!Array.isArray(data) || data.length === 0) return;
+
+          const renderLogos = () =>
+            Array.from({ length: 4 }, () => data).flat().map(({ id, imagePath }) => {
+              const item = document.createElement("span");
+              item.className = "logo";
+
+              const image = document.createElement("img");
+              image.src = imagePath;
+              image.alt = `Partner logo ${id}`;
+              image.loading = "lazy";
+              item.append(image);
+              return item;
+            });
+
+          primary.replaceChildren(...renderLogos());
+          duplicate.replaceChildren(...renderLogos());
+        } catch (error) {
+          console.error("Partner logos:", error.message);
+        }
+      }
+
+      loadPartnerLogos();
 
       const benefitSlides = [
         {

@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      id="metaDescription"
+      name="description"
+      content="ข้อกำหนดและเงื่อนไข ประกาศความเป็นส่วนตัว และแนวทางปฏิบัติของชุมชน PEEP SHARE"
+    />
+    <title>ข้อกำหนดและเงื่อนไข | PEEP SHARE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --background: #08090b;
+        --surface: #101116;
+        --surface-soft: #14151a;
+        --text: #f7f7f8;
+        --muted: #9b9ba2;
+        --line: #34353b;
+        --orange: #ff681d;
+        --orange-bright: #ff812f;
+        --shell: 1180px;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--text);
+        background: var(--background);
+        font-family: Inter, "Noto Sans Thai", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      body.menu-open {
+        overflow: hidden;
+      }
+      
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      
+      button {
+        font: inherit;
+      }
+      
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      
+      .shell {
+        width: min(calc(100% - 40px), var(--shell));
+        margin-inline: auto;
+      }
+      
+      .site-header {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 20;
+        min-height: 74px;
+        background: rgba(8, 9, 11, 0.88);
+        border-bottom: 1px solid transparent;
+        backdrop-filter: blur(18px);
+        transition: border-color 180ms ease, background 180ms ease;
+      }
+      
+      .site-header.scrolled {
+        background: rgba(8, 9, 11, 0.96);
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+      
+      .navbar {
+        min-height: 74px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 36px;
+      }
+      
+      .brand,
+      .footer-brand {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+      
+      .brand {
+        gap: 14px;
+        justify-self: start;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: 0;
+      }
+      
+      .brand img {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        object-fit: contain;
+      }
+      
+      .brand em {
+        color: var(--orange);
+        font-style: normal;
+      }
+      
+      .desktop-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 34px;
+        color: #c4c4c7;
+        font-size: 12px;
+      }
+      
+      .desktop-nav a {
+        padding: 10px 0;
+        transition: color 180ms ease;
+      }
+      
+      .desktop-nav a:hover,
+      .desktop-nav a.active {
+        color: var(--orange);
+      }
+      
+      .get-app {
+        justify-self: end;
+        padding: 11px 19px;
+        border-radius: 999px;
+        color: #fff;
+        background: var(--orange);
+        font-size: 11px;
+        font-weight: 700;
+        transition: background 180ms ease, transform 180ms ease;
+      }
+      
+      .get-app:hover {
+        background: var(--orange-bright);
+        transform: translateY(-1px);
+      }
+      
+      .menu-button,
+      .mobile-menu {
+        display: none;
+      }
+      
+      .title-hero {
+        min-height: 335px;
+        padding-top: 74px;
+        display: flex;
+        align-items: flex-end;
+        background:
+          radial-gradient(ellipse 75% 90% at 27% 100%, rgba(255, 102, 20, 0.72), transparent 66%),
+          linear-gradient(180deg, #08090b 23%, #120b08 61%, #fb6818 100%);
+      }
+      
+      .title-hero .shell {
+        padding-bottom: 110px;
+      }
+      
+      .title-hero h1 {
+        margin: 0;
+        font-size: clamp(36px, 5.2vw, 64px);
+        line-height: 1;
+        letter-spacing: -0.045em;
+      }
+      
+      .title-hero h1 span {
+        color: var(--orange);
+      }
+      
+      .title-hero h1 .hero-prefix {
+        color: inherit;
+      }
+      
+      .legal-section {
+        min-height: 720px;
+        padding: 50px 0 88px;
+        background: #090a0c;
+      }
+      
+      .legal-shell {
+        max-width: 1120px;
+      }
+      
+      .document-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: end;
+        margin-bottom: 31px;
+        border-bottom: 1px solid #4a4a4f;
+      }
+      
+      .document-tab {
+        position: relative;
+        min-height: 54px;
+        padding: 4px 12px 19px;
+        border: 0;
+        color: #a9a9ae;
+        background: transparent;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: color 180ms ease;
+      }
+      
+      .document-tab::after {
+        position: absolute;
+        right: 0;
+        bottom: -1px;
+        left: 0;
+        height: 2px;
+        background: var(--orange);
+        content: "";
+        opacity: 0;
+        transform: scaleX(0.65);
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+      
+      .document-tab:hover,
+      .document-tab.active {
+        color: var(--orange);
+      }
+      
+      .document-tab.active::after {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+      
+      .legal-card {
+        overflow: hidden;
+        min-height: 520px;
+        padding: 23px 24px 42px;
+        border: 1px solid #393a40;
+        border-radius: 11px;
+        background: var(--surface);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.2);
+      }
+      
+      .legal-card-header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 10px 20px;
+        margin-bottom: 25px;
+      }
+      
+      .legal-card-header h2 {
+        margin: 0;
+        font-size: 17px;
+        line-height: 1.5;
+      }
+      
+      .last-updated {
+        grid-column: 1 / -1;
+        justify-self: end;
+        margin: 0;
+        color: #dddde0;
+        font-size: 11px;
+      }
+      
+      .language-switch {
+        display: flex;
+        align-items: center;
+        padding: 2px;
+        border-radius: 999px;
+        background: #f2f2f3;
+      }
+      
+      .language-switch button {
+        min-width: 31px;
+        height: 25px;
+        padding: 0 7px;
+        border: 0;
+        border-radius: 999px;
+        color: #77777e;
+        background: transparent;
+        font-size: 9px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      }
+      
+      .language-switch button.active {
+        color: #111216;
+        background: #fff;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      }
+      
+      .loading-state {
+        min-height: 340px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      
+      .loading-state span {
+        width: 26px;
+        height: 26px;
+        border: 2px solid #3b3c42;
+        border-top-color: var(--orange);
+        border-radius: 50%;
+        animation: spin 700ms linear infinite;
+      }
+      
+      .loading-state p {
+        margin: 0;
+      }
+      
+      .loading-state[hidden] {
+        display: none;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      
+      .legal-content {
+        color: #e3e3e5;
+        font-size: 13px;
+        line-height: 1.78;
+        overflow-wrap: anywhere;
+      }
+      
+      .legal-content:empty {
+        display: none;
+      }
+      
+      .legal-content p {
+        margin: 0 0 15px;
+      }
+      
+      .legal-content h1,
+      .legal-content h2,
+      .legal-content h3 {
+        margin: 31px 0 13px;
+        color: #fff;
+        font-size: 14px;
+        line-height: 1.6;
+        letter-spacing: 0.01em;
+      }
+      
+      .legal-content h1:first-child,
+      .legal-content h2:first-child,
+      .legal-content h3:first-child {
+        margin-top: 0;
+      }
+      
+      .legal-content ol,
+      .legal-content ul {
+        margin: 0 0 18px;
+        padding-left: 27px;
+      }
+      
+      .legal-content li {
+        margin: 7px 0;
+        padding-left: 5px;
+      }
+      
+      .legal-content li > p {
+        margin-bottom: 7px;
+      }
+      
+      .legal-content ol ol,
+      .legal-content ul ul,
+      .legal-content ol ul,
+      .legal-content ul ol {
+        margin-top: 7px;
+        margin-bottom: 8px;
+      }
+      
+      .legal-content a {
+        color: #ff985d;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      
+      .legal-content table {
+        width: 100%;
+        margin: 24px 0;
+        border-collapse: collapse;
+        font-size: 12px;
+      }
+      
+      .legal-content th,
+      .legal-content td {
+        padding: 12px;
+        border: 1px solid #393a40;
+        text-align: left;
+        vertical-align: top;
+      }
+      
+      .legal-content th {
+        color: #fff;
+        background: #191a20;
+      }
+      
+      .legal-content blockquote {
+        margin: 20px 0;
+        padding: 3px 0 3px 17px;
+        border-left: 2px solid var(--orange);
+        color: #c7c7cb;
+      }
+      
+      .site-footer {
+        min-height: 390px;
+        padding: 68px 0 38px;
+        background: #160905;
+      }
+      
+      .footer-main {
+        min-height: 215px;
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 80px;
+      }
+      
+      .footer-brand {
+        gap: 13px;
+        font-size: 17px;
+      }
+      
+      .footer-brand img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
+      }
+      
+      .footer-tagline {
+        margin: 27px 0 20px;
+        color: #77777c;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+      
+      .footer-email {
+        font-size: 11px;
+        font-weight: 700;
+      }
+      
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-size: 13px;
+      }
+      
+      .footer-links a {
+        transition: color 160ms ease;
+      }
+      
+      .footer-links a:hover {
+        color: var(--orange);
+      }
+      
+      .footer-bottom {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        color: #686268;
+        font-size: 10px;
+      }
+      
+      .footer-socials {
+        display: flex;
+        gap: 12px;
+      }
+      
+      .footer-socials a,
+      .footer-socials img {
+        width: 42px;
+        height: 42px;
+      }
+      
+      .footer-socials a {
+        transition: opacity 160ms ease, transform 160ms ease;
+      }
+      
+      .footer-socials a:hover {
+        opacity: 0.8;
+        transform: translateY(-2px);
+      }
+      
+      @media (max-width: 820px) {
+        .navbar {
+          grid-template-columns: 1fr auto;
+        }
+      
+        .desktop-nav,
+        .get-app {
+          display: none;
+        }
+      
+        .menu-button {
+          display: flex;
+          width: 42px;
+          height: 42px;
+          padding: 11px 9px;
+          flex-direction: column;
+          justify-content: space-around;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          border-radius: 50%;
+          color: #fff;
+          background: transparent;
+          cursor: pointer;
+        }
+      
+        .menu-button span {
+          width: 100%;
+          height: 1px;
+          background: currentColor;
+          transition: transform 180ms ease, opacity 180ms ease;
+        }
+      
+        .menu-button[aria-expanded="true"] span:nth-child(1) {
+          transform: translateY(6px) rotate(45deg);
+        }
+      
+        .menu-button[aria-expanded="true"] span:nth-child(2) {
+          opacity: 0;
+        }
+      
+        .menu-button[aria-expanded="true"] span:nth-child(3) {
+          transform: translateY(-6px) rotate(-45deg);
+        }
+      
+        .mobile-menu {
+          position: fixed;
+          inset: 74px 0 0;
+          display: flex;
+          padding: 42px 20px;
+          flex-direction: column;
+          align-items: center;
+          gap: 25px;
+          color: #d6d6d9;
+          background: rgba(8, 9, 11, 0.98);
+          font-size: 15px;
+          opacity: 0;
+          pointer-events: none;
+          transform: translateY(-12px);
+          transition: opacity 180ms ease, transform 180ms ease;
+        }
+      
+        .mobile-menu.open {
+          opacity: 1;
+          pointer-events: auto;
+          transform: none;
+        }
+      
+        .mobile-menu .active {
+          color: var(--orange);
+        }
+      
+        .title-hero {
+          min-height: 290px;
+        }
+      
+        .title-hero .shell {
+          padding-bottom: 95px;
+        }
+      }
+      
+      @media (max-width: 640px) {
+        .shell {
+          width: min(calc(100% - 32px), var(--shell));
+        }
+      
+        .title-hero {
+          min-height: 255px;
+        }
+      
+        .title-hero h1 {
+          font-size: 38px;
+        }
+      
+        .legal-section {
+          padding: 28px 0 60px;
+        }
+      
+        .document-tabs {
+          margin-bottom: 21px;
+          overflow-x: auto;
+          grid-template-columns: repeat(3, minmax(145px, 1fr));
+          scrollbar-width: none;
+        }
+      
+        .document-tabs::-webkit-scrollbar {
+          display: none;
+        }
+      
+        .document-tab {
+          padding-inline: 10px;
+          font-size: 11px;
+        }
+      
+        .legal-card {
+          padding: 19px 16px 31px;
+          border-radius: 8px;
+        }
+      
+        .legal-card-header {
+          grid-template-columns: minmax(0, 1fr) auto;
+          gap: 8px 12px;
+        }
+      
+        .legal-card-header h2 {
+          font-size: 14px;
+        }
+      
+        .last-updated {
+          justify-self: start;
+        }
+      
+        .legal-content {
+          font-size: 12px;
+          line-height: 1.75;
+        }
+      
+        .legal-content table {
+          display: block;
+          overflow-x: auto;
+        }
+      
+        .site-footer {
+          min-height: 0;
+          padding: 54px 0 34px;
+        }
+      
+        .footer-main {
+          min-height: 0;
+          grid-template-columns: 1fr;
+          gap: 44px;
+        }
+      
+        .footer-bottom {
+          margin-top: 48px;
+          align-items: flex-start;
+          flex-direction: column-reverse;
+          gap: 30px;
+        }
+      }
+      
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <nav class="navbar shell" aria-label="Primary navigation">
+        <a class="brand" href="/" aria-label="PEEP SHARE home">
+          <img src="/assets/Footer%20Square%20Logo.png" alt="" />
+          <span>PEEP <em>SHARE</em></span>
+        </a>
+
+        <div class="desktop-nav">
+          <a href="/">Home</a>
+          <a href="/event/">Event</a>
+          <a href="/join/">Join with us</a>
+          <a class="active" href="/terms-and-conditions/">Term and Condition</a>
+        </div>
+
+        <a class="get-app" href="/partner/shop/">Get the App</a>
+        <button
+          class="menu-button"
+          id="menuButton"
+          type="button"
+          aria-label="Open navigation"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/">Home</a>
+        <a href="/event/">Event</a>
+        <a href="/join/">Join with us</a>
+        <a class="active" href="/terms-and-conditions/">Term and Condition</a>
+        <a href="/partner/shop/">Get the App</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="title-hero">
+        <div class="shell">
+          <h1><span class="hero-prefix">Term and&nbsp;</span><span>Condition</span></h1>
+        </div>
+      </section>
+
+      <section class="legal-section">
+        <div class="shell legal-shell">
+          <div class="document-tabs" role="tablist" aria-label="Legal documents">
+            <button
+              class="document-tab active"
+              id="tab-community"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="legalDocument"
+              data-document="community"
+            >
+              Community Guidelines
+            </button>
+            <button
+              class="document-tab"
+              id="tab-privacy"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="legalDocument"
+              data-document="privacy"
+            >
+              Privacy Notice
+            </button>
+            <button
+              class="document-tab"
+              id="tab-terms"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="legalDocument"
+              data-document="terms"
+            >
+              Terms of Service
+            </button>
+          </div>
+
+          <article
+            class="legal-card"
+            id="legalDocument"
+            role="tabpanel"
+            aria-labelledby="tab-community"
+            aria-live="polite"
+          >
+            <div class="legal-card-header">
+              <h2 id="documentTitle">แนวทางปฏิบัติของชุมชน (Community Guidelines)</h2>
+              <div class="language-switch" role="group" aria-label="Language">
+                <button class="active" type="button" data-language="th" aria-pressed="true">TH</button>
+                <button type="button" data-language="en" aria-pressed="false">EN</button>
+              </div>
+              <p class="last-updated" id="lastUpdated">แก้ไขล่าสุด : 31 สิงหาคม 2569</p>
+            </div>
+
+            <div class="loading-state" id="loadingState">
+              <span></span>
+              <p>กำลังโหลดเอกสาร…</p>
+            </div>
+            <div class="legal-content" id="legalContent"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner shell">
+        <div class="footer-main">
+          <div>
+            <a class="footer-brand" href="/">
+              <img src="/assets/Footer%20Square%20Logo.png" alt="" />
+              <span>PEEP SHARE</span>
+            </a>
+            <p class="footer-tagline">Let’s “ PEEPSHARE ”<br />keep your memories.</p>
+            <a class="footer-email" href="mailto:support@peepshare.me">support@peepshare.me</a>
+          </div>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="/terms-and-conditions/?document=privacy">นโยบายความเป็นส่วนตัว</a>
+            <a href="/join/#faq">ศูนย์ช่วยเหลือ</a>
+            <a href="/">เกี่ยวกับ</a>
+            <a href="/terms-and-conditions/?document=terms">ข้อกำหนดการใช้บริการ</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 PEEP SHARE. All rights reserved.</span>
+          <div class="footer-socials">
+            <a href="#" aria-label="Facebook"><img src="/assets/Frame%201597884737.png" alt="" /></a>
+            <a href="#" aria-label="Instagram"><img src="/assets/Frame%201597884738.png" alt="" /></a>
+            <a href="#" aria-label="TikTok"><img src="/assets/Frame%201597884739.png" alt="" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/terms-and-conditions/script.js"></script>
+  </body>
+</html>
