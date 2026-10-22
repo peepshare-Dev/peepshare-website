@@ -135,10 +135,6 @@
         font-size: 13px;
         font-weight: 700;
       }
-      .ghost-btn {
-        background: #fff;
-        color: #111;
-      }
       .dots {
         display: flex;
         justify-content: center;
@@ -262,6 +258,81 @@
         font-size: 12px;
         font-weight: 700;
       }
+      .registration-steps {
+        position: relative;
+        padding: 64px 0 42px;
+        overflow: hidden;
+        background: #08090b;
+      }
+      .registration-steps .container {
+        width: min(calc(100% - 160px), 1280px);
+      }
+      .registration-steps h2 {
+        margin: 0 0 48px;
+        text-align: center;
+        font-size: clamp(34px, 3.35vw, 48px);
+        font-weight: 500;
+        line-height: 1.15;
+        letter-spacing: -.03em;
+      }
+      .registration-steps h2 span {
+        color: var(--orange);
+        font-size: 1.16em;
+        font-weight: 500;
+      }
+      .registration-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .registration-step {
+        width: 100%;
+        min-width: 0;
+      }
+      .registration-phone {
+        width: min(100%, 223px);
+        margin: 0 auto 24px;
+      }
+      .registration-phone img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .registration-copy {
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+      }
+      .registration-number {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--orange);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .registration-copy h3 {
+        margin: 2px 0 15px;
+        font-size: clamp(16px, 1.4vw, 20px);
+        line-height: 1.4;
+      }
+      .registration-copy p {
+        margin: 0;
+        color: #a3a3a8;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .registration-pagination {
+        display: none;
+      }
       .join {
         padding: 72px 0 0;
         overflow: hidden;
@@ -341,31 +412,11 @@
         height: auto;
         object-fit: contain;
       }
-      footer {
-        padding: 65px 0 40px;
-        background: #160904;
-      }
-      .footer-grid {
-        display: flex;
-        justify-content: space-between;
-      }
-      .footer-brand p {
-        margin-top: 27px;
-        color: #777;
-        font-size: 12px;
-        line-height: 1.5;
-      }
-      .footer-links {
-        display: grid;
-        gap: 17px;
-        color: #bbb;
-        font-size: 13px;
-      }
-      .copyright {
-        margin-top: 70px;
-        color: #666;
-        font-size: 10px;
-      }
+
+
+
+
+
       @media (max-width: 760px) {
         header {
           height: 68px;
@@ -395,22 +446,116 @@
         .app-showcase {
           grid-template-columns: 1fr;
         }
+        .registration-steps {
+          padding: 48px 0 44px;
+        }
+        .registration-steps .container {
+          width: 100%;
+        }
+        .registration-steps h2 {
+          margin-bottom: 34px;
+          padding: 0 20px;
+          font-size: 30px;
+        }
+        .registration-grid {
+          display: flex;
+          gap: 18px;
+          padding: 0 20px 14px;
+          overflow-x: auto;
+          scroll-padding: 20px;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .registration-grid::-webkit-scrollbar {
+          display: none;
+        }
+        .registration-step {
+          flex: 0 0 min(76vw, 280px);
+          scroll-snap-align: center;
+        }
+        .registration-phone {
+          width: min(100%, 223px);
+        }
+        .registration-pagination {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 16px;
+        }
+        .registration-pagination button {
+          width: 10px;
+          height: 10px;
+          padding: 0;
+          border: 0;
+          border-radius: 50%;
+          background: #d5d8de;
+          opacity: .55;
+          cursor: pointer;
+          transition: background .2s ease, opacity .2s ease, transform .2s ease;
+        }
+        .registration-pagination button.active {
+          background: var(--orange);
+          opacity: 1;
+          transform: scale(1.25);
+        }
+        .registration-pagination button:focus-visible {
+          outline: 2px solid #fff;
+          outline-offset: 4px;
+        }
         .side-event {
           grid-template-columns: 42% 1fr;
         }
         .all-head {
           display: block;
+          margin: 52px 0 24px;
+        }
+        .all-head h2 {
+          margin-bottom: 20px;
+          font-size: 28px;
+          line-height: 1.25;
         }
         .filters {
-          gap: 10px;
-          overflow: auto;
-          margin-bottom: 18px;
+          gap: 8px;
+          width: calc(100% + 40px);
+          margin: 0 -20px 16px;
+          padding: 0 20px 10px;
+          overflow-x: auto;
+          scroll-padding: 20px;
+          scroll-snap-type: x proximity;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .filters::-webkit-scrollbar {
+          display: none;
         }
         .filters span {
+          display: inline-flex;
+          flex: 0 0 auto;
+          min-height: 40px;
+          padding: 9px 16px;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #303137;
+          border-radius: 999px;
+          color: #d8d8db;
+          background: #17181c;
+          font-weight: 600;
           white-space: nowrap;
+          scroll-snap-align: start;
+        }
+        .filters .active {
+          padding: 9px 18px;
+          border-color: var(--orange);
+          color: #fff;
+          background: var(--orange);
+          box-shadow: 0 6px 18px rgba(255, 104, 29, .22);
         }
         .search {
           width: 100%;
+          min-height: 42px;
+          border: 1px solid #292b30;
         }
         .join-head {
           display: block;
@@ -431,9 +576,7 @@
         .app-copy h2 {
           font-size: 38px;
         }
-        .footer-grid {
-          gap: 40px;
-        }
+
       }
     </style>
     <link rel="stylesheet" href="/footer.css" />
@@ -544,8 +687,158 @@
               placeholder="⌕  ค้นหาชื่อกิจกรรม หรือ ประเภท"
             />
           </div>
-          <div class="event-grid" id="eventGrid"></div>
+          <div class="event-grid" id="eventGrid">
+            <article class="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&amp;fit=crop&amp;w=800&amp;q=82"
+                alt="Smart Sharing: แชร์ไฟล์ปลอดภัยในยุคดิจิทัล"
+              />
+              <div class="event-info">
+                <h3>Smart Sharing: แชร์ไฟล์ปลอดภัยในยุคดิจิทัล</h3>
+                <div>▣　5 ตุลาคม 2026</div>
+                <div>◷　10:00 - 12:30</div>
+                <div>●　Siam Paragon Hall</div>
+              </div>
+            </article>
+            <article class="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&amp;fit=crop&amp;w=800&amp;q=82"
+                alt="PEEP Share × Creator Camp"
+              />
+              <div class="event-info">
+                <h3>PEEP Share × Creator Camp</h3>
+                <div>▣　18 ตุลาคม 2026</div>
+                <div>◷　13:00 - 17:00</div>
+                <div>●　ICON SIAM ชั้น 6</div>
+              </div>
+            </article>
+            <article class="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&amp;fit=crop&amp;w=800&amp;q=82"
+                alt="Cloud Storage Workshop: จัดการพื้นที่ให้เวิร์ค"
+              />
+              <div class="event-info">
+                <h3>Cloud Storage Workshop: จัดการพื้นที่ให้เวิร์ค</h3>
+                <div>▣　25 ตุลาคม 2026</div>
+                <div>◷　14:00 - 16:00</div>
+                <div>●　AIS Design Center</div>
+              </div>
+            </article>
+            <article class="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&amp;fit=crop&amp;w=800&amp;q=82"
+                alt="AI Translate Masterclass สำหรับนักเดินทาง"
+              />
+              <div class="event-info">
+                <h3>AI Translate Masterclass สำหรับนักเดินทาง</h3>
+                <div>▣　2 พฤศจิกายน 2026</div>
+                <div>◷　10:00 - 12:00</div>
+                <div>●　Central World ชั้น 4</div>
+              </div>
+            </article>
+            <article class="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&amp;fit=crop&amp;w=800&amp;q=82"
+                alt="PEEP Share Hackathon 2026"
+              />
+              <div class="event-info">
+                <h3>PEEP Share Hackathon 2026</h3>
+                <div>▣　15-16 พฤศจิกายน 2026</div>
+                <div>◷　09:00 - 18:00</div>
+                <div>●　KX Knowledge Xchange</div>
+              </div>
+            </article>
+            <article class="event-card">
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=800&amp;q=82"
+                alt="เทคนิคใช้คูปองเพิ่มยอดขายบน PEEP Share"
+              />
+              <div class="event-info">
+                <h3>เทคนิคใช้คูปองเพิ่มยอดขายบน PEEP Share</h3>
+                <div>▣　22 พฤศจิกายน 2026</div>
+                <div>◷　18:00 - 20:30</div>
+                <div>●　The Commons ทองหล่อ</div>
+              </div>
+            </article>
+          </div>
           <a class="more" href="#">ดูทั้งหมด</a>
+        </div>
+      </section>
+      <section class="registration-steps" aria-labelledby="registration-title">
+        <div class="container">
+          <h2 id="registration-title">ขั้นตอนการลงทะเบียน <span>Event</span></h2>
+          <ol class="registration-grid">
+            <li class="registration-step">
+              <div class="registration-phone">
+                <img
+                  src="/assets/Groupp1.svg"
+                  alt="หน้ารวมกิจกรรมในแอป PEEP SHARE"
+                  loading="lazy"
+                />
+              </div>
+              <div class="registration-copy">
+                <span class="registration-number">1</span>
+                <div>
+                  <h3>กด Cover Page หรือ Banner</h3>
+                  <p>เพื่อลงทะเบียนเข้างาน</p>
+                </div>
+              </div>
+            </li>
+            <li class="registration-step">
+              <div class="registration-phone">
+                <img
+                  src="/assets/Groupp2.svg"
+                  alt="หน้ารายละเอียดกิจกรรมในแอป PEEP SHARE"
+                  loading="lazy"
+                />
+              </div>
+              <div class="registration-copy">
+                <span class="registration-number">2</span>
+                <div>
+                  <h3>กดเข้าร่วม Event</h3>
+                  <p>เพื่อลงทะเบียนเข้างาน</p>
+                </div>
+              </div>
+            </li>
+            <li class="registration-step">
+              <div class="registration-phone">
+                <img
+                  src="/assets/Groupp3.svg"
+                  alt="แบบฟอร์มลงทะเบียนกิจกรรมในแอป PEEP SHARE"
+                  loading="lazy"
+                />
+              </div>
+              <div class="registration-copy">
+                <span class="registration-number">3</span>
+                <div>
+                  <h3>กรอกรายละเอียด</h3>
+                  <p>และกดดำเนินการต่อ</p>
+                </div>
+              </div>
+            </li>
+            <li class="registration-step">
+              <div class="registration-phone">
+                <img
+                  src="/assets/Groupp4.svg"
+                  alt="บัตรเข้างานพร้อม QR Code ในแอป PEEP SHARE"
+                  loading="lazy"
+                />
+              </div>
+              <div class="registration-copy">
+                <span class="registration-number">4</span>
+                <div>
+                  <h3>รับ Ticket QR Code</h3>
+                  <p>เพื่อลงทะเบียนเข้างาน</p>
+                </div>
+              </div>
+            </li>
+          </ol>
+          <nav class="registration-pagination" aria-label="เลือกขั้นตอนการลงทะเบียน">
+            <button class="active" type="button" aria-label="ขั้นตอนที่ 1" aria-current="step"></button>
+            <button type="button" aria-label="ขั้นตอนที่ 2"></button>
+            <button type="button" aria-label="ขั้นตอนที่ 3"></button>
+            <button type="button" aria-label="ขั้นตอนที่ 4"></button>
+          </nav>
         </div>
       </section>
       <section class="join" id="download">
@@ -585,80 +878,53 @@
         </div>
       </section>
     </main>
-    <footer id="footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <div class="brand">
-              <img
-                class="logo"
-                src="/assets/Footer%20Square%20Logo.png"
-                alt=""
-              />PEEP SHARE
-            </div>
-            <p>Let’s “ PEEPSHARE ”<br />keep your memories.</p>
-            <b>support@peepshare.me</b>
-          </div>
-          <div class="footer-links">
-            <a href="#">นโยบายความเป็นส่วนตัว</a><a href="#">ศูนย์ช่วยเหลือ</a
-            ><a href="#">เกี่ยวกับ</a><a href="#">ข้อกำหนดการใช้งาน</a>
-          </div>
-        </div>
-        <div class="copyright">© 2026 PEEP SHARE. All rights reserved.</div>
-      </div>
-    </footer>
     <footer class="site-footer"><div class="site-footer__inner"><div class="site-footer__main"><div><a class="site-footer__brand" href="/"><img src="/assets/Footer%20Square%20Logo.png" alt=""><span>PEEP SHARE</span></a><p class="site-footer__tagline">Let’s “ PEEPSHARE ”<br>keep your memories.</p><a class="site-footer__email" href="mailto:support@peepshare.me">support@peepshare.me</a></div><nav class="site-footer__links" aria-label="Footer navigation"><a href="/terms-and-conditions/?document=privacy">นโยบายความเป็นส่วนตัว</a><a href="/join/#faq">ศูนย์ช่วยเหลือ</a><a href="/">เกี่ยวกับ</a><a href="/terms-and-conditions/?document=terms">ข้อกำหนดการใช้บริการ</a></nav></div><div class="site-footer__bottom"><span>© 2026 PEEP SHARE. All rights reserved.</span><div class="site-footer__socials"><a href="#" aria-label="Facebook"><img src="/assets/Frame%201597884737.png" alt=""></a><a href="#" aria-label="Instagram"><img src="/assets/Frame%201597884738.png" alt=""></a><a href="#" aria-label="TikTok"><img src="/assets/Frame%201597884739.png" alt=""></a></div></div></div></footer>
     <script>
-      const events = [
-        [
-          "Smart Sharing: แชร์ไฟล์ปลอดภัยในยุคดิจิทัล",
-          "5 ตุลาคม 2026",
-          "10:00 - 12:30",
-          "Siam Paragon Hall",
-          "photo-1497366754035-f200968a6e72",
-        ],
-        [
-          "PEEP Share × Creator Camp",
-          "18 ตุลาคม 2026",
-          "13:00 - 17:00",
-          "ICON SIAM ชั้น 6",
-          "photo-1521737711867-e3b97375f902",
-        ],
-        [
-          "Cloud Storage Workshop: จัดการพื้นที่ให้เวิร์ค",
-          "25 ตุลาคม 2026",
-          "14:00 - 16:00",
-          "AIS Design Center",
-          "photo-1524178232363-1fb2b075b655",
-        ],
-        [
-          "AI Translate Masterclass สำหรับนักเดินทาง",
-          "2 พฤศจิกายน 2026",
-          "10:00 - 12:00",
-          "Central World ชั้น 4",
-          "photo-1552664730-d307ca884978",
-        ],
-        [
-          "PEEP Share Hackathon 2026",
-          "15-16 พฤศจิกายน 2026",
-          "09:00 - 18:00",
-          "KX Knowledge Xchange",
-          "photo-1517048676732-d65bc937f952",
-        ],
-        [
-          "เทคนิคใช้คูปองเพิ่มยอดขายบน PEEP Share",
-          "22 พฤศจิกายน 2026",
-          "18:00 - 20:30",
-          "The Commons ทองหล่อ",
-          "photo-1522202176988-66273c2fd55f",
-        ],
-      ];
-      document.getElementById("eventGrid").innerHTML = events
-        .map(
-          ([title, date, time, place, image]) =>
-            `<article class="event-card"><img src="https://images.unsplash.com/${image}?auto=format&fit=crop&w=800&q=82" alt="${title}"><div class="event-info"><h3>${title}</h3><div>▣　${date}</div><div>◷　${time}</div><div>●　${place}</div></div></article>`,
-        )
-        .join("");
+      const registrationGrid = document.querySelector(".registration-grid");
+      const registrationCards = [...registrationGrid.querySelectorAll(".registration-step")];
+      const registrationDots = [...document.querySelectorAll(".registration-pagination button")];
+      let registrationScrollFrame;
+
+      function setRegistrationStep(index) {
+        registrationDots.forEach((dot, dotIndex) => {
+          const active = dotIndex === index;
+          dot.classList.toggle("active", active);
+          if (active) dot.setAttribute("aria-current", "step");
+          else dot.removeAttribute("aria-current");
+        });
+      }
+
+      function updateRegistrationStep() {
+        const gridCenter = registrationGrid.scrollLeft + registrationGrid.clientWidth / 2;
+        const closestIndex = registrationCards.reduce((closest, card, index) => {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const closestCenter =
+            registrationCards[closest].offsetLeft + registrationCards[closest].offsetWidth / 2;
+          return Math.abs(cardCenter - gridCenter) < Math.abs(closestCenter - gridCenter)
+            ? index
+            : closest;
+        }, 0);
+        setRegistrationStep(closestIndex);
+      }
+
+      registrationGrid.addEventListener(
+        "scroll",
+        () => {
+          cancelAnimationFrame(registrationScrollFrame);
+          registrationScrollFrame = requestAnimationFrame(updateRegistrationStep);
+        },
+        { passive: true },
+      );
+      registrationDots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          const card = registrationCards[index];
+          const left = card.offsetLeft - (registrationGrid.clientWidth - card.offsetWidth) / 2;
+          registrationGrid.scrollTo({ left, behavior: "smooth" });
+          setRegistrationStep(index);
+        });
+      });
+      window.addEventListener("resize", updateRegistrationStep);
+      updateRegistrationStep();
     </script>
   </body>
 </html>

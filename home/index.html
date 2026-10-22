@@ -11,10 +11,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="image"
+      href="/assets/cloud-tab.png"
+      fetchpriority="high"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <style>
+<style>
       :root {
         --bg: #090a0c;
         --surface: #111216;
@@ -72,9 +78,6 @@
       }
       .accent {
         color: var(--accent);
-      }
-      .muted {
-        color: var(--muted);
       }
       .reveal {
         opacity: 0;
@@ -141,7 +144,7 @@
       .nav-links a:hover {
         color: #fff;
       }
-      .nav-links a.active { color: var(--orange); }
+      .nav-links a.active { color: var(--accent); }
       .nav-cta,
       .primary-btn {
         display: inline-flex;
@@ -187,7 +190,7 @@
         color: #c3c4c7;
         font-size: 14px;
       }
-      .mobile-menu a.active { color: var(--orange); }
+      .mobile-menu a.active { color: var(--accent); }
 
       .hero {
         min-height: 780px;
@@ -427,8 +430,7 @@
         margin: auto;
         text-align: center;
       }
-      .feature-stage::before {
-        content: "PEEPS CLOUD • PEEPS CLOUD • PEEPS CLOUD • PEEPS CLOUD •";
+      .feature-watermark {
         position: absolute;
         left: 0;
         top: 45%;
@@ -441,6 +443,7 @@
         white-space: nowrap;
         letter-spacing: -0.055em;
         animation: feature-marquee 18s linear infinite;
+        pointer-events: none;
       }
       @keyframes feature-marquee {
         from {
@@ -639,11 +642,6 @@
         border: 0;
         background: none;
       }
-      .platform-icon-text {
-        font-size: 22px;
-        color: white;
-        line-height: 1;
-      }
       .download-grid {
         height: 405px;
         display: grid;
@@ -759,86 +757,21 @@
         line-height: 1.75;
       }
 
-      footer {
-        padding: 76px 0 44px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        background: #190a06;
-      }
-      footer .container {
-        width: min(calc(100% - 40px), 1080px);
-      }
-      .footer-grid {
-        min-height: 210px;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 70px;
-      }
-      .footer-logo-row {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        font-size: 22px;
-        font-weight: 800;
-      }
-      .footer-logo-row img {
-        width: 38px;
-        height: 38px;
-      }
-      .footer-tagline {
-        margin: 28px 0 22px;
-        color: #68666a;
-        font-size: 14px;
-        line-height: 1.55;
-      }
-      .footer-email {
-        color: #fff;
-        font-size: 12px;
-        font-weight: 600;
-      }
-      .footer-links {
-        min-width: 205px;
-      }
-      .footer-links a {
-        display: block;
-        margin: 0 0 22px;
-        color: #fff;
-        font-size: 14px;
-      }
-      .footer-links a:hover {
-        color: var(--accent);
-      }
-      .footer-bottom {
-        margin-top: 38px;
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
-        color: #5f5d61;
-        font-size: 10px;
-      }
-      .socials {
-        display: flex;
-        gap: 14px;
-      }
-      .socials a {
-        width: 45px;
-        height: 45px;
-        display: block;
-        border: 0;
-        background: none;
-        transition:
-          transform 0.2s,
-          opacity 0.2s;
-      }
-      .socials a:hover {
-        opacity: 0.8;
-        transform: translateY(-2px);
-      }
-      .socials img {
-        width: 57px;
-        height: 57px;
-        display: block;
-        object-fit: contain;
-      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       @media (max-width: 820px) {
         .nav {
@@ -857,19 +790,11 @@
         .mobile-menu.open {
           display: block;
         }
-        .hero {
-          min-height: 680px;
-          padding-top: 130px;
-        }
         .hero h1 {
           white-space: normal;
         }
         .floating-card {
           display: none;
-        }
-        .hero-device {
-          width: 96vw;
-          margin-top: 50px;
         }
         .reviews-columns {
           grid-template-columns: 1fr 1fr;
@@ -881,11 +806,6 @@
         }
         .download-grid {
           grid-template-columns: 1fr;
-        }
-        .download-platforms {
-          grid-template-columns: 1fr 1fr;
-        }
-        .download-grid {
           height: auto;
         }
         .stats-image {
@@ -897,16 +817,6 @@
         .showcase-carousel {
           height: 405px;
           min-height: 0;
-        }
-        .footer-grid {
-          grid-template-columns: 1fr auto;
-        }
-        .feature-tabs {
-          display: flex;
-          justify-content: flex-start;
-          gap: 10px;
-          overflow-x: auto;
-          scrollbar-width: none;
         }
         .feature-tabs::-webkit-scrollbar {
           display: none;
@@ -935,17 +845,6 @@
           width: 34px;
           height: 34px;
         }
-        .hero {
-          min-height: 600px;
-          padding-top: 116px;
-        }
-        .hero-subtitle {
-          font-size: 12px;
-        }
-        .hero-device {
-          margin-top: 46px;
-          margin-bottom: -50px;
-        }
         .features,
         .reviews,
         .download,
@@ -960,38 +859,15 @@
         .download-grid {
           margin-top: 36px;
         }
-        .stats-image {
-          width: 100%;
-          height: auto;
-          aspect-ratio: 400 / 520;
-        }
-        .showcase-carousel {
-          height: 300px;
-          min-height: 0;
-        }
         .carousel-controls {
           right: 16px;
           bottom: 16px;
         }
-        .reviews-columns {
-          grid-template-columns: 1fr;
-        }
-        .review-column:last-child {
-          grid-column: auto;
-          display: flex;
-        }
         .reviews-viewport {
           max-height: 570px;
         }
-        .footer-grid {
-          grid-template-columns: 1fr;
-          gap: 48px;
-        }
-        .footer-bottom {
-          align-items: flex-start;
-          flex-direction: column;
-          gap: 14px;
-        }
+
+
       }
       @media (max-width: 1100px) {
         .nav {
@@ -1062,12 +938,19 @@
           padding-top: 125px;
         }
         .hero-device {
+          width: 96vw;
+          margin-top: 50px;
           margin-bottom: -60px;
         }
         .features {
           padding-block: 90px 80px;
         }
         .feature-tabs {
+          display: flex;
+          justify-content: flex-start;
+          gap: 10px;
+          overflow-x: auto;
+          scrollbar-width: none;
           margin: 48px 0 46px;
           padding-bottom: 2px;
         }
@@ -1081,11 +964,10 @@
           font-size: clamp(66px, 14vw, 110px);
         }
         .download-platforms {
+          grid-template-columns: 1fr 1fr;
           margin-top: 55px;
         }
-        .footer-grid {
-          gap: 45px;
-        }
+
       }
       @media (max-width: 560px) {
         .hero {
@@ -1102,11 +984,13 @@
           line-height: 1.02;
         }
         .hero-subtitle {
+          font-size: 12px;
           max-width: 340px;
           margin-top: 18px;
           line-height: 1.6;
         }
         .hero-device {
+          margin-bottom: -50px;
           left: 50%;
           width: min(620px, 112vw);
           max-width: none;
@@ -1162,10 +1046,14 @@
           margin-bottom: 15px;
         }
         .showcase-carousel {
+          min-height: 0;
           height: 265px;
           border-radius: 18px;
         }
         .stats-image {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 400 / 520;
           border-radius: 18px;
         }
         .faq h2 {
@@ -1175,17 +1063,9 @@
           padding-block: 17px;
           font-size: 13px;
         }
-        footer {
-          padding-block: 58px 34px;
-        }
-        .footer-links {
-          min-width: 0;
-        }
-        .socials a,
-        .socials img {
-          width: 45px;
-          height: 45px;
-        }
+
+
+
       }
       @media (max-width: 420px) {
         .nav {
@@ -1215,9 +1095,7 @@
           width: 52px;
           height: 52px;
         }
-        .footer-logo-row {
-          font-size: 18px;
-        }
+
       }
       @media (prefers-reduced-motion: reduce) {
         html {
@@ -1226,9 +1104,9 @@
         *,
         *::before,
         *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms;
+          animation-iteration-count: 1;
+          transition-duration: 0.01ms;
         }
         .reveal {
           opacity: 1;
@@ -1302,7 +1180,7 @@
             >
           </div>
           <div class="floating-card float-right-bottom">
-            <b>PEEP Chat</b
+            <b>PEEP Comunity</b
             ><span
               >Find Your People เจอคนที่ชอบอะไรเหมือนคุณ
               รวมอีเวนต์และกิจกรรมที่คุณสนใจไว้ในที่เดียว
@@ -1392,18 +1270,56 @@
             ><button data-feature="talk">Talk</button>
           </div>
           <div class="feature-stage">
+            <div class="feature-watermark" aria-hidden="true">
+              PEEPS CLOUD • PEEPS CLOUD • PEEPS CLOUD • PEEPS CLOUD •
+            </div>
             <img
               class="feature-image"
               id="featureImage"
-              src="/assets/MY%20Cloud%20%20-%20EN.png"
-              alt="PEEP SHARE Cloud feature"
+              src="/assets/chat-tab.png"
+              alt="PEEP SHARE Chat feature"
             />
             <div class="feature-copy">
-              <p id="featureText">
-                One Conversation. Everything Connected.
-                แชท แชร์ และเก็บทุกเรื่องราวไว้ในที่เดียว
-                รูปภาพ วิดีโอ และบทสนทนาสำคัญ ไม่ต้องกลัวหาย
-                เพราะทุกความทรงจำยังอยู่บน Cloud และพร้อมให้คุณกลับมาเปิดดูได้ทุกเมื่อ
+              <p data-feature-panel="chat">
+                <span>One Conversation. Everything Connected.</span>
+                <span>แชท แชร์ และเก็บทุกเรื่องราวไว้ในที่เดียว</span>
+                <span>รูปภาพ วิดีโอ และบทสนทนาสำคัญ ไม่ต้องกลัวหาย</span>
+                <span>เพราะทุกความทรงจำยังอยู่บน Cloud และพร้อมให้คุณกลับมาเปิดดูได้ทุกเมื่อ</span>
+              </p>
+              <p data-feature-panel="cloud" hidden>
+                <span>Keep Every Memory. Keep Every File.</span>
+                <span>จัดเก็บรูปภาพ วิดีโอ และไฟล์สำคัญบน My Cloud พร้อมพื้นที่ฟรี 20GB</span>
+                <span>ให้ทุกช่วงเวลาที่มีความหมายยังคงอยู่ และพร้อมให้คุณกลับมาเปิดดูได้ทุกเมื่อ</span>
+                <span>เพราะทุกความทรงจำ…มีพื้นที่ของมัน</span>
+              </p>
+              <p data-feature-panel="translate" hidden>
+                <span>Break Language Barriers. Connect Freely.</span>
+                <span>เปิดประสบการณ์การสื่อสารกับผู้คนต่างภาษาได้อย่างมั่นใจ</span>
+                <span>ด้วย AI Translate รองรับมากกว่า 20 ภาษา ช่วยแปลบทสนทนาให้เข้าใจง่ายและเป็นธรรมชาติ ให้ทุกการสื่อสารไร้ข้อจำกัด และทุกการเชื่อมต่อเป็นไปอย่างราบรื่น</span>
+              </p>
+              <p data-feature-panel="community" hidden>
+                <span>Find Your People</span>
+                <span>ค้นพบคอมมูนิตี้ที่ใช่ เชื่อมต่อกับคนคอเดียวกัน</span>
+                <span>แลกเปลี่ยนไอเดีย แบ่งปันความสนใจ และสร้างมิตรภาพใหม่ ๆ</span>
+                <span>เปิดโลกเรื่องราวใหม่ ๆ ในพื้นที่ที่เป็นคุณ</span>
+              </p>
+              <p data-feature-panel="event" hidden>
+                <span>Find Your Next Experience</span>
+                <span>ค้นพบอีเวนต์และกิจกรรมที่ตรงกับความสนใจของคุณ</span>
+                <span>ลงทะเบียนเข้าร่วมได้สะดวกในที่เดียว</span>
+                <span>เปิดประสบการณ์ใหม่ และสนุกกับกิจกรรมในแบบที่เป็นคุณ</span>
+              </p>
+              <p data-feature-panel="coupon" hidden>
+                <span>More Deals. More Benefits.</span>
+                <span>ค้นพบคูปอง ส่วนลด และสิทธิพิเศษจากพาร์ทเนอร์หลากหลายแบรนด์</span>
+                <span>เข้าถึงข้อเสนอสำหรับสินค้าและบริการที่คุณสนใจได้ง่ายในที่เดียว</span>
+                <span>ช้อปคุ้มกว่า รับสิทธิประโยชน์มากกว่าในทุกการเลือกของคุณ</span>
+              </p>
+              <p data-feature-panel="talk" hidden>
+                <span>Stay Connected See Them Closer</span>
+                <span>เชื่อมต่อกับคนสำคัญผ่านการโทรและวิดีโอคอลได้อย่างสะดวก</span>
+                <span>ไม่ว่าจะอยู่ที่ไหน ก็พูดคุยและเห็นหน้ากันแบบเรียลไทม์</span>
+                <span>แบ่งปันทุกช่วงเวลา ให้ทุกการสื่อสารรู้สึกใกล้กันมากขึ้น</span>
               </p>
               <div class="chips">
                 <span class="chip">พื้นที่ที่รวม Digital Life ของคุณไว้ด้วยกัน</span>
@@ -1529,6 +1445,8 @@
                 id="reviewsToggle"
                 type="button"
                 aria-expanded="false"
+                data-collapsed-label="View all Reviews"
+                data-expanded-label="Hide Reviews"
               >
                 View all Reviews
               </button>
@@ -1559,7 +1477,7 @@
               </div>
             </div>
             <div>
-              <h3 class="platform-heading">Comming Soon</h3>
+              <h3 class="platform-heading">CREATE YOUR ACCOUNT</h3>
               <div class="platform-icons">
                 <img
                   class="platform-image"
@@ -1586,22 +1504,9 @@
               aria-label="PEEP SHARE platform showcase"
             >
               <div class="showcase-track" id="showcaseTrack">
-                <div class="showcase-slide">
                   <img
-                    src="/assets/showcase-card%20(1).png"
+                    src="/assets/Frame 2147227450.svg"
                     alt="PEEP SHARE available across platforms"
-                  />
-                </div>
-                <div class="showcase-slide">
-                  <img
-                    src="/assets/MY%20Cloud%20%20-%20EN.png"
-                    alt="PEEP Cloud experience"
-                  />
-                </div>
-                <div class="showcase-slide">
-                  <img
-                    src="/assets/Group%201000002778.png"
-                    alt="PEEP SHARE mobile applications"
                   />
                 </div>
               </div>
@@ -1665,44 +1570,6 @@
       </section>
     </main>
 
-    <footer id="terms">
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <div class="footer-logo-row">
-              <img
-                src="/assets/Footer%20Square%20Logo.png"
-                alt="PEEP SHARE logo"
-              /><span>PEEP SHARE</span>
-            </div>
-            <p class="footer-tagline">
-              Let’s “ PEEPSHARE ”<br />keep your memories.
-            </p>
-            <a class="footer-email" href="mailto:support@peepshare.me"
-              >support@peepshare.me</a
-            >
-          </div>
-          <nav class="footer-links" aria-label="Footer navigation">
-            <a href="#">นโยบายความเป็นส่วนตัว</a
-            ><a href="#faq">ศูนย์ช่วยเหลือ</a><a href="/partner/">เกี่ยวกับ</a
-            ><a href="#">ข้อกำหนดการใช้บริการ</a>
-          </nav>
-        </div>
-        <div class="footer-bottom">
-          <span>© 2026 PEEP SHARE. All rights reserved.</span>
-          <div class="socials">
-            <a href="#" aria-label="Facebook"
-              ><img src="/assets/Frame%201597884737.png" alt="" /></a
-            ><a href="#" aria-label="Instagram"
-              ><img src="/assets/Frame%201597884738.png" alt="" /></a
-            ><a href="#" aria-label="TikTok"
-              ><img src="/assets/Frame%201597884739.png" alt=""
-            /></a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
     <footer class="site-footer"><div class="site-footer__inner"><div class="site-footer__main"><div><a class="site-footer__brand" href="/"><img src="/assets/Footer%20Square%20Logo.png" alt=""><span>PEEP SHARE</span></a><p class="site-footer__tagline">Let’s “ PEEPSHARE ”<br>keep your memories.</p><a class="site-footer__email" href="mailto:support@peepshare.me">support@peepshare.me</a></div><nav class="site-footer__links" aria-label="Footer navigation"><a href="/terms-and-conditions/?document=privacy">นโยบายความเป็นส่วนตัว</a><a href="/join/#faq">ศูนย์ช่วยเหลือ</a><a href="/">เกี่ยวกับ</a><a href="/terms-and-conditions/?document=terms">ข้อกำหนดการใช้บริการ</a></nav></div><div class="site-footer__bottom"><span>© 2026 PEEP SHARE. All rights reserved.</span><div class="site-footer__socials"><a href="#" aria-label="Facebook"><img src="/assets/Frame%201597884737.png" alt=""></a><a href="#" aria-label="Instagram"><img src="/assets/Frame%201597884738.png" alt=""></a><a href="#" aria-label="TikTok"><img src="/assets/Frame%201597884739.png" alt=""></a></div></div></div></footer>
     <script>
       const header = document.getElementById("header");
@@ -1741,8 +1608,8 @@
         const expanded = reviewsViewport.classList.toggle("expanded");
         reviewsToggle.setAttribute("aria-expanded", String(expanded));
         reviewsToggle.textContent = expanded
-          ? "Hide Reviews"
-          : "View all Reviews";
+          ? reviewsToggle.dataset.expandedLabel
+          : reviewsToggle.dataset.collapsedLabel;
         if (!expanded)
           document
             .getElementById("reviews")
@@ -1771,54 +1638,43 @@
         if (Math.abs(distance) > 45)
           showSlide(showcaseIndex + (distance < 0 ? 1 : -1));
       });
-      const featureContent = {
-        chat: `One Conversation. Everything Connected.
-แชท แชร์ และเก็บทุกเรื่องราวไว้ในที่เดียว
-รูปภาพ วิดีโอ และบทสนทนาสำคัญ ไม่ต้องกลัวหาย
-เพราะทุกความทรงจำยังอยู่บน Cloud และพร้อมให้คุณกลับมาเปิดดูได้ทุกเมื่อ`,
-        cloud: `Keep Every Memory. Keep Every File.
-จัดเก็บรูปภาพ วิดีโอ และไฟล์สำคัญบน My Cloud พร้อมพื้นที่ฟรี 20GB
-ให้ทุกช่วงเวลาที่มีความหมายยังคงอยู่ และพร้อมให้คุณกลับมาเปิดดูได้ทุกเมื่อ
-เพราะทุกความทรงจำ…มีพื้นที่ของมัน`,
-        translate: `Break Language Barriers. Connect Freely.
-เปิดประสบการณ์การสื่อสารกับผู้คนต่างภาษาได้อย่างมั่นใจ
-ด้วย AI Translate รองรับมากกว่า 20 ภาษา ช่วยแปลบทสนทนาให้เข้าใจง่ายและเป็นธรรมชาติ ให้ทุกการสื่อสารไร้ข้อจำกัด และทุกการเชื่อมต่อเป็นไปอย่างราบรื่น`,
-        community: `Find Your People
-ค้นพบคอมมูนิตี้ที่ใช่ เชื่อมต่อกับคนคอเดียวกัน
-แลกเปลี่ยนไอเดีย แบ่งปันความสนใจ และสร้างมิตรภาพใหม่ ๆ
-เปิดโลกเรื่องราวใหม่ ๆ ในพื้นที่ที่เป็นคุณ`,
-        event: `Find Your Next Experience
-ค้นพบอีเวนต์และกิจกรรมที่ตรงกับความสนใจของคุณ
-ลงทะเบียนเข้าร่วมได้สะดวกในที่เดียว
-เปิดประสบการณ์ใหม่ และสนุกกับกิจกรรมในแบบที่เป็นคุณ`,
-        coupon: `More Deals. More Benefits.
-ค้นพบคูปอง ส่วนลด และสิทธิพิเศษจากพาร์ทเนอร์หลากหลายแบรนด์
-เข้าถึงข้อเสนอสำหรับสินค้าและบริการที่คุณสนใจได้ง่ายในที่เดียว
-ช้อปคุ้มกว่า รับสิทธิประโยชน์มากกว่าในทุกการเลือกของคุณ`,
-        talk: `Stay Connected See Them Closer
-เชื่อมต่อกับคนสำคัญผ่านการโทรและวิดีโอคอลได้อย่างสะดวก
-ไม่ว่าจะอยู่ที่ไหน ก็พูดคุยและเห็นหน้ากันแบบเรียลไทม์
-แบ่งปันทุกช่วงเวลา ให้ทุกการสื่อสารรู้สึกใกล้กันมากขึ้น`,
+      const featurePanels = [
+        ...document.querySelectorAll("[data-feature-panel]"),
+      ];
+      const featureImage = document.getElementById("featureImage");
+      const featureImages = {
+        chat: { src: "/assets/chat-tab.png", label: "Chat" },
+        cloud: { src: "/assets/cloud-tab.svg", label: "Cloud" },
+        translate: { src: "/assets/ai-tab.png", label: "AI Translate" },
+        community: {
+          src: "/assets/community-tab.png",
+          label: "Community",
+        },
+        event: { src: "/assets/event-tab.png", label: "Event" },
+        coupon: { src: "/assets/coupon-tab.png", label: "Coupon" },
+        talk: { src: "/assets/talk-tab.png", label: "Talk" },
       };
-      const featureText = document.getElementById("featureText");
-      const renderFeatureText = (content) => {
-        const lines = content.split("\n");
-        featureText.replaceChildren(
-          ...lines.map((line) => {
-            const row = document.createElement("span");
-            row.textContent = line;
-            return row;
-          }),
-        );
-      };
-      renderFeatureText(featureContent.chat);
+
+      const featurePreloads = Object.values(featureImages).map(({ src }) => {
+        const image = new Image();
+        image.decoding = "async";
+        image.src = src;
+        image.decode?.().catch(() => {});
+        return image;
+      });
+
       document.querySelectorAll(".feature-tabs button").forEach((button) =>
         button.addEventListener("click", () => {
+          const selectedFeature = button.dataset.feature;
           document
             .querySelector(".feature-tabs .active")
             .classList.remove("active");
           button.classList.add("active");
-          renderFeatureText(featureContent[button.dataset.feature]);
+          featurePanels.forEach((panel) => {
+            panel.hidden = panel.dataset.featurePanel !== selectedFeature;
+          });
+          featureImage.src = featureImages[selectedFeature].src;
+          featureImage.alt = `PEEP SHARE ${featureImages[selectedFeature].label} feature`;
         }),
       );
       document.querySelectorAll(".faq details").forEach((details) => {

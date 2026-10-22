@@ -88,60 +88,6 @@ function getFormData(elements) {
   };
 }
 
-function addValidationStyles() {
-  if (document.getElementById("partner-validation-styles")) return;
-  const style = document.createElement("style");
-  style.id = "partner-validation-styles";
-  style.textContent = `
-    .shop-field:focus,
-    .field:focus {
-      outline: none !important;
-      box-shadow: none !important;
-    }
-    .partner-field-invalid {
-      border-color: #ef4444 !important;
-      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.16) !important;
-    }
-    .partner-popup-backdrop {
-      position: fixed;
-      z-index: 9999;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(4px);
-    }
-    .partner-popup {
-      width: min(100%, 420px);
-      padding: 28px;
-      border-radius: 20px;
-      background: #ffffff;
-      color: #171717;
-      text-align: center;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-    }
-    .partner-popup p {
-      margin: 0 0 22px;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1.6;
-    }
-    .partner-popup button {
-      min-width: 120px;
-      padding: 11px 24px;
-      border: 0;
-      border-radius: 999px;
-      background: #ff4d00;
-      color: #ffffff;
-      font: inherit;
-      font-weight: 700;
-      cursor: pointer;
-    }
-  `;
-  document.head.append(style);
-}
-
 function getHighlightTarget(element) {
   if (element.matches('input[type="file"]')) {
     return document.querySelector(`label[for="${element.id}"]`) || element;
@@ -209,7 +155,6 @@ function watchFileSize(input) {
 }
 
 export function watchPartnerFormValidity(form, fields) {
-  addValidationStyles();
   const elements = getElements(form, fields);
   const button = form.querySelector('button[type="submit"]');
   const touchedFields = new Set();

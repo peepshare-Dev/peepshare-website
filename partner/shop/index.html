@@ -45,42 +45,16 @@
         },
       };
     </script>
-    <style>
+<style>
       html {
         scroll-behavior: smooth;
       }
-      body {
-        background: #fff;
-      }
-      .form-bg {
-        background:
-          radial-gradient(
-            circle at 50% 0%,
-            rgba(255, 77, 0, 0.07) 0,
-            transparent 28%
-          ),
-          #fff;
-      }
-      .field {
-        width: 100%;
-        border: 1px solid rgba(19, 19, 19, 0.14);
-        border-radius: 14px;
-        background: #fff;
-        padding: 13px 16px;
-        color: #131313;
-        outline: none;
-        transition: 0.2s;
-      }
       .field:focus {
         border-color: #ff4d00;
-        box-shadow: 0 0 0 3px rgba(255, 77, 0, 0.1);
+        box-shadow: none;
       }
       .field::placeholder {
         color: rgba(19, 19, 19, 0.35);
-      }
-      .upload {
-        border: 2px dashed rgba(19, 19, 19, 0.14);
-        transition: 0.2s;
       }
       .upload:hover {
         border-color: #ff4d00;
@@ -93,90 +67,95 @@
           0 6px 18px rgba(255, 110, 45, 0.08);
       }
       body {
-        background: #ffd5c7 !important;
+        background: #ffd5c7;
       }
       body > header,
       .site-footer {
-        display: none !important;
+        display: none;
       }
       .form-bg {
         min-height: 100vh;
-        padding: 56px 20px 42px !important;
+        padding: 56px 20px 42px;
         background:
           radial-gradient(
             circle at 16% 14%,
             rgba(255, 255, 255, 0.65),
             transparent 31%
           ),
-          linear-gradient(120deg, #ffd0c9 0%, #fff3dc 48%, #ffd79d 100%) !important;
+          linear-gradient(120deg, #ffd0c9 0%, #fff3dc 48%, #ffd79d 100%);
       }
       .form-bg > div {
-        max-width: 810px !important;
+        max-width: 810px;
       }
       .form-bg > div > div:first-child {
-        margin-bottom: 32px !important;
+        margin-bottom: 32px;
       }
       .form-bg > div > div:first-child > div {
-        margin-bottom: 20px !important;
-        padding: 9px 17px !important;
-        background: #fff0dc !important;
-        color: #ff681d !important;
+        margin-bottom: 20px;
+        padding: 9px 17px;
+        background: #fff0dc;
+        color: #ff681d;
       }
       .form-bg h1 {
-        font-family: "Noto Sans Thai", Inter, sans-serif !important;
-        font-size: 32px !important;
-        line-height: 1.25 !important;
+        font-family: "Noto Sans Thai", Inter, sans-serif;
+        font-size: 32px;
+        line-height: 1.25;
         color: #2b2725;
       }
       .form-bg h1 + p {
-        margin-top: 12px !important;
-        font-size: 15px !important;
+        margin-top: 12px;
+        font-size: 15px;
         color: #8d7770;
       }
       .form-bg section,
       #shopForm {
-        border: 1px solid rgba(122, 82, 56, 0.08) !important;
-        border-radius: 22px !important;
-        background: rgba(255, 255, 255, 0.94) !important;
+        border: 1px solid rgba(122, 82, 56, 0.08);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.94);
       }
       .form-bg section {
-        margin-bottom: 24px !important;
-        padding: 28px 30px !important;
+        margin-bottom: 24px;
+        padding: 28px 30px;
       }
       .form-bg section h2 {
-        margin-bottom: 20px !important;
-        font-family: "Noto Sans Thai", sans-serif !important;
+        margin-bottom: 20px;
+        font-family: "Noto Sans Thai", sans-serif;
       }
       .benefit-grid {
-        gap: 18px 54px !important;
+        gap: 18px 54px;
       }
       .benefit-grid > div {
-        gap: 13px !important;
+        gap: 13px;
       }
       .benefit-grid > div > span {
-        width: 34px !important;
-        height: 34px !important;
-        font-size: 0 !important;
-        background-position: center !important;
-        background-size: 34px 34px !important;
-        background-repeat: no-repeat !important;
+        width: 34px;
+        height: 34px;
+        font-size: 0;
+        background-position: center;
+        background-size: 34px 34px;
+        background-repeat: no-repeat;
       }
       .benefit-grid > div:nth-child(1) > span {
-        background-image: url("/assets/Text_margin.png") !important;
+        background-image: url("/assets/Text_margin.png");
       }
       .benefit-grid > div:nth-child(2) > span {
-        background-image: url("/assets/paint.png") !important;
+        background-image: url("/assets/paint.png");
       }
       .benefit-grid > div:nth-child(3) > span {
-        background-image: url("/assets/voice.png") !important;
+        background-image: url("/assets/voice.png");
       }
       .benefit-grid > div:nth-child(4) > span {
-        background-image: url("/assets/condition.png") !important;
+        background-image: url("/assets/condition.png");
       }
       #shopForm {
-        padding: 32px !important;
+        padding: 32px;
       }
       .field {
+        width: 100%;
+        border: 1px solid rgba(19, 19, 19, 0.14);
+        color: #131313;
+        outline: none;
+        transition: 0.2s;
         height: 42px;
         border-color: #e5d8d0;
         border-radius: 12px;
@@ -188,21 +167,22 @@
         height: auto;
       }
       .upload {
-        border-color: #e4d5ca !important;
-        border-width: 1.5px !important;
-        border-radius: 16px !important;
+        border: 2px dashed rgba(19, 19, 19, 0.14);
+        transition: 0.2s;
+        border-color: #e4d5ca;
+        border-width: 1.5px;
+        border-radius: 16px;
         background: #fffdfb;
       }
       #shopForm .space-y-7 > :not([hidden]) ~ :not([hidden]) {
-        margin-top: 25px !important;
+        margin-top: 25px;
       }
       #shopForm button[type="submit"] {
-        border-radius: 12px !important;
-        background: linear-gradient(90deg, #ffb67c, #ffa18c) !important;
-        padding: 12px 24px !important;
+        border-radius: 12px;
+        background: linear-gradient(90deg, #ffb67c, #ffa18c);
+        padding: 12px 24px;
       }
-      #shopForm button[type="submit"]:before {
-        content: "➤";
+      #shopForm .submit-icon {
         margin-right: 9px;
         font-size: 14px;
       }
@@ -210,8 +190,8 @@
         color: #ff681d;
       }
       label:has(> input[name="consent"]) {
-        border-color: #eaded6 !important;
-        background: #fffdfb !important;
+        border-color: #eaded6;
+        background: #fffdfb;
       }
       input[name="consent"] {
         appearance: none;
@@ -223,22 +203,62 @@
         box-shadow: inset 0 0 0 4px #fff;
         background: #ff681d;
       }
+      .partner-field-invalid {
+        border-color: #ef4444;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.16);
+      }
+      .partner-popup-backdrop {
+        position: fixed;
+        z-index: 9999;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(4px);
+      }
+      .partner-popup {
+        width: min(100%, 420px);
+        padding: 28px;
+        border-radius: 20px;
+        background: #fff;
+        color: #171717;
+        text-align: center;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      }
+      .partner-popup p {
+        margin: 0 0 22px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.6;
+      }
+      .partner-popup button {
+        min-width: 120px;
+        padding: 11px 24px;
+        border: 0;
+        border-radius: 999px;
+        background: #ff4d00;
+        color: #fff;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
       #shopForm > p:first-child {
-        margin-bottom: 27px !important;
+        margin-bottom: 27px;
       }
       @media (max-width: 640px) {
         .form-bg {
-          padding: 36px 14px !important;
+          padding: 36px 14px;
         }
         .form-bg h1 {
-          font-size: 26px !important;
+          font-size: 26px;
         }
         .form-bg section,
         #shopForm {
-          padding: 22px 18px !important;
+          padding: 22px 18px;
         }
         .benefit-grid {
-          gap: 16px !important;
+          gap: 16px;
         }
       }
     </style>
@@ -520,13 +540,18 @@
             <button
               class="w-full rounded-2xl bg-ink px-6 py-4 font-semibold text-white transition-colors hover:bg-black"
               type="submit"
+              data-idle-label="ส่งใบสมัครร้านค้า"
+              data-loading-label="กำลังส่งข้อมูล..."
             >
-              ส่งใบสมัครร้านค้า
+              <span class="submit-icon" aria-hidden="true">➤</span
+              ><span class="submit-label">ส่งใบสมัครร้านค้า</span>
             </button>
             <p
               id="status"
               class="hidden rounded-2xl bg-green-50 p-4 text-center text-sm font-medium text-green-700"
               role="status"
+              data-success-message="รับข้อมูลเรียบร้อยแล้ว ขอบคุณที่สมัครเป็น Partner Shop"
+              data-error-message="ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง"
             >
               รับข้อมูลเรียบร้อยแล้ว ขอบคุณที่สมัครเป็น Partner Shop
             </p>
@@ -648,13 +673,14 @@
         const form = event.currentTarget;
         if (!validatePartnerForm(form, partnerFields)) return;
         const button = form.querySelector('button[type="submit"]');
+        const buttonLabel = button.querySelector(".submit-label");
         const status = document.getElementById("status");
         const payload = new URLSearchParams();
         for (const [name, value] of new FormData(form)) {
           if (typeof value === "string") payload.append(name, value);
         }
         button.disabled = true;
-        button.textContent = "กำลังส่งข้อมูล...";
+        buttonLabel.textContent = button.dataset.loadingLabel;
         status.classList.add("hidden");
         try {
           const logoFile = document.getElementById("shopLogo").files[0];
@@ -666,18 +692,17 @@
             mode: "no-cors",
             body: payload,
           });
-          status.textContent =
-            "รับข้อมูลเรียบร้อยแล้ว ขอบคุณที่สมัครเป็น Partner Shop";
+          status.textContent = status.dataset.successMessage;
           status.classList.remove("hidden", "bg-red-50", "text-red-700");
           status.classList.add("bg-green-50", "text-green-700");
           form.reset();
         } catch (error) {
-          status.textContent = "ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง";
+          status.textContent = status.dataset.errorMessage;
           status.classList.remove("hidden", "bg-green-50", "text-green-700");
           status.classList.add("bg-red-50", "text-red-700");
         } finally {
           button.disabled = false;
-          button.textContent = "ส่งใบสมัครร้านค้า";
+          buttonLabel.textContent = button.dataset.idleLabel;
         }
       });
     </script>

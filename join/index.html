@@ -17,7 +17,6 @@
         --text: #f7f7f8;
         --muted: #999a9f;
         --orange: #ff6500;
-        --green: #45ed27;
         --line: rgba(255, 255, 255, 0.13);
         --max: 1180px;
       }
@@ -162,15 +161,28 @@
         bottom: 58px;
       }
       .hero-copy h1 {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
         margin: 0 0 24px;
         font-size: clamp(45px, 5vw, 72px);
         letter-spacing: -0.055em;
+      }
+      .hero-copy h1 .hero-subtitle {
+        color: #c1c2c5;
+        font-size: 0.3em;
+        font-weight: 500;
+        letter-spacing: 0;
+        white-space: nowrap;
       }
       .hero-copy p {
         max-width: 520px;
         color: #c1c2c5;
         font-size: 13px;
         line-height: 1.8;
+      }
+      .hero-copy .hero-detail {
+        margin-top: 10px;
       }
       .buttons {
         display: flex;
@@ -654,7 +666,9 @@
         gap: 38px;
         color: #d0d0d2;
       }
-      .navlinks a:first-child { color: #fff; }
+      .navlinks a:first-child {
+        color: #fff;
+      }
       .shop-btn {
         padding: 11px 24px;
       }
@@ -732,7 +746,9 @@
         order: -1;
         font-size: 10px;
       }
-      .hero-copy .primary { font-size: 11px; }
+      .hero-copy .primary {
+        font-size: 11px;
+      }
       @media (min-width: 801px) {
         .hero-art,
         .hero-copy {
@@ -1619,10 +1635,14 @@
           padding: 54px 0 0;
         }
         .hero-copy h1 {
+          gap: 10px;
           margin-bottom: 20px;
           font-size: 42px;
           line-height: 1.05;
           white-space: nowrap;
+        }
+        .hero-copy h1 .hero-subtitle {
+          font-size: 14px;
         }
         .hero-copy p {
           max-width: 330px;
@@ -1763,14 +1783,16 @@
       }
       /* Interactive Growth Together benefit card. */
       .grow .benefit-slider .feature-copy:before,
-      .grow .benefit-slider .feature-copy:after { content: none; }
+      .grow .benefit-slider .feature-copy:after {
+        content: none;
+      }
       .grow .benefit-count {
         display: block;
         margin-bottom: 24px;
         color: #ff6718;
         font-size: 12px;
         font-weight: 700;
-        letter-spacing: .04em;
+        letter-spacing: 0.04em;
       }
       .grow .benefit-controls {
         position: absolute;
@@ -1792,20 +1814,37 @@
         font-size: 20px;
         line-height: 1;
         cursor: pointer;
-        transition: background .2s, transform .2s;
+        transition:
+          background 0.2s,
+          transform 0.2s;
       }
       .grow .benefit-controls button:hover {
         background: #ff6718;
         transform: translateY(-1px);
       }
-      .grow .benefit-slider.is-changing .feature-copy > :not(.benefit-controls) { opacity: .2; }
-      .grow .benefit-slider .feature-copy > :not(.benefit-controls) { transition: opacity .16s ease; }
+      .grow
+        .benefit-slider.is-changing
+        .feature-copy
+        > :not(.benefit-controls) {
+        opacity: 0.2;
+      }
+      .grow .benefit-slider .feature-copy > :not(.benefit-controls) {
+        transition: opacity 0.16s ease;
+      }
       .steps .step figure {
         display: flex;
+        height: auto;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         background: #f5f5f5;
+      }
+      .steps .step:nth-child(1) figure {
+        aspect-ratio: 2 / 1;
+      }
+      .steps .step:nth-child(2) figure,
+      .steps .step:nth-child(3) figure {
+        aspect-ratio: 1 / 1;
       }
       .steps .step figure img,
       .steps .step:nth-child(1) figure img,
@@ -1830,18 +1869,160 @@
           aspect-ratio: 3 / 2;
           overflow: hidden;
           border-radius: 11px;
-          background: #f4f4f4;
+          background: #090a0c;
         }
         .grow .benefit-slider .feature-img img {
           display: block;
           width: 100%;
           height: 100%;
-          object-fit: contain;
+          object-fit: cover;
           object-position: center;
         }
         .grow .benefit-slider .feature-copy {
           min-height: 400px;
           padding: 28px 28px 62px;
+        }
+      }
+
+      /* Coupon usage steps */
+      .coupon-steps {
+        padding: 64px 0 42px;
+        overflow: hidden;
+        background: #08090b;
+        color: #fff;
+      }
+      .coupon-steps .container {
+        width: min(calc(100% - 160px), 1280px);
+      }
+      .coupon-steps h2 {
+        margin: 0 0 48px;
+        font-size: clamp(34px, 3.35vw, 48px);
+        font-weight: 500;
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+      }
+      .coupon-steps h2 span {
+        color: #ff6718;
+        font-size: 1.16em;
+        font-weight: 500;
+      }
+      .coupon-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .coupon-step {
+        width: 100%;
+        min-width: 0;
+      }
+      .coupon-phone {
+        width: min(100%, 223px);
+        margin: 0 auto 24px;
+      }
+      .coupon-phone img {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      .coupon-copy {
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+      }
+      .coupon-number {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        border-radius: 50%;
+        background: #ff6718;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .coupon-copy h3 {
+        margin: 2px 0 15px;
+        color: #fff;
+        font-size: clamp(16px, 1.4vw, 20px);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .coupon-copy p {
+        margin: 0;
+        color: #a3a3a8;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .coupon-pagination {
+        display: none;
+      }
+      @media (max-width: 800px) {
+        .coupon-steps {
+          padding: 48px 0 44px;
+        }
+        .coupon-steps .container {
+          width: 100%;
+        }
+        .coupon-steps h2 {
+          margin-bottom: 34px;
+          padding: 0 20px;
+          font-size: 30px;
+        }
+        .coupon-grid {
+          display: flex;
+          gap: 18px;
+          padding: 0 20px 14px;
+          overflow-x: auto;
+          scroll-padding: 20px;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .coupon-grid::-webkit-scrollbar {
+          display: none;
+        }
+        .coupon-step {
+          flex: 0 0 min(76vw, 280px);
+          scroll-snap-align: center;
+        }
+        .coupon-phone {
+          width: min(100%, 223px);
+        }
+        .coupon-pagination {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 16px;
+        }
+        .coupon-pagination button {
+          width: 10px;
+          height: 10px;
+          padding: 0;
+          border: 0;
+          border-radius: 50%;
+          background: #d5d8de;
+          opacity: 0.55;
+          cursor: pointer;
+          transition:
+            background 0.2s ease,
+            opacity 0.2s ease,
+            transform 0.2s ease;
+        }
+        .coupon-pagination button.active {
+          background: #ff6718;
+          opacity: 1;
+          transform: scale(1.25);
+        }
+        .coupon-pagination button:focus-visible {
+          outline: 2px solid #fff;
+          outline-offset: 4px;
         }
       }
 
@@ -1861,7 +2042,7 @@
           overflow: visible;
           border-radius: 18px 18px 0 0;
           background:
-            linear-gradient(180deg, transparent 0%, rgba(30, 9, 3, .74) 100%),
+            linear-gradient(180deg, transparent 0%, rgba(30, 9, 3, 0.74) 100%),
             linear-gradient(90deg, #f4751d 0%, #c64c0d 100%);
         }
         html body .join .join-copy {
@@ -1901,7 +2082,7 @@
           max-width: none;
           transform: none;
           object-fit: initial;
-          filter: drop-shadow(0 14px 24px rgba(0, 0, 0, .38));
+          filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.38));
         }
       }
     </style>
@@ -1926,7 +2107,8 @@
       </nav>
       <div class="mobile-menu" id="mobile">
         <a href="/">Home</a><a href="/event/">Event</a
-        ><a class="active" href="/join/">Join with Us</a><a href="/terms-and-conditions/">Terms and Conditions</a
+        ><a class="active" href="/join/">Join with Us</a
+        ><a href="/terms-and-conditions/">Terms and Conditions</a
         ><a href="/partner/shop/">Get the App</a>
       </div>
     </header>
@@ -1943,19 +2125,23 @@
             </div>
             <img
               class="phone"
-              src="/assets/iPhone%2015.png"
+              src="/assets/Frame22.svg"
               alt="PEEP SHARE application"
             />
           </div>
           <div class="hero-copy">
-            <h1>Join With Us</h1>
+            <h1>
+              Join With Us
+              <span class="hero-subtitle">Become a Partner</span>
+            </h1>
             <p>
-              ยิงแอดก็แพง ค่าคอมก็กินกำไร
-              PEEP SHARE ให้ร้านคุณลงเมนูและดีลได้ฟรี ไม่มีค่าคอมมิชชั่น
+              แบรนด์คุณมีของดี ให้ PEEP SHARE ช่วยบอกต่อ ไม่ว่าจะสินค้าบริการ<br />
+              หรือโปรโมชันเด็ดๆ ก็เพิ่มโอกาสให้คนรู้จักแบรนด์คุณได้ง่ายๆ
             </p>
             <div class="buttons">
-              <a class="btn primary" href="/partner/shop/">ลงทะเบียนร้านค้าฟรี</a
-              ><a class="btn secondary" href="#steps">ดูขั้นตอน</a>
+              <a class="btn primary" href="/partner/shop/"
+                >ลงทะเบียนร้านค้าฟรี</a
+              ><a class="btn secondary" href="#steps">ดูขั้นตอนการสมัคร</a>
             </div>
           </div>
         </div>
@@ -1963,39 +2149,42 @@
       <section class="steps" id="steps">
         <div class="container">
           <h2>เปิดร้านบน PEEP SHARE ง่ายๆแค่ 3 ขั้นตอน</h2>
-          <p>แค่ 3 ขั้นตอน ร้านคุณก็พร้อมเจอลูกค้าใหม่</p>
+          <p>เพียง 3 ขั้นตอน PEEPS พร้อมพาคุณเจอลูกค้าใหม่</p>
           <div class="step-grid">
             <article class="step">
               <figure>
-                <img
-                  src="/assets/Frame.png"
-                  alt="สมัครใช้งาน"
-                />
+                <img src="/assets/Frame.svg" alt="สมัครใช้งาน" />
               </figure>
               <div>
-                <h3>ลงทะเบียนร้านค้าฟรี</h3>
-                <p>สร้างโปรไฟล์ร้านค้าภายในไม่กี่นาที ใส่โลโก้ เมนู และดีล ไม่ต้องใช้บัตรเครดิต</p>
+                <h3>เริ่มลงทะเบียนร้านค้าฟรี</h3>
+                <p>
+                  สร้างโปรไฟล์ร้านค้าภายในไม่กี่นาที เพิ่มโลโก้ ดีล
+                  และข้อมูลของร้านได้ทันที
+                </p>
               </div>
             </article>
             <article class="step">
               <figure>
-                <img
-                  src="/assets/Frame2.png"
-                  alt="ตรวจสอบข้อมูล"
-                />
+                <img src="/assets/Frame2.svg" alt="ตรวจสอบข้อมูล" />
               </figure>
               <div>
                 <h3>โพสต์เมนูและดีล</h3>
-                <p>เผยแพร่เมนูของคุณและโปรโมชันให้ลูกค้าเห็นได้ง่ายขึ้น</p>
+                <p>
+                  เพิ่มรายละเอียดโปรโมชันของคุณ
+                  เผยแพร่สินค้าและบริการให้ลูกค้าเห็นได้ง่ายขึ้น
+                </p>
               </div>
             </article>
             <article class="step">
               <figure>
-                <img src="/assets/Frame3.png" alt="เริ่มใช้งาน" />
+                <img src="/assets/Frame3.svg" alt="เริ่มใช้งาน" />
               </figure>
               <div>
-                <h3>ได้โปรโมทและเติบโต</h3>
-                <p>ลูกค้ารู้จักคุณ แชร์ร้าน และชวนเพื่อนมาใช้บริการ</p>
+                <h3>ได้โพรโมทและเติบโตพร้อม PEEPS</h3>
+                <p>
+                  ลูกค้าจะรู้จักคุณมากขึ้น มีการแชร์ร้าน รีวิว
+                  และเชิญชวนเพื่อนมาใช้บริการ
+                </p>
               </div>
             </article>
           </div>
@@ -2060,22 +2249,126 @@
       </section>
       <section class="grow" id="grow">
         <div class="container">
-          <p class="kicker">Growth Together</p>
-          <h2 class="title">สิ่งที่คุณได้ คือสิ่งที่เราให้ความสำคัญ</h2>
+          <p class="kicker">YOUR BENEFITS OUR PRIORITY</p>
+          <h2 class="title">สิ่งที่คุณได้รับ คือสิ่งที่ PEEPS ให้ความสำคัญ</h2>
           <article class="feature benefit-slider">
             <div class="feature-img">
-              <img id="benefitImage" src="/assets/Frame4.png" alt="ลงทะเบียนร้านค้า" />
+              <img
+                id="benefitImage"
+                src="/assets/Frame4.svg"
+                alt="ลงทะเบียนร้านค้า"
+              />
             </div>
             <div class="feature-copy">
               <span class="benefit-count" id="benefitCount">01 / 03</span>
               <h3 id="benefitTitle">ลูกค้าใหม่จากคนในพื้นที่</h3>
-              <p id="benefitDescription">ร้านของคุณจะปรากฏต่อผู้ใช้ที่เข้ามาหาคูปอง พร้อมรูป เมนู รายละเอียดร้านของคุณ เพิ่มโอกาสให้คนตัดสินใจเดินเข้าร้าน</p>
+              <p id="benefitDescription">
+                ร้านของคุณจะปรากฏต่อผู้ใช้ที่เข้ามาหาคูปอง พร้อมรูป เมนู
+                รายละเอียดร้านของคุณ เพิ่มโอกาสให้คนตัดสินใจเดินเข้าร้าน
+              </p>
               <div class="benefit-controls">
-                <button id="benefitPrev" type="button" aria-label="ประโยชน์ก่อนหน้า">‹</button>
-                <button id="benefitNext" type="button" aria-label="ประโยชน์ถัดไป">›</button>
+                <button
+                  id="benefitPrev"
+                  type="button"
+                  aria-label="ประโยชน์ก่อนหน้า"
+                >
+                  ‹
+                </button>
+                <button
+                  id="benefitNext"
+                  type="button"
+                  aria-label="ประโยชน์ถัดไป"
+                >
+                  ›
+                </button>
               </div>
             </div>
           </article>
+        </div>
+      </section>
+      <section class="coupon-steps" aria-labelledby="coupon-steps-title">
+        <div class="container">
+          <h2 id="coupon-steps-title">ขั้นตอนการใช้งาน <span>Coupon</span></h2>
+          <ol class="coupon-grid">
+            <li class="coupon-step">
+              <div class="coupon-phone">
+                <img
+                  src="/assets/Group%201597885525.svg"
+                  alt="หน้า Community ในแอป PEEP SHARE"
+                  loading="lazy"
+                />
+              </div>
+              <div class="coupon-copy">
+                <span class="coupon-number">1</span>
+                <div>
+                  <h3>เปิดแอป PEEP SHARE</h3>
+                  <p>แล้วไปที่ COMMUNITY</p>
+                </div>
+              </div>
+            </li>
+            <li class="coupon-step">
+              <div class="coupon-phone">
+                <img
+                  src="/assets/Group%201597885526.svg"
+                  alt="หน้าหมวดหมู่ Special Coupon"
+                  loading="lazy"
+                />
+              </div>
+              <div class="coupon-copy">
+                <span class="coupon-number">2</span>
+                <div>
+                  <h3>เลือกหมวดหมู่</h3>
+                  <p>Special Coupon</p>
+                </div>
+              </div>
+            </li>
+            <li class="coupon-step">
+              <div class="coupon-phone">
+                <img
+                  src="/assets/Group%201597885527.svg"
+                  alt="หน้ารายละเอียดคูปองในแอป PEEP SHARE"
+                  loading="lazy"
+                />
+              </div>
+              <div class="coupon-copy">
+                <span class="coupon-number">3</span>
+                <div>
+                  <h3>เลือกคูปองที่ต้องการ</h3>
+                  <p>แล้วกดใช้งานคูปอง</p>
+                </div>
+              </div>
+            </li>
+            <li class="coupon-step">
+              <div class="coupon-phone">
+                <img
+                  src="/assets/Group%201597885528.svg"
+                  alt="หน้าบาร์โค้ดสำหรับแลกรับคูปอง"
+                  loading="lazy"
+                />
+              </div>
+              <div class="coupon-copy">
+                <span class="coupon-number">4</span>
+                <div>
+                  <h3>แสดงบาร์โค้ดจากนั้น</h3>
+                  <p>กดปุ่มแลกรับคูปอง</p>
+                </div>
+              </div>
+            </li>
+          </ol>
+          <nav
+            class="coupon-pagination"
+            aria-label="เลือกขั้นตอนการใช้งานคูปอง"
+          >
+            <button
+              class="active"
+              type="button"
+              aria-label="ขั้นตอนที่ 1"
+              aria-current="step"
+            ></button>
+            <button type="button" aria-label="ขั้นตอนที่ 2"></button>
+            <button type="button" aria-label="ขั้นตอนที่ 3"></button>
+            <button type="button" aria-label="ขั้นตอนที่ 4"></button>
+          </nav>
         </div>
       </section>
       <section class="faq" id="faq">
@@ -2084,26 +2377,32 @@
           <details open>
             <summary>สร้างคูปองบน PEEP SHARE มีค่าใช้จ่ายไหม?</summary>
             <p>
-              ไม่มีครับ การลงทะเบียนร้าน สร้างคูปอง และปล่อยโปรโมชันพื้นฐานใช้ฟรี ไม่มีค่าแรกเข้า ไม่มีค่ารายเดือน และไม่หักค่าคอมมิชชั่นจากยอดขายหน้าร้าน หากต้องการแพ็กเกจโปรโมทพิเศษเพิ่มเติม ทีมงานจะแจ้งรายละเอียดและราคาให้ทราบล่วงหน้าเสมอ
+              ไม่มีครับ การลงทะเบียนร้าน สร้างคูปอง
+              และปล่อยโปรโมชันพื้นฐานใช้ฟรี ไม่มีค่าแรกเข้า ไม่มีค่ารายเดือน
+              และไม่หักค่าคอมมิชชั่นจากยอดขายหน้าร้าน
+              หากต้องการแพ็กเกจโปรโมทพิเศษเพิ่มเติม
+              ทีมงานจะแจ้งรายละเอียดและราคาให้ทราบล่วงหน้าเสมอ
             </p>
           </details>
           <details>
             <summary>ตั้งคูปองแบบได้ได้บ้าง?</summary>
             <p>
-             ตั้งได้ทั้งส่วนลดเป็นบาท ส่วนลดเป็นเปอร์เซ็นต์ ซื้อ 1 แถม 1 และของแถมพิเศษ กำหนดวันเริ่ม–วันหมดอายุ จำนวนสิทธิ์ และเงื่อนไขขั้นต่ำได้เอง
+              ตั้งได้ทั้งส่วนลดเป็นบาท ส่วนลดเป็นเปอร์เซ็นต์ ซื้อ 1 แถม 1
+              และของแถมพิเศษ กำหนดวันเริ่ม–วันหมดอายุ จำนวนสิทธิ์
+              และเงื่อนไขขั้นต่ำได้เอง
             </p>
           </details>
           <details>
             <summary>ลูกค้าใช้คูปองที่หน้าร้านอย่างไร?</summary>
             <p>
-              ลูกค้ากดรับสิทธิ์คูปองในแอป แล้วแสดงโค้ดหรือ QR ที่หน้าร้าน พนักงานสแกนหรือกดยืนยันเพื่อตัดสิทธิ์ได้ทันที ระบบจะบันทึกการใช้คูปองให้อัตโนมัติและป้องกันการใช้ซ้ำ
+              ลูกค้ากดรับสิทธิ์คูปองในแอป แล้วแสดงโค้ดหรือ QR ที่หน้าร้าน
+              พนักงานสแกนหรือกดยืนยันเพื่อตัดสิทธิ์ได้ทันที
+              ระบบจะบันทึกการใช้คูปองให้อัตโนมัติและป้องกันการใช้ซ้ำ
             </p>
           </details>
           <details>
             <summary>ดูผลของคูปองแต่ละใบได้ที่ไหน?</summary>
-            <p>
-              ทางเราจัดส่งรายงานยอดให้ทุกสิ้นเดือน
-            </p>
+            <p>ทางเราจัดส่งรายงานยอดให้ทุกสิ้นเดือน</p>
           </details>
         </div>
       </section>
@@ -2111,9 +2410,13 @@
         <div class="join-grid container">
           <div class="join-copy">
             <h2>พร้อมให้ลูกค้าเจอร้านคุณแล้วหรือยัง?</h2>
-            <p>ลงทะเบียนวันนี้ ฟรี ไม่มีค่าใช้จ่ายแอบแฝง<br />
-              แล้วเริ่มปล่อยดีลแรกของร้านคุณได้เลย</p>
-            <a class="btn secondary" href="/partner/shop/">ลงทะเบียนร้านค้าฟรี</a>
+            <p>
+              พร้อมแล้ว มากับ PEEPS ลงทะเบียนได้ฟรี ไม่มีค่าใช้จ่าย<br />
+              เริ่มปล่อยดีลแรกของร้านคุณได้เลย
+            </p>
+            <a class="btn secondary" href="/partner/shop/"
+              >ลงทะเบียนร้านค้าฟรี</a
+            >
           </div>
           <img src="/assets/Mockup.png" alt="PEEP SHARE application" />
         </div>
@@ -2142,7 +2445,45 @@
         <p class="copy">© 2026 PEEP SHARE. All rights reserved.</p>
       </div>
     </footer>
-    <footer class="site-footer"><div class="site-footer__inner"><div class="site-footer__main"><div><a class="site-footer__brand" href="/"><img src="/assets/Footer%20Square%20Logo.png" alt=""><span>PEEP SHARE</span></a><p class="site-footer__tagline">Let’s “ PEEPSHARE ”<br>keep your memories.</p><a class="site-footer__email" href="mailto:support@peepshare.me">support@peepshare.me</a></div><nav class="site-footer__links" aria-label="Footer navigation"><a href="/terms-and-conditions/?document=privacy">นโยบายความเป็นส่วนตัว</a><a href="/join/#faq">ศูนย์ช่วยเหลือ</a><a href="/">เกี่ยวกับ</a><a href="/terms-and-conditions/?document=terms">ข้อกำหนดการใช้บริการ</a></nav></div><div class="site-footer__bottom"><span>© 2026 PEEP SHARE. All rights reserved.</span><div class="site-footer__socials"><a href="#" aria-label="Facebook"><img src="/assets/Frame%201597884737.png" alt=""></a><a href="#" aria-label="Instagram"><img src="/assets/Frame%201597884738.png" alt=""></a><a href="#" aria-label="TikTok"><img src="/assets/Frame%201597884739.png" alt=""></a></div></div></div></footer>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__main">
+          <div>
+            <a class="site-footer__brand" href="/"
+              ><img src="/assets/Footer%20Square%20Logo.png" alt="" /><span
+                >PEEP SHARE</span
+              ></a
+            >
+            <p class="site-footer__tagline">
+              Let’s “ PEEPSHARE ”<br />keep your memories.
+            </p>
+            <a class="site-footer__email" href="mailto:support@peepshare.me"
+              >support@peepshare.me</a
+            >
+          </div>
+          <nav class="site-footer__links" aria-label="Footer navigation">
+            <a href="/terms-and-conditions/?document=privacy"
+              >นโยบายความเป็นส่วนตัว</a
+            ><a href="/join/#faq">ศูนย์ช่วยเหลือ</a><a href="/">เกี่ยวกับ</a
+            ><a href="/terms-and-conditions/?document=terms"
+              >ข้อกำหนดการใช้บริการ</a
+            >
+          </nav>
+        </div>
+        <div class="site-footer__bottom">
+          <span>© 2026 PEEP SHARE. All rights reserved.</span>
+          <div class="site-footer__socials">
+            <a href="#" aria-label="Facebook"
+              ><img src="/assets/Frame%201597884737.png" alt="" /></a
+            ><a href="#" aria-label="Instagram"
+              ><img src="/assets/Frame%201597884738.png" alt="" /></a
+            ><a href="#" aria-label="TikTok"
+              ><img src="/assets/Frame%201597884739.png" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script>
       if (location.pathname === "/")
         history.replaceState(null, "", "/home" + location.hash);
@@ -2212,17 +2553,19 @@
           if (!Array.isArray(data) || data.length === 0) return;
 
           const renderLogos = () =>
-            Array.from({ length: 4 }, () => data).flat().map(({ id, imagePath }) => {
-              const item = document.createElement("span");
-              item.className = "logo";
+            Array.from({ length: 4 }, () => data)
+              .flat()
+              .map(({ id, imagePath }) => {
+                const item = document.createElement("span");
+                item.className = "logo";
 
-              const image = document.createElement("img");
-              image.src = imagePath;
-              image.alt = `Partner logo ${id}`;
-              image.loading = "lazy";
-              item.append(image);
-              return item;
-            });
+                const image = document.createElement("img");
+                image.src = imagePath;
+                image.alt = `Partner logo ${id}`;
+                image.loading = "lazy";
+                item.append(image);
+                return item;
+              });
 
           primary.replaceChildren(...renderLogos());
           duplicate.replaceChildren(...renderLogos());
@@ -2236,15 +2579,18 @@
       const benefitSlides = [
         {
           title: "ลูกค้าใหม่จากคนในพื้นที่",
-          description: "ร้านของคุณจะปรากฏต่อผู้ใช้ที่เข้ามาหาคูปอง พร้อมรูป เมนู รายละเอียดร้านของคุณ เพิ่มโอกาสให้คนตัดสินใจเดินเข้าร้าน",
+          description:
+            "ร้านของคุณจะปรากฏต่อผู้ใช้ที่เข้ามาหาคูปอง พร้อมรูป เมนู รายละเอียดร้านของคุณ เพิ่มโอกาสให้คนตัดสินใจเดินเข้าร้าน",
         },
         {
           title: "โปรโมทฟรี ไม่มีค่าคอมมิชชั่น",
-          description: "ลงร้าน ลงเมนู และปล่อยดีลได้ไม่จำกัด โดยไม่มีข้อผูกมัดหรือเสียค่าคอมมิชชั่น กำไรทุกบาทยังอยู่กับร้านคุณ",
+          description:
+            "ลงร้าน ลงเมนู และปล่อยดีลได้ไม่จำกัด โดยไม่มีข้อผูกมัดหรือเสียค่าคอมมิชชั่น กำไรทุกบาทยังอยู่กับร้านคุณ",
         },
         {
           title: "รู้ว่าลูกค้าชอบอะไร",
-          description: "ดูยอดเข้าชมร้าน เมนูยอดนิยม และผลตอบรับแต่ละดีลได้จาก Dashboard เพื่อจัดโปรโมชันรอบถัดไปได้แม่นยำขึ้นและตรงใจลูกค้ามากขึ้น",
+          description:
+            "ดูยอดเข้าชมร้าน เมนูยอดนิยม และผลตอบรับแต่ละดีลได้จาก Dashboard เพื่อจัดโปรโมชันรอบถัดไปได้แม่นยำขึ้นและตรงใจลูกค้ามากขึ้น",
         },
       ];
       const benefitCard = document.querySelector(".benefit-slider");
@@ -2263,8 +2609,63 @@
           benefitCard.classList.remove("is-changing");
         }, 160);
       }
-      document.getElementById("benefitPrev").addEventListener("click", () => showBenefit(benefitIndex - 1));
-      document.getElementById("benefitNext").addEventListener("click", () => showBenefit(benefitIndex + 1));
+      document
+        .getElementById("benefitPrev")
+        .addEventListener("click", () => showBenefit(benefitIndex - 1));
+      document
+        .getElementById("benefitNext")
+        .addEventListener("click", () => showBenefit(benefitIndex + 1));
+
+      const couponGrid = document.querySelector(".coupon-grid");
+      const couponCards = [...couponGrid.querySelectorAll(".coupon-step")];
+      const couponDots = [
+        ...document.querySelectorAll(".coupon-pagination button"),
+      ];
+      let couponScrollFrame;
+
+      function setCouponStep(index) {
+        couponDots.forEach((dot, dotIndex) => {
+          const active = dotIndex === index;
+          dot.classList.toggle("active", active);
+          if (active) dot.setAttribute("aria-current", "step");
+          else dot.removeAttribute("aria-current");
+        });
+      }
+
+      function updateCouponStep() {
+        if (window.innerWidth > 800) return;
+        const gridCenter = couponGrid.scrollLeft + couponGrid.clientWidth / 2;
+        const closestIndex = couponCards.reduce((closest, card, index) => {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const closestCenter =
+            couponCards[closest].offsetLeft +
+            couponCards[closest].offsetWidth / 2;
+          return Math.abs(cardCenter - gridCenter) <
+            Math.abs(closestCenter - gridCenter)
+            ? index
+            : closest;
+        }, 0);
+        setCouponStep(closestIndex);
+      }
+
+      couponGrid.addEventListener(
+        "scroll",
+        () => {
+          cancelAnimationFrame(couponScrollFrame);
+          couponScrollFrame = requestAnimationFrame(updateCouponStep);
+        },
+        { passive: true },
+      );
+      couponDots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          const card = couponCards[index];
+          const left =
+            card.offsetLeft - (couponGrid.clientWidth - card.offsetWidth) / 2;
+          couponGrid.scrollTo({ left, behavior: "smooth" });
+          setCouponStep(index);
+        });
+      });
+      window.addEventListener("resize", updateCouponStep);
     </script>
   </body>
 </html>

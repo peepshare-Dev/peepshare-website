@@ -1,50 +1,7 @@
-const documents = {
-  community: {
-    th: {
-      title: "แนวทางปฏิบัติของชุมชน (Community Guidelines)",
-      updated: "แก้ไขล่าสุด : 31 สิงหาคม 2569",
-      loading: "กำลังโหลดเอกสาร…",
-      error: "ไม่สามารถโหลดเอกสารได้ กรุณาลองใหม่อีกครั้ง",
-    },
-    en: {
-      title: "Community Guidelines",
-      updated: "Last Edited: August 31, 2026",
-      loading: "Loading document…",
-      error: "The document could not be loaded. Please try again.",
-    },
-  },
-  privacy: {
-    th: {
-      title: "ประกาศการคุ้มครองข้อมูลส่วนบุคคล สำหรับ PEEP SHARE",
-      updated: "แก้ไขล่าสุด : 31 สิงหาคม 2569",
-      loading: "กำลังโหลดเอกสาร…",
-      error: "ไม่สามารถโหลดเอกสารได้ กรุณาลองใหม่อีกครั้ง",
-    },
-    en: {
-      title: "Privacy Notice for PEEP SHARE",
-      updated: "Last updated: August 31, 2026",
-      loading: "Loading document…",
-      error: "The document could not be loaded. Please try again.",
-    },
-  },
-  terms: {
-    th: {
-      title: "ข้อกำหนดและเงื่อนไขการให้บริการทั่วไป",
-      updated: "แก้ไขล่าสุด : 31 สิงหาคม 2569",
-      loading: "กำลังโหลดเอกสาร…",
-      error: "ไม่สามารถโหลดเอกสารได้ กรุณาลองใหม่อีกครั้ง",
-    },
-    en: {
-      title: "Terms and Conditions",
-      updated: "Last Edited: August 31, 2026",
-      loading: "Loading document…",
-      error: "The document could not be loaded. Please try again.",
-    },
-  },
-};
-
 const cache = new Map();
-const allowedDocuments = Object.keys(documents);
+const tabButtons = [...document.querySelectorAll("[data-document]")];
+const languageButtons = [...document.querySelectorAll("[data-language]")];
+const allowedDocuments = tabButtons.map((button) => button.dataset.document);
 const params = new URLSearchParams(window.location.search);
 const requestedDocument = params.get("document");
 const requestedLanguage = params.get("lang");
@@ -64,8 +21,23 @@ const lastUpdated = document.getElementById("lastUpdated");
 const legalContent = document.getElementById("legalContent");
 const legalDocument = document.getElementById("legalDocument");
 const loadingState = document.getElementById("loadingState");
-const tabButtons = [...document.querySelectorAll("[data-document]")];
-const languageButtons = [...document.querySelectorAll("[data-language]")];
+
+function getMetadata() {
+  const documentButton = tabButtons.find(
+    (button) => button.dataset.document === activeDocument,
+  );
+  const languageButton = languageButtons.find(
+    (button) => button.dataset.language === activeLanguage,
+  );
+  const languageSuffix = activeLanguage === "en" ? "En" : "Th";
+
+  return {
+    title: documentButton.dataset[`title${languageSuffix}`],
+    updated: documentButton.dataset[`updated${languageSuffix}`],
+    loading: languageButton.dataset.loadingMessage,
+    error: languageButton.dataset.errorMessage,
+  };
+}
 
 function stripRepeatedHeading(html) {
   const template = document.createElement("template");
@@ -121,7 +93,7 @@ function updateUrl() {
 
 async function renderDocument({ focusContent = false } = {}) {
   const currentRender = ++renderId;
-  const metadata = documents[activeDocument][activeLanguage];
+  const metadata = getMetadata();
 
   updateControls();
   updateUrl();
