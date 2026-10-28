@@ -1,0 +1,2154 @@
+html.page-join {
+        --bg: #08090b;
+        --card: #111216;
+        --text: #f7f7f8;
+        --muted: #999a9f;
+        --orange: #ff6500;
+        --line: rgba(255, 255, 255, 0.13);
+        --max: 1180px;
+      }
+      html.page-join main * {
+        box-sizing: border-box;
+      }
+      html.page-join {
+        scroll-behavior: smooth;
+      }
+      html.page-join body {
+        margin: 0;
+        min-width: 320px;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Noto Sans Thai", sans-serif;
+      }
+      html.page-join main a {
+        color: inherit;
+        text-decoration: none;
+      }
+      html.page-join main iconify-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+      }
+      html.page-join main img {
+        display: block;
+        max-width: 100%;
+      }
+      html.page-join main .container {
+        width: min(calc(100% - 40px), var(--max));
+        margin: auto;
+      }
+      html.page-join main .orange {
+        color: var(--orange);
+      }
+      html.page-join main header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgba(8, 9, 11, 0.9);
+        backdrop-filter: blur(15px);
+      }
+      html.page-join main .nav {
+        height: 72px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+      }
+      html.page-join main .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        font-weight: 800;
+      }
+      html.page-join main .brand img {
+        width: 30px;
+        height: 30px;
+      }
+      html.page-join main .navlinks {
+        display: flex;
+        gap: 30px;
+        font-size: 11px;
+      }
+      html.page-join main .navlinks a,html.page-join main .mobile-menu a {
+        color: #fff;
+        transition: color 0.2s ease;
+      }
+      html.page-join main .navlinks a.active,html.page-join main .navlinks a:hover,html.page-join main .mobile-menu a.active,html.page-join main .mobile-menu a:hover {
+        color: var(--orange);
+      }
+      html.page-join main .shop-btn {
+        justify-self: end;
+        padding: 10px 20px;
+        border-radius: 99px;
+        background: var(--orange);
+        font-size: 11px;
+        font-weight: 700;
+      }
+      html.page-join main .menu-btn,html.page-join main .mobile-menu {
+        display: none;
+      }
+      html.page-join main .hero {
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 27% 65%,
+            rgba(255, 101, 0, 0.75),
+            transparent 27%
+          ),
+          #090a0c;
+      }
+      html.page-join main .hero-grid {
+        min-height: 600px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+      }
+      html.page-join main .hero-art {
+        position: relative;
+        align-self: end;
+        height: 520px;
+      }
+      html.page-join main .phone {
+        position: absolute;
+        bottom: -48px;
+        left: 70px;
+        width: 360px;
+        transform: none;
+        filter: drop-shadow(0 28px 48px #000);
+      }
+      html.page-join main .stat {
+        position: absolute;
+        z-index: 2;
+        width: 135px;
+        padding: 15px;
+        border: 1px solid #555;
+        border-radius: 12px;
+        background: rgba(14, 15, 18, 0.82);
+        backdrop-filter: blur(8px);
+      }
+      html.page-join main .stat b {
+        display: block;
+        font-size: 27px;
+      }
+      html.page-join main .stat small {
+        color: #aaa;
+        font-size: 9px;
+      }
+      html.page-join main .s1 {
+        left: 0;
+        top: 270px;
+      }
+      html.page-join main .s2 {
+        left: 308px;
+        top: 105px;
+      }
+      html.page-join main .s3 {
+        left: 342px;
+        bottom: 58px;
+      }
+      html.page-join main .hero-copy h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        margin: 0 0 24px;
+        font-size: clamp(45px, 5vw, 72px);
+        letter-spacing: -0.055em;
+      }
+      html.page-join main .hero-copy h1 .hero-subtitle {
+        color: #fff;
+        font-size: 0.3em;
+        font-weight: 500;
+        line-height: 1.1;
+        letter-spacing: 0;
+        white-space: nowrap;
+      }
+      html.page-join main .hero-copy p {
+        max-width: 520px;
+        color: #c1c2c5;
+        font-size: 13px;
+        line-height: 1.8;
+      }
+      html.page-join main .hero-copy .hero-detail {
+        margin-top: 10px;
+      }
+      html.page-join main .buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 27px;
+      }
+      html.page-join main .btn {
+        display: inline-flex;
+        padding: 12px 21px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      html.page-join main .primary {
+        background: var(--orange);
+      }
+      html.page-join main .secondary {
+        background: #fff;
+        color: #111;
+      }
+      html.page-join main .steps {
+        padding: 55px 0 68px;
+        border-block: 5px solid var(--green);
+        background: #f5f5f3;
+        color: #111;
+      }
+      html.page-join main .steps h2 {
+        margin: 0 0 8px;
+        font-size: 29px;
+      }
+      html.page-join main .steps > div > p {
+        margin: 0 0 32px;
+        color: #666;
+        font-size: 12px;
+      }
+      html.page-join main .step-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      html.page-join main .step {
+        overflow: hidden;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0 8px 20px #00000016;
+      }
+      html.page-join main .step figure {
+        height: 185px;
+        margin: 0;
+        background: #e8e9eb;
+      }
+      html.page-join main .step figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      html.page-join main .step div {
+        padding: 16px;
+      }
+      html.page-join main .step h3 {
+        margin: 0 0 7px;
+        font-size: 15px;
+      }
+      html.page-join main .step p {
+        margin: 0;
+        color: #777;
+        font-size: 11px;
+        line-height: 1.6;
+      }
+      html.page-join main .logos {
+        overflow: hidden;
+        padding: 28px 0;
+        border-bottom: 5px solid var(--green);
+        text-align: center;
+        background: #111216;
+      }
+      html.page-join main .logos p {
+        color: #999;
+        font-size: 11px;
+      }
+      html.page-join main .track {
+        display: flex;
+        width: max-content;
+        animation: marquee 60s linear infinite;
+      }
+      html.page-join main .set {
+        display: flex;
+        gap: 16px;
+        padding-right: 16px;
+      }
+      html.page-join main .logo {
+        display: grid;
+        width: 61px;
+        height: 61px;
+        place-items: center;
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        color: #aaa;
+        font-size: 9px;
+        font-weight: 700;
+      }
+      html.page-join main .logo img {
+        width: 43px;
+        height: 43px;
+        border-radius: 50%;
+        object-fit: contain;
+      }
+      @keyframes marquee {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      html.page-join main .grow {
+        padding-top: 70px;
+        border-bottom: 5px solid var(--green);
+      }
+      html.page-join main .kicker {
+        text-align: center;
+        color: var(--orange);
+        font-size: 12px;
+      }
+      html.page-join main .title {
+        margin: 9px 0 46px;
+        text-align: center;
+        font-size: clamp(29px, 4vw, 50px);
+        letter-spacing: -0.04em;
+      }
+      html.page-join main .feature {
+        min-height: 350px;
+        display: grid;
+        grid-template-columns: 1fr 1.25fr;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+      }
+      html.page-join main .feature.reverse {
+        grid-template-columns: 1.25fr 1fr;
+      }
+      html.page-join main .feature-copy {
+        padding: 48px;
+      }
+      html.page-join main .feature-copy h3 {
+        margin: 0 0 15px;
+        font-size: 25px;
+      }
+      html.page-join main .feature-copy p {
+        color: #aaa;
+        font-size: 12px;
+        line-height: 1.75;
+      }
+      html.page-join main .feature-img {
+        height: 100%;
+        min-height: 350px;
+      }
+      html.page-join main .feature-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      html.page-join main .reverse .feature-img {
+        order: -1;
+      }
+      html.page-join main .peeps-shop {
+        padding-top: 65px;
+        border-bottom: 5px solid var(--green);
+      }
+      html.page-join main .shop-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        align-items: center;
+      }
+      html.page-join main .shop-copy {
+        padding: 38px;
+      }
+      html.page-join main .shop-copy span {
+        color: var(--orange);
+        font-size: 12px;
+      }
+      html.page-join main .shop-copy h2 {
+        margin: 12px 0 18px;
+        font-size: 37px;
+      }
+      html.page-join main .shop-copy p {
+        color: #aaa;
+        font-size: 12px;
+        line-height: 1.75;
+      }
+      html.page-join main .shop-art {
+        min-height: 390px;
+        display: flex;
+        align-items: end;
+        background: radial-gradient(
+          circle at 55% 65%,
+          #ff650042,
+          transparent 47%
+        );
+      }
+      html.page-join main .faq {
+        padding: 70px 0;
+      }
+      html.page-join main .faq h2 {
+        margin: 0 0 35px;
+        font-size: 30px;
+      }
+      html.page-join main .faq details {
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+      }
+      html.page-join main .faq summary {
+        display: flex;
+        justify-content: space-between;
+        padding: 19px 0;
+        cursor: pointer;
+        list-style: none;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      html.page-join main .faq summary::-webkit-details-marker {
+        display: none;
+      }
+      html.page-join main .faq summary:after {
+        content: "+";
+      }
+      html.page-join main .faq details[open] summary:after {
+        content: "−";
+        color: var(--orange);
+      }
+      html.page-join main .faq details p {
+        margin: 0 0 20px;
+        color: #999;
+        font-size: 12px;
+        line-height: 1.7;
+      }
+      html.page-join main .join {
+        overflow: hidden;
+        background: linear-gradient(
+          130deg,
+          #4c1c07,
+          var(--orange) 58%,
+          #ff8a1f
+        );
+      }
+      html.page-join main .join-grid {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        align-items: center;
+      }
+      html.page-join main .join-copy {
+        padding: 55px 0;
+      }
+      html.page-join main .join h2 {
+        margin: 0 0 14px;
+        font-size: 35px;
+      }
+      html.page-join main .join p {
+        max-width: 520px;
+        font-size: 12px;
+        line-height: 1.7;
+      }
+      html.page-join main .join img {
+        height: 300px;
+        justify-self: center;
+        object-fit: contain;
+        object-position: bottom;
+      }
+      html.page-join main footer {
+        padding: 40px 0;
+        background: #190a05;
+      }
+      html.page-join main .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+      }
+      html.page-join main .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+      }
+      html.page-join main .footer-brand img {
+        width: 30px;
+      }
+      html.page-join main .footer-text,html.page-join main .copy {
+        color: #777;
+        font-size: 10px;
+        line-height: 1.6;
+      }
+      html.page-join main .footer-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 36px;
+        color: #bbb;
+        font-size: 10px;
+      }
+      html.page-join main .copy {
+        margin-top: 32px;
+      }
+      @media (max-width: 800px) {
+        html.page-join main .nav {
+          grid-template-columns: 1fr auto;
+        }
+        html.page-join main .navlinks,html.page-join main .shop-btn {
+          display: none;
+        }
+        html.page-join main .menu-btn {
+          display: block;
+          border: 0;
+          background: none;
+          color: #fff;
+          font-size: 23px;
+        }
+        html.page-join main .mobile-menu.open {
+          display: block;
+          padding: 0 20px 18px;
+        }
+        html.page-join main .mobile-menu a {
+          display: block;
+          padding: 9px 0;
+          color: #bbb;
+        }
+        html.page-join main .hero-grid,html.page-join main .shop-grid,html.page-join main .join-grid {
+          grid-template-columns: 1fr;
+        }
+        html.page-join main .hero-copy {
+          order: -1;
+          padding-top: 50px;
+          text-align: center;
+        }
+        html.page-join main .hero-copy p {
+          margin-inline: auto;
+        }
+        html.page-join main .buttons {
+          justify-content: center;
+        }
+        html.page-join main .hero-art {
+          height: 450px;
+        }
+        html.page-join main .step-grid {
+          grid-template-columns: 1fr;
+        }
+        html.page-join main .feature,html.page-join main .feature.reverse {
+          grid-template-columns: 1fr;
+        }
+        html.page-join main .reverse .feature-img {
+          order: 0;
+        }
+        html.page-join main .shop-copy {
+          padding-inline: 0;
+        }
+        html.page-join main .join-copy {
+          text-align: center;
+          padding-bottom: 15px;
+        }
+        html.page-join main .join img {
+          height: 260px;
+        }
+        html.page-join main .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 35px;
+        }
+      }
+      @media (max-width: 520px) {
+        html.page-join main .container {
+          width: calc(100% - 28px);
+        }
+        html.page-join main .hero-grid {
+          min-height: 760px;
+        }
+        html.page-join main .hero-art {
+          height: 390px;
+        }
+        html.page-join main .phone {
+          left: 50%;
+          width: 280px;
+          transform: translateX(-50%);
+        }
+        html.page-join main .stat {
+          width: 104px;
+          padding: 10px;
+        }
+        html.page-join main .stat b {
+          font-size: 20px;
+        }
+        html.page-join main .s1 {
+          left: 0;
+          top: 215px;
+        }
+        html.page-join main .s2 {
+          left: auto;
+          right: 0;
+          top: 80px;
+        }
+        html.page-join main .s3 {
+          left: auto;
+          right: 0;
+          bottom: 38px;
+        }
+        html.page-join main .feature-copy {
+          padding: 34px 5px;
+        }
+        html.page-join main .feature-img {
+          min-height: 240px;
+        }
+        html.page-join main .footer-links {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* Layout refinements matching the approved Join With Us composition */
+      html.page-join main .steps,html.page-join main .logos,html.page-join main .grow,html.page-join main .peeps-shop {
+        border: 0;
+      }
+      html.page-join main .hero-grid {
+        min-height: 670px;
+      }
+      html.page-join main .hero-art {
+        height: 575px;
+      }
+      html.page-join main .grow {
+        padding: 70px 0 72px;
+      }
+      html.page-join main .feature {
+        grid-template-columns: 1.05fr 0.95fr;
+        border: 0;
+      }
+      html.page-join main .feature.reverse {
+        display: none;
+      }
+      html.page-join main .feature-copy {
+        margin-left: 28px;
+        padding: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        background: #121318;
+      }
+      html.page-join main .peeps-shop {
+        padding: 65px 0;
+        background: linear-gradient(90deg, #0b0b0d, #180b06);
+      }
+      html.page-join main .join {
+        padding: 55px 0;
+        background: #090a0c;
+      }
+      html.page-join main .join-grid {
+        min-height: 330px;
+        overflow: hidden;
+        padding-left: 48px;
+        border-radius: 12px;
+        background: linear-gradient(
+          130deg,
+          #4c1c07,
+          var(--orange) 58%,
+          #ff8a1f
+        );
+        box-shadow: 0 22px 60px rgba(255, 101, 0, 0.14);
+      }
+      /* Pixel-focused top section */
+      html.page-join main header {
+        position: relative;
+        background: #08090b;
+      }
+      html.page-join main .nav {
+        height: 82px;
+      }
+      html.page-join main .brand {
+        font-size: 17px;
+      }
+      html.page-join main .brand img {
+        width: 34px;
+        height: 34px;
+      }
+      html.page-join main .navlinks {
+        gap: 38px;
+        color: #d0d0d2;
+      }
+      html.page-join main .navlinks a:first-child {
+        color: #fff;
+      }
+      html.page-join main .shop-btn {
+        padding: 11px 24px;
+      }
+      html.page-join main .hero {
+        background:
+          radial-gradient(
+            circle at 27% 66%,
+            rgba(255, 101, 0, 0.52),
+            transparent 25%
+          ),
+          linear-gradient(180deg, #08090b 0, #090a0c 70%, #160b07 100%);
+      }
+      html.page-join main .hero-grid {
+        min-height: 588px;
+        grid-template-columns: 1fr 1fr;
+      }
+      html.page-join main .hero-art {
+        height: 530px;
+      }
+      html.page-join main .phone {
+        left: 115px;
+        bottom: -6px;
+        width: 335px;
+        transform: none;
+      }
+      html.page-join main .stat {
+        width: 166px;
+        padding: 19px 18px;
+        border: 2px solid #575960;
+        border-radius: 12px;
+        background: rgba(17, 18, 23, 0.87);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.36);
+      }
+      html.page-join main .stat b {
+        font-size: 35px;
+        line-height: 1.1;
+      }
+      html.page-join main .stat small {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--orange);
+        font-size: 10px;
+      }
+      html.page-join main .s1 {
+        left: 0;
+        top: 285px;
+      }
+      html.page-join main .s2 {
+        left: 342px;
+        top: 98px;
+      }
+      html.page-join main .s3 {
+        left: 350px;
+        bottom: 28px;
+      }
+      html.page-join main .hero-copy {
+        padding-left: 38px;
+      }
+      html.page-join main .hero-copy h1 {
+        font-size: 58px;
+      }
+      html.page-join main .hero-copy p {
+        max-width: 500px;
+        color: #fff;
+        font-size: 13px;
+      }
+      html.page-join main .btn {
+        padding: 13px 25px;
+      }
+      html.page-join main .stat {
+        display: flex;
+        flex-direction: column;
+      }
+      html.page-join main .stat small {
+        order: -1;
+        font-size: 10px;
+      }
+      html.page-join main .hero-copy .primary {
+        font-size: 11px;
+      }
+      @media (min-width: 801px) {
+        html.page-join main .hero-art,html.page-join main .hero-copy {
+          transform: none;
+        }
+      }
+      html.page-join main .steps {
+        padding: 48px 0 54px;
+        background: linear-gradient(135deg, #17100c, #29150b);
+        color: #fff;
+      }
+      html.page-join main .steps h2 {
+        margin-bottom: 12px;
+        font-size: 32px;
+      }
+      html.page-join main .steps > div > p {
+        margin-bottom: 34px;
+        color: #bab7b5;
+        font-size: 12px;
+      }
+      html.page-join main .step-grid {
+        grid-template-columns: 1.75fr 0.85fr 0.85fr;
+        gap: 20px;
+      }
+      html.page-join main .step {
+        border: 0;
+        border-radius: 11px;
+      }
+      html.page-join main .step figure {
+        height: 235px;
+      }
+      html.page-join main .step div {
+        min-height: 118px;
+        padding: 18px 19px;
+      }
+      html.page-join main .step h3 {
+        font-size: 14px;
+      }
+      html.page-join main .step {
+        position: relative;
+      }
+      html.page-join main .step:nth-child(1) figure img,html.page-join main .step:nth-child(2) figure img,html.page-join main .step:nth-child(3) figure img {
+        object-position: center;
+      }
+      html.page-join main .logos {
+        padding: 24px 0 30px;
+        background: #090a0c;
+      }
+      html.page-join main .logos p {
+        margin: 0 0 22px;
+      }
+      html.page-join main .logo {
+        width: 66px;
+        height: 66px;
+        border: 0;
+        background: transparent;
+      }
+      html.page-join main .logo img {
+        filter: none;
+        opacity: 1;
+      }
+      html.page-join main .logos .set {
+        gap: 16px;
+        padding-right: 16px;
+      }
+      html.page-join main .logos .logo {
+        flex: 0 0 66px;
+        background: transparent;
+        color: transparent;
+        filter: none;
+        opacity: 1;
+      }
+      html.page-join main .logos .logo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      /* Three-step cards */
+      html.page-join main .steps {
+        padding: 42px 0 52px;
+        background: linear-gradient(
+          105deg,
+          #090a0c 0%,
+          #0b0b0d 48%,
+          #24130c 100%
+        );
+      }
+      html.page-join main .steps .container {
+        width: min(calc(100% - 64px), 1340px);
+      }
+      html.page-join main .steps h2 {
+        font-size: 34px;
+      }
+      html.page-join main .steps > div > p {
+        font-size: 12px;
+      }
+      html.page-join main .step-grid {
+        grid-template-columns: 1.9fr 1fr 1fr;
+        gap: 24px;
+      }
+      html.page-join main .step {
+        border-radius: 11px;
+      }
+      html.page-join main .step figure {
+        height: 230px;
+      }
+      html.page-join main .step div {
+        min-height: 138px;
+        padding: 19px 22px;
+      }
+      html.page-join main .step p {
+        color: #6f7074;
+        font-size: 11px;
+        line-height: 1.65;
+      }
+      html.page-join main .step > div {
+        display: block;
+        min-height: 138px;
+        padding: 20px 22px 22px;
+        border-top: 1px solid #dedede;
+        border-radius: 0 0 11px 11px;
+        background: #fff;
+        color: #111;
+      }
+      html.page-join main .step > div h3 {
+        margin: 0 0 15px;
+        color: #111;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+      html.page-join main .step > div p {
+        margin: 0;
+        color: #777;
+        line-height: 1.65;
+      }
+      /* Growth Together */
+      html.page-join body main .grow .kicker {
+        font-size: 25px;
+      }
+      html.page-join body main .grow .feature-copy:before,html.page-join body main .grow .feature-copy:after {
+        position: absolute;
+        bottom: 16px;
+        width: 24px;
+        height: 24px;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        border: 1px solid #606168;
+        border-radius: 50%;
+        background: #45474d;
+        color: #fff;
+        font-size: 14px;
+        line-height: 1;
+        letter-spacing: 0;
+      }
+      html.page-join body main .grow .feature-copy:before {
+        content: "‹";
+        right: 47px;
+      }
+      html.page-join body main .grow .feature-copy:after {
+        content: "›";
+        right: 16px;
+      }
+      /* PEEPS SHOP */
+      html.page-join body main .peeps-shop .shop-copy p {
+        color: #f1f1f2;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      /* FAQ, CTA and footer */
+      html.page-join body main .join {
+        padding: 96px 0 0;
+        overflow: hidden;
+        background: #090a0c;
+      }
+      html.page-join body main .join .join-grid {
+        position: relative;
+        display: block;
+        width: min(calc(100% - 80px), 1050px);
+        min-height: 430px;
+        padding: 0 0 0 52px;
+        border-radius: 10px;
+        background: linear-gradient(
+          110deg,
+          #672205 0%,
+          #a93605 45%,
+          #ff7414 100%
+        );
+      }
+      html.page-join body main .join .join-copy {
+        width: 56%;
+        padding: 44px 0;
+      }
+      html.page-join body main .join img {
+        position: absolute;
+        z-index: 1;
+        top: -96px;
+        right: 70px;
+        width: 340px;
+        height: auto;
+        max-width: none;
+        transform: none;
+        object-fit: initial;
+        filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.38));
+      }
+      html.page-join body main .faq {
+        padding: 72px 0 86px;
+        background: #090a0c;
+      }
+      html.page-join body main .faq .container {
+        width: min(calc(100% - 80px), 1180px);
+      }
+      html.page-join body main .faq h2 {
+        margin: 0 0 42px;
+        font-size: 31px;
+        letter-spacing: -0.035em;
+      }
+      html.page-join body main .faq summary {
+        padding: 20px 0;
+        font-size: 13px;
+      }
+      html.page-join body main .faq details p {
+        max-width: 1000px;
+        margin: -2px 0 19px;
+        color: #85868b;
+        font-size: 10px;
+        line-height: 1.7;
+      }
+      html.page-join body main .faq details {
+        border-color: rgba(255, 255, 255, 0.11);
+      }
+      html.page-join body main .join {
+        padding: 52px 0;
+        background: #090a0c;
+      }
+      html.page-join body main .join .join-grid {
+        width: min(calc(100% - 80px), 1050px);
+        min-height: 385px;
+        grid-template-columns: 56% 44%;
+        padding: 0 0 0 36px;
+        border-radius: 10px;
+        background: linear-gradient(
+          135deg,
+          #8e3108 0%,
+          #ff6500 53%,
+          #ff7d18 100%
+        );
+      }
+      html.page-join body main .join .join-copy {
+        position: relative;
+        z-index: 2;
+        padding: 38px 0;
+      }
+      html.page-join body main .join .join-copy h2 {
+        margin: 0 0 18px;
+        font-size: 27px;
+      }
+      html.page-join body main .join .join-copy p {
+        max-width: 470px;
+        margin: 0 0 25px;
+        color: #fff;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      html.page-join body main .join .join-copy .btn {
+        margin-left: 320px;
+        padding: 11px 20px;
+        background: #fff;
+        color: var(--orange);
+        font-size: 10px;
+      }
+      html.page-join body main .join img {
+        align-self: end;
+        width: 330px;
+        height: 430px;
+        max-width: none;
+        transform: translate(-20px, 46px);
+        object-fit: contain;
+        filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.35));
+      }
+      html.page-join body main footer {
+        position: relative;
+        height: 437px;
+        padding: 80px 0 40px;
+        background: #100604;
+      }
+      html.page-join body main footer .container {
+        width: min(calc(100% - 160px), 1280px);
+      }
+      html.page-join body main .footer-grid {
+        min-height: 197px;
+        grid-template-columns: 1fr 220px;
+      }
+      html.page-join body main .footer-brand {
+        gap: 14px;
+        font-size: 18px;
+      }
+      html.page-join body main .footer-brand img {
+        width: 34px;
+        height: 34px;
+      }
+      html.page-join body main .footer-text {
+        margin: 28px 0 22px;
+        color: #777;
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      html.page-join body main .footer-email {
+        margin: 0;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      html.page-join body main .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        color: #fff;
+        font-size: 13px;
+      }
+      html.page-join body main footer:after {
+        content: "";
+        position: absolute;
+        right: max(80px, calc((100% - 1280px) / 2));
+        bottom: 40px;
+        width: 199px;
+        height: 57px;
+        background:
+          url("/assets/Frame1597884737.png") left center/57px 57px no-repeat,
+          url("/assets/Frame1597884738.png") center/57px 57px no-repeat,
+          url("/assets/Frame1597884739.png") right center/57px 57px no-repeat;
+      }
+      html.page-join body main .copy {
+        margin: 0;
+        padding-top: 60px;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        color: #686064;
+        font-size: 10px;
+      }
+      html.page-join body main .peeps-shop {
+        min-height: 500px;
+        padding: 0;
+        background:
+          radial-gradient(
+            circle at 77% 12%,
+            rgba(255, 101, 0, 0.42),
+            transparent 27%
+          ),
+          linear-gradient(100deg, #090a0c 0%, #140c08 48%, #3a1607 100%);
+      }
+      html.page-join body main .peeps-shop .shop-grid {
+        width: min(calc(100% - 80px), 1340px);
+        min-height: 500px;
+        grid-template-columns: 48% 52%;
+      }
+      html.page-join body main .peeps-shop .shop-copy {
+        padding: 0 36px 0 0;
+      }
+      html.page-join body main .peeps-shop .shop-copy > span {
+        font-size: 20px;
+      }
+      html.page-join body main .peeps-shop .shop-copy h2 {
+        margin: 48px 0 38px;
+        font-size: 39px;
+        letter-spacing: -0.035em;
+      }
+      html.page-join body main .peeps-shop .shop-copy p {
+        position: relative;
+        max-width: 580px;
+        margin: 0;
+        padding: 20px 22px;
+        border: 1px solid #55575f;
+        border-radius: 11px;
+        background: #121318;
+        color: #f1f1f2;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+      html.page-join body main .peeps-shop .shop-copy p strong {
+        display: block;
+        margin-bottom: 20px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      html.page-join body main .peeps-shop .shop-copy .btn {
+        display: none;
+      }
+      html.page-join body main .peeps-shop .shop-art {
+        min-height: 500px;
+        align-self: stretch;
+        align-items: flex-start;
+        padding-top: 28px;
+      }
+      html.page-join body main .peeps-shop .shop-art img {
+        width: 760px;
+        transform: none;
+      }
+      html.page-join main .peeps-shop {
+        min-height: 760px;
+        padding: 0;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            circle at 88% 54%,
+            rgba(113, 43, 10, 0.42),
+            transparent 38%
+          ),
+          linear-gradient(90deg, #090a0c 0%, #0b0b0d 50%, #1b0d08 100%);
+      }
+      html.page-join main .peeps-shop .shop-grid {
+        width: min(calc(100% - 80px), 1680px);
+        min-height: 760px;
+        grid-template-columns: 46% 54%;
+        margin: auto;
+      }
+      html.page-join main .peeps-shop .shop-copy {
+        align-self: center;
+        padding: 0 40px 0 72px;
+      }
+      html.page-join main .peeps-shop .shop-copy > span {
+        font-size: 17px;
+        font-weight: 500;
+      }
+      html.page-join main .peeps-shop .shop-copy h2 {
+        margin: 28px 0 43px;
+        font-size: 58px;
+        line-height: 1.08;
+        letter-spacing: -0.045em;
+      }
+      html.page-join main .peeps-shop .shop-copy p {
+        max-width: 620px;
+        margin: 0 0 26px;
+        color: #b9babf;
+        font-size: 18px;
+        line-height: 1.75;
+      }
+      html.page-join main .peeps-shop .shop-copy .btn {
+        min-width: 180px;
+        padding: 18px 30px;
+        font-size: 15px;
+      }
+      html.page-join main .peeps-shop .shop-art {
+        align-self: stretch;
+        min-height: 760px;
+        display: flex;
+        align-items: center;
+        overflow: visible;
+        background: none;
+      }
+      html.page-join main .peeps-shop .shop-art img {
+        width: 1050px;
+        max-width: none;
+        transform: translate(10px, 45px);
+        filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.38));
+      }
+      html.page-join main .grow {
+        padding: 38px 0 62px;
+        background: #090a0c;
+      }
+      html.page-join main .grow .container {
+        width: min(calc(100% - 64px), 1180px);
+      }
+      html.page-join main .grow .kicker {
+        margin: 0 0 28px;
+        color: var(--orange);
+        font-size: 25px;
+        font-weight: 500;
+      }
+      html.page-join main .grow .title {
+        position: relative;
+        width: max-content;
+        max-width: calc(100% - 150px);
+        margin: 0 auto 42px;
+        padding: 17px 28px;
+        border: 2px solid #56585f;
+        border-radius: 11px;
+        background: #101116;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        font-size: 31px;
+        line-height: 1.2;
+      }
+      html.page-join main .grow .title:before {
+        content: "";
+        position: absolute;
+        left: -105px;
+        top: 50%;
+        width: 68px;
+        height: 68px;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        background: url("/assets/Component1.png") center/contain no-repeat;
+      }
+      html.page-join main .grow .feature {
+        min-height: 310px;
+        grid-template-columns: 1fr 1.08fr;
+        gap: 24px;
+      }
+      html.page-join main .grow .feature-img {
+        order: -1;
+        min-height: 310px;
+        overflow: hidden;
+        border-radius: 9px;
+      }
+      html.page-join main .grow .feature-img img {
+        object-fit: cover;
+      }
+      html.page-join main .grow .feature-copy {
+        position: relative;
+        align-self: stretch;
+        margin: 0;
+        padding: 25px 25px 58px;
+        border: 1px solid #50525a;
+        border-radius: 12px;
+        background: #121318;
+      }
+      html.page-join main .grow .feature-copy h3 {
+        margin: 0 0 16px;
+        font-size: 25px;
+      }
+      html.page-join main .grow .feature-copy p {
+        margin: 0;
+        color: #f1f1f2;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+      html.page-join main .grow .benefit-description {
+        margin: 0;
+        color: #f1f1f2;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+      html.page-join main .grow .benefit-description ol {
+        margin: 0;
+        padding-left: 24px;
+      }
+      html.page-join main .grow .benefit-description li + li {
+        margin-top: 8px;
+      }
+      html.page-join main .grow .feature-copy:after {
+        content: "‹   ›";
+        position: absolute;
+        right: 18px;
+        bottom: 17px;
+        padding: 5px 9px;
+        border-radius: 999px;
+        color: #fff;
+        background: #45474d;
+        font-size: 18px;
+        letter-spacing: 8px;
+      }
+      @media (max-width: 800px) {
+        html.page-join main .feature-copy {
+          margin-left: 0;
+        }
+        html.page-join main .join-grid {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+        html.page-join main .step-grid {
+          grid-template-columns: 1fr;
+        }
+        html.page-join main .steps .container {
+          width: min(calc(100% - 28px), 1340px);
+        }
+        html.page-join main .grow .container {
+          width: min(calc(100% - 28px), 1180px);
+        }
+        html.page-join main .grow .title {
+          max-width: calc(100% - 88px);
+          margin-left: 88px;
+          padding: 14px 18px;
+        }
+        html.page-join main .grow .title {
+          font-size: 21px;
+        }
+        html.page-join main .grow .title:before {
+          left: -82px;
+          width: 58px;
+          height: 58px;
+        }
+        html.page-join main .grow .feature {
+          grid-template-columns: 1fr;
+        }
+        html.page-join main .grow .feature-img {
+          min-height: 240px;
+        }
+        html.page-join main .grow .feature-copy {
+          min-height: 260px;
+        }
+      }
+      @media (max-width: 800px) {
+        html.page-join main .peeps-shop {
+          min-height: auto;
+          padding: 60px 0;
+        }
+        html.page-join main .peeps-shop .shop-grid {
+          width: min(calc(100% - 28px), 1680px);
+          min-height: auto;
+          grid-template-columns: 1fr;
+        }
+        html.page-join main .peeps-shop .shop-copy {
+          padding: 0 8px 35px;
+        }
+        html.page-join main .peeps-shop .shop-copy h2 {
+          font-size: 40px;
+          margin: 18px 0 25px;
+        }
+        html.page-join main .peeps-shop .shop-copy p {
+          font-size: 14px;
+        }
+        html.page-join main .peeps-shop .shop-art {
+          min-height: 330px;
+        }
+        html.page-join main .peeps-shop .shop-art img {
+          width: 720px;
+          transform: translate(0, 20px);
+        }
+      }
+      @media (max-width: 800px) {
+        html.page-join body main .peeps-shop {
+          min-height: auto;
+          padding: 55px 0;
+        }
+        html.page-join body main .peeps-shop .shop-grid {
+          width: min(calc(100% - 28px), 1340px);
+          min-height: auto;
+          grid-template-columns: 1fr;
+        }
+        html.page-join body main .peeps-shop .shop-copy {
+          padding: 0;
+        }
+        html.page-join body main .peeps-shop .shop-copy h2 {
+          margin: 22px 0 28px;
+          font-size: 34px;
+        }
+        html.page-join body main .peeps-shop .shop-copy p {
+          font-size: 12px;
+        }
+        html.page-join body main .peeps-shop .shop-art {
+          min-height: 310px;
+          padding-top: 36px;
+        }
+        html.page-join body main .peeps-shop .shop-art img {
+          width: 680px;
+        }
+      }
+      @media (max-width: 800px) {
+        html.page-join body main .faq .container,html.page-join body main footer .container {
+          width: min(calc(100% - 28px), 1180px);
+        }
+        html.page-join body main .join .join-grid {
+          width: min(calc(100% - 28px), 1050px);
+          min-height: 600px;
+          grid-template-columns: 1fr;
+          padding: 28px 24px 0;
+        }
+        html.page-join body main .join .join-copy {
+          padding: 12px 0 0;
+        }
+        html.page-join body main .join .join-copy .btn {
+          margin-left: 0;
+        }
+        html.page-join body main .join img {
+          width: 290px;
+          height: 330px;
+          justify-self: center;
+          transform: translateY(38px);
+        }
+        html.page-join body main footer:after {
+          right: 14px;
+          bottom: 38px;
+        }
+      }
+      @media (max-width: 800px) {
+        html.page-join body main .join {
+          padding: 40px 0 0;
+        }
+        html.page-join body main .join .join-grid {
+          min-height: 590px;
+          grid-template-columns: 1fr;
+        }
+        html.page-join body main .join img {
+          width: 280px;
+          height: 330px;
+          transform: translateY(38px);
+        }
+      }
+      @media (max-width: 800px) {
+        html.page-join body main .join {
+          padding-top: 45px;
+        }
+        html.page-join body main .join .join-grid {
+          display: grid;
+          min-height: 620px;
+          padding: 28px 24px 0;
+        }
+        html.page-join body main .join .join-copy {
+          width: 100%;
+          padding: 12px 0 0;
+        }
+        html.page-join body main .join img {
+          position: relative;
+          top: auto;
+          right: auto;
+          width: 280px;
+          height: auto;
+          transform: none;
+          justify-self: center;
+          align-self: end;
+        }
+      }
+      /* Join banner: proportions and overlap matched to the supplied layout. */
+      html.page-join body main .join {
+        padding: 65px 0 0;
+        overflow: hidden;
+        background: linear-gradient(
+          180deg,
+          #090a0c 0%,
+          #090a0c calc(100% - 72px),
+          #100604 100%
+        );
+      }
+      html.page-join body main .join .join-grid {
+        position: relative;
+        display: block;
+        overflow: visible;
+        width: min(74vw, 1060px);
+        min-height: 380px;
+        padding: 0 0 0 36px;
+        border-radius: 10px;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(54, 14, 3, 0.42) 48%,
+            #100b09 100%
+          ),
+          linear-gradient(90deg, #d9550d 0%, #f4761e 100%);
+        box-shadow: none;
+      }
+      html.page-join body main .join .join-copy {
+        position: relative;
+        z-index: 2;
+        width: 56%;
+        padding: 36px 0 0;
+      }
+      html.page-join body main .join .join-copy h2 {
+        margin: 0 0 12px;
+      }
+      html.page-join body main .join .join-copy p {
+        max-width: 470px;
+        margin: 0 0 25px;
+        line-height: 1.55;
+      }
+      html.page-join body main .join .join-copy .btn {
+        margin-left: 300px;
+        white-space: nowrap;
+      }
+      html.page-join body main .join img {
+        position: absolute;
+        z-index: 1;
+        top: -65px;
+        right: 85px;
+        width: 303px;
+        height: auto;
+        max-width: none;
+        transform: none;
+        object-fit: initial;
+        filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.38));
+      }
+      @media (max-width: 800px) {
+        html.page-join body main .join {
+          padding-top: 56px;
+        }
+        html.page-join body main .join .join-grid {
+          display: grid;
+          width: min(calc(100% - 28px), 1060px);
+          min-height: 620px;
+          grid-template-columns: 1fr;
+          padding: 28px 24px 0;
+        }
+        html.page-join body main .join .join-copy {
+          width: 100%;
+          padding: 12px 0 0;
+        }
+        html.page-join body main .join .join-copy .btn {
+          margin-left: 0;
+        }
+        html.page-join body main .join img {
+          position: relative;
+          top: auto;
+          right: auto;
+          width: 280px;
+          height: auto;
+          transform: none;
+          justify-self: center;
+          align-self: end;
+        }
+      }
+      @media (max-width: 800px) {
+        html.page-join body main footer {
+          height: auto;
+          padding: 56px 0 125px;
+        }
+        html.page-join body main footer .container {
+          width: min(calc(100% - 28px), 1180px);
+        }
+        html.page-join body main .footer-grid {
+          min-height: auto;
+          grid-template-columns: 1fr;
+          gap: 42px;
+        }
+        html.page-join body main .footer-links {
+          gap: 16px;
+        }
+        html.page-join body main .copy {
+          margin-top: 48px;
+          padding-top: 32px;
+        }
+        html.page-join body main footer:after {
+          right: 14px;
+          bottom: 42px;
+        }
+      }
+      /* Responsive tiers: desktop composition stays fixed; existing tablet/mobile rules handle reflow. */
+      @media (min-width: 1400px) {
+        html.page-join main .container {
+          max-width: 1180px;
+        }
+      }
+      @media (min-width: 1200px) and (max-width: 1399.98px) {
+        html.page-join main .container {
+          max-width: 1140px;
+        }
+      }
+      @media (min-width: 992px) and (max-width: 1199.98px) {
+        html.page-join main .container {
+          width: calc(100% - 64px);
+          max-width: 960px;
+        }
+        html.page-join main .navlinks {
+          gap: 26px;
+        }
+      }
+      @media (min-width: 801px) and (max-width: 991.98px) {
+        html.page-join main .container {
+          width: calc(100% - 48px);
+        }
+      }
+      @media (min-width: 576px) and (max-width: 767.98px) {
+        html.page-join main .container {
+          width: calc(100% - 36px);
+          max-width: 540px;
+        }
+      }
+      @media (max-width: 575.98px) {
+        html.page-join main .container {
+          width: calc(100% - 32px);
+        }
+        html.page-join main .nav {
+          height: 68px;
+        }
+        html.page-join main .brand {
+          font-size: 14px;
+        }
+        html.page-join main .brand img {
+          width: 30px;
+          height: 30px;
+        }
+        html.page-join main .menu-btn {
+          padding: 6px;
+          font-size: 22px;
+        }
+        html.page-join main .hero {
+          background:
+            radial-gradient(
+              circle at 50% 72%,
+              rgba(255, 101, 0, 0.38),
+              transparent 34%
+            ),
+            linear-gradient(180deg, #08090b 0%, #090a0c 72%, #190b06 100%);
+        }
+        html.page-join main .hero-grid {
+          display: flex;
+          min-height: 760px;
+          flex-direction: column;
+        }
+        html.page-join main .hero-copy {
+          width: 100%;
+          padding: 54px 0 0;
+        }
+        html.page-join main .hero-copy h1 {
+          align-items: center;
+          gap: 2px;
+          margin-bottom: 20px;
+          font-size: 42px;
+          line-height: 1.05;
+          white-space: nowrap;
+        }
+        html.page-join main .hero-copy h1 .hero-subtitle {
+          font-size: 14px;
+        }
+        html.page-join main .hero-copy p {
+          max-width: 330px;
+          margin: 0 auto;
+          color: #d5d5d7;
+          font-size: 13px;
+          line-height: 1.7;
+        }
+        html.page-join main .buttons {
+          gap: 10px;
+          margin-top: 24px;
+        }
+        html.page-join main .buttons .btn {
+          min-width: 132px;
+          justify-content: center;
+          padding: 12px 17px;
+          white-space: nowrap;
+        }
+        html.page-join main .hero-art {
+          position: relative;
+          width: 100%;
+          height: 390px;
+          flex: none;
+        }
+        html.page-join main .phone {
+          left: 50%;
+          bottom: -8px;
+          width: 255px;
+          transform: translateX(-50%);
+        }
+        html.page-join main .stat {
+          width: 112px;
+          padding: 12px;
+          border-width: 1px;
+        }
+        html.page-join main .stat b {
+          font-size: 23px;
+        }
+        html.page-join main .s1 {
+          left: 0;
+          top: 185px;
+        }
+        html.page-join main .s2 {
+          left: auto;
+          right: 0;
+          top: 62px;
+        }
+        html.page-join main .s3 {
+          left: auto;
+          right: 0;
+          bottom: 34px;
+        }
+        html.page-join main .steps {
+          padding: 42px 0 48px;
+        }
+        html.page-join main .steps .container {
+          width: calc(100% - 32px);
+        }
+        html.page-join main .steps h2 {
+          line-height: 1.2;
+        }
+        html.page-join main .steps h2 {
+          font-size: 25px;
+        }
+        html.page-join main .steps > div > p {
+          margin-bottom: 26px;
+        }
+        html.page-join main .step-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        html.page-join main .step figure {
+          height: 210px;
+        }
+        html.page-join main .step > div {
+          min-height: auto;
+          padding: 18px 20px 22px;
+        }
+        html.page-join main .grow .container,html.page-join body main .peeps-shop .shop-grid,html.page-join body main .faq .container {
+          width: calc(100% - 32px);
+        }
+        html.page-join main .grow .title {
+          max-width: calc(100% - 70px);
+          margin-left: 70px;
+        }
+        html.page-join main .grow .title {
+          font-size: 17px;
+        }
+        html.page-join main .grow .title:before {
+          left: -64px;
+          width: 48px;
+          height: 48px;
+        }
+        html.page-join main .grow .feature-copy {
+          padding: 22px 20px 56px;
+        }
+        html.page-join body main .peeps-shop .shop-copy h2 {
+          font-size: 30px;
+          line-height: 1.2;
+        }
+        html.page-join body main .peeps-shop .shop-art {
+          min-height: 270px;
+        }
+        html.page-join body main .peeps-shop .shop-art img {
+          width: 520px;
+          max-width: 100%;
+        }
+        html.page-join body main .join {
+          padding-top: 42px;
+        }
+        html.page-join body main .join .join-grid {
+          width: calc(100% - 32px);
+          min-height: 560px;
+          padding: 24px 20px 0;
+        }
+        html.page-join body main .join .join-copy h2 {
+          font-size: 24px;
+        }
+        html.page-join body main .join .join-copy p {
+          font-size: 12px;
+        }
+        html.page-join body main .join img {
+          width: 235px;
+        }
+        html.page-join body main footer .container {
+          width: calc(100% - 32px);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html.page-join {
+          scroll-behavior: auto;
+        }
+        html.page-join main .track {
+          animation: none;
+        }
+      }
+      /* Keep Frame22 intact; remove only the page-level glow and overlays. */
+      html.page-join main .hero {
+        padding-top: 74px;
+        background: linear-gradient(
+          180deg,
+          #08090b 0%,
+          #090a0c 70%,
+          #160b07 100%
+        );
+      }
+      html.page-join main .hero-art .phone {
+        left: 50%;
+        bottom: 0;
+        width: min(520px, 100%);
+        height: auto;
+        max-width: 100%;
+        transform: translateX(-50%);
+        object-fit: contain;
+      }
+      @media (max-width: 800px) {
+        html.page-join main .hero {
+          padding-top: 64px;
+        }
+        html.page-join main .hero-art .phone {
+          width: min(380px, 94vw);
+        }
+      }
+      /* Interactive Growth Together benefit card. */
+      html.page-join main .grow .benefit-slider .feature-copy:before,html.page-join main .grow .benefit-slider .feature-copy:after {
+        content: none !important;
+        display: none !important;
+      }
+      html.page-join main .grow .benefit-count {
+        display: block;
+        margin-bottom: 24px;
+        color: #ff6718;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      html.page-join main .grow .benefit-controls {
+        position: absolute;
+        right: 18px;
+        bottom: 17px;
+        display: flex;
+        gap: 9px;
+      }
+      html.page-join main .grow .benefit-controls button {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        place-items: center;
+        border: 1px solid #5b5d64;
+        border-radius: 50%;
+        color: #fff;
+        background: #45474d;
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      html.page-join main .grow .benefit-controls button:hover {
+        background: #ff6718;
+        transform: translateY(-1px);
+      }
+      html.page-join main .grow
+        .benefit-slider.is-changing
+        .feature-copy
+        > :not(.benefit-controls) {
+        opacity: 0.2;
+      }
+      html.page-join main .grow .benefit-slider .feature-copy > :not(.benefit-controls) {
+        transition: opacity 0.16s ease;
+      }
+      html.page-join main .steps .step figure {
+        display: flex;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #f5f5f5;
+      }
+      html.page-join main .steps .step:nth-child(1) figure {
+        aspect-ratio: 2 / 1;
+      }
+      html.page-join main .steps .step:nth-child(2) figure,html.page-join main .steps .step:nth-child(3) figure {
+        aspect-ratio: 1 / 1;
+      }
+      html.page-join main .steps .step figure img,html.page-join main .steps .step:nth-child(1) figure img,html.page-join main .steps .step:nth-child(2) figure img,html.page-join main .steps .step:nth-child(3) figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
+      @media (min-width: 801px) {
+        html.page-join main .grow .benefit-slider {
+          min-height: 400px;
+          grid-template-columns: 600px minmax(0, 1fr);
+          align-items: stretch;
+          gap: 28px;
+          border-bottom: 0;
+        }
+        html.page-join main .grow .benefit-slider .feature-img {
+          width: 600px;
+          min-height: 0;
+          aspect-ratio: 3 / 2;
+          overflow: hidden;
+          border-radius: 11px;
+          background: #090a0c;
+        }
+        html.page-join main .grow .benefit-slider .feature-img img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+        html.page-join main .grow .benefit-slider .feature-copy {
+          min-height: 400px;
+          padding: 28px 28px 62px;
+        }
+      }
+
+      /* Coupon usage steps */
+      html.page-join main .coupon-steps {
+        padding: 64px 0 42px;
+        overflow: hidden;
+        background: #08090b;
+        color: #fff;
+      }
+      html.page-join main .coupon-steps .container {
+        width: min(calc(100% - 160px), 1280px);
+      }
+      html.page-join main .coupon-steps h2 {
+        margin: 0 0 48px;
+        font-size: clamp(34px, 3.35vw, 48px);
+        font-weight: 500;
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+      }
+      html.page-join main .coupon-steps h2 span {
+        color: #ff6718;
+        font-size: 1.16em;
+        font-weight: 500;
+      }
+      html.page-join main .coupon-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      html.page-join main .coupon-step {
+        width: 100%;
+        min-width: 0;
+      }
+      html.page-join main .coupon-phone {
+        width: min(100%, 223px);
+        margin: 0 auto 24px;
+      }
+      html.page-join main .coupon-phone img {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+      html.page-join main .coupon-copy {
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+      }
+      html.page-join main .coupon-number {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        border-radius: 50%;
+        background: #ff6718;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      html.page-join main .coupon-copy h3 {
+        margin: 2px 0 15px;
+        color: #fff;
+        font-size: clamp(16px, 1.4vw, 20px);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      html.page-join main .coupon-copy p {
+        margin: 0;
+        color: #a3a3a8;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      html.page-join main .coupon-pagination {
+        display: none;
+      }
+      @media (max-width: 800px) {
+        html.page-join main .coupon-steps {
+          padding: 48px 0 44px;
+        }
+        html.page-join main .coupon-steps .container {
+          width: 100%;
+        }
+        html.page-join main .coupon-steps h2 {
+          margin-bottom: 34px;
+          padding: 0 20px;
+          font-size: 30px;
+        }
+        html.page-join main .coupon-grid {
+          display: flex;
+          gap: 18px;
+          padding: 0 20px 14px;
+          overflow-x: auto;
+          scroll-padding: 20px;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        html.page-join main .coupon-grid::-webkit-scrollbar {
+          display: none;
+        }
+        html.page-join main .coupon-step {
+          flex: 0 0 min(76vw, 280px);
+          scroll-snap-align: center;
+        }
+        html.page-join main .coupon-phone {
+          width: min(100%, 223px);
+        }
+        html.page-join main .coupon-pagination {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 16px;
+        }
+        html.page-join main .coupon-pagination button {
+          width: 10px;
+          height: 10px;
+          padding: 0;
+          border: 0;
+          border-radius: 50%;
+          background: #d5d8de;
+          opacity: 0.55;
+          cursor: pointer;
+          transition:
+            background 0.2s ease,
+            opacity 0.2s ease,
+            transform 0.2s ease;
+        }
+        html.page-join main .coupon-pagination button.active {
+          background: #ff6718;
+          opacity: 1;
+          transform: scale(1.25);
+        }
+        html.page-join main .coupon-pagination button:focus-visible {
+          outline: 2px solid #fff;
+          outline-offset: 4px;
+        }
+      }
+
+      /* Final CTA composition — matched to the supplied reference. */
+      @media (min-width: 801px) {
+        html.page-join body main .join {
+          padding: 120px 0 0;
+          overflow: hidden;
+          background: #090a0c;
+        }
+        html.page-join body main .join .join-grid {
+          position: relative;
+          display: block;
+          width: min(calc(100% - 80px), 1030px);
+          min-height: 320px;
+          padding: 0 0 0 38px;
+          overflow: visible;
+          border-radius: 18px 18px 0 0;
+          background:
+            linear-gradient(180deg, transparent 0%, rgba(30, 9, 3, 0.74) 100%),
+            linear-gradient(90deg, #f4751d 0%, #c64c0d 100%);
+        }
+        html.page-join body main .join .join-copy {
+          position: relative;
+          z-index: 2;
+          width: 56%;
+          padding: 31px 0 0;
+        }
+        html.page-join body main .join .join-copy h2 {
+          margin: 0 0 9px;
+          font-size: 27px;
+          line-height: 1.35;
+        }
+        html.page-join body main .join .join-copy p {
+          max-width: 470px;
+          margin: 0;
+          color: #fff;
+          font-size: 16px;
+          line-height: 1.62;
+        }
+        html.page-join body main .join .join-copy .btn {
+          display: inline-flex;
+          margin: 36px 0 0;
+          padding: 12px 24px;
+          background: #ff701b;
+          color: #fff;
+          font-size: 13px;
+          white-space: nowrap;
+        }
+        html.page-join body main .join img {
+          position: absolute;
+          z-index: 3;
+          top: -118px;
+          right: 80px;
+          width: 315px;
+          height: auto;
+          max-width: none;
+          transform: none;
+          object-fit: initial;
+          filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.38));
+        }
+      }
+      html.page-join body main a.btn,html.page-join body main a.shop-btn {
+        padding: 10px 15px !important;
+        font-size: 14px !important;
+        line-height: 20px !important;
+      }
+      html.page-join main p,html.page-join main summary,html.page-join main .benefit-description,html.page-join main .benefit-count,html.page-join main .coupon-number {
+        font-size: 18px !important;
+      }
+      html.page-join main .steps .step h3,html.page-join main .steps .step p {
+        font-size: 15px !important;
+      }
+      /* Prevent hero rules from other Nuxt routes from changing this layout. */
+      @media (min-width: 801px) {
+        html.page-join main .join-page .hero-copy {
+          width: 100%;
+          max-width: none;
+          margin-left: 0;
+          padding-left: 38px;
+          text-align: left;
+        }
+        html.page-join main .join-page .hero-copy h1 {
+          align-items: flex-start;
+          margin-right: 0;
+          margin-left: 0;
+          text-align: left;
+        }
+        html.page-join main .join-page .hero-copy p {
+          width: 100%;
+          max-width: 500px;
+          margin-right: 0;
+          margin-left: 0;
+          text-align: left;
+        }
+        html.page-join main .join-page .hero-copy .buttons {
+          justify-content: flex-start;
+        }
+      }
+      @media (max-width: 800px) {
+        html.page-join main .join-page .hero-copy {
+          width: 100%;
+          margin-left: 0;
+          text-align: center;
+        }
+        html.page-join main .join-page .hero-copy h1 {
+          align-items: center;
+          text-align: center;
+        }
+        html.page-join main .join-page .hero-copy p {
+          margin-right: auto;
+          margin-left: auto;
+          text-align: center;
+        }
+        html.page-join main .join-page .hero-copy .buttons {
+          justify-content: center;
+        }
+      }

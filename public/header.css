@@ -42,3 +42,139 @@ header .brand .brand-name em {
   color: #ff6b1b;
   font-style: normal;
 }
+
+/* Shared navbar layout. The Home header is the visual source of truth. */
+.peep-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: block;
+  height: auto;
+  background: rgba(9, 10, 12, 0.96);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(18px);
+  transition: border-color 0.2s ease;
+}
+.peep-header.scrolled {
+  border-color: #25262b;
+}
+.peep-header .nav {
+  width: min(calc(100% - 40px), 1180px);
+  min-height: 74px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 34px;
+}
+.peep-header .brand {
+  justify-self: start;
+  color: #fff;
+  text-decoration: none;
+}
+.peep-header .brand-share {
+  color: #ff6b1b;
+}
+.peep-header .brand-peep {
+  color: #fff;
+}
+.peep-header .nav-links {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 30px;
+  color: #fff;
+  font-size: 12px;
+}
+.peep-header .nav-links a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.peep-header .nav-links a:hover {
+  color: #fff;
+}
+.peep-header .nav-links a.active,
+.peep-header .mobile-menu a.active {
+  color: #ff6b1b;
+}
+.peep-header .nav-cta {
+  justify-self: end;
+  color: #fff;
+  background: #ff681d;
+  text-decoration: none;
+}
+.peep-header .menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid #25262b;
+  border-radius: 50%;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+}
+.peep-header .menu-btn iconify-icon {
+  width: 22px;
+  height: 22px;
+}
+.peep-header .mobile-menu {
+  display: none;
+  padding: 0 20px 20px;
+  border-top: 1px solid #25262b;
+  background: rgba(9, 10, 12, 0.96);
+}
+.peep-header .mobile-menu a {
+  display: block;
+  padding: 13px 0;
+  color: #c3c4c7;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+@media (max-width: 960px) {
+  .peep-header .nav {
+    grid-template-columns: 1fr auto auto;
+    gap: 18px;
+  }
+  .peep-header .nav-links {
+    display: none;
+  }
+  .peep-header .menu-btn {
+    display: grid;
+  }
+  .peep-header .mobile-menu.open {
+    display: block;
+    max-height: calc(100vh - 74px);
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .peep-header .nav {
+    width: min(calc(100% - 28px), 1180px);
+    min-height: 64px;
+    gap: 10px;
+  }
+  .peep-header .brand {
+    gap: 9px;
+    font-size: 14px;
+  }
+  .peep-header .brand img,
+  .peep-header .brand-logo {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+  }
+}
+
+@media (max-width: 420px) {
+  .peep-header .nav {
+    grid-template-columns: 1fr auto;
+  }
+  .peep-header .nav-cta {
+    display: none;
+  }
+}

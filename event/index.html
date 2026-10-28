@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -28,7 +28,8 @@
         margin: 0;
         background: var(--bg);
         color: #fff;
-        font-family: Inter, "Noto Sans Thai", sans-serif;
+        font-family: "Noto Sans Thai", sans-serif;
+        font-size: 18px;
       }
       a {
         color: inherit;
@@ -60,7 +61,7 @@
         display: flex;
         align-items: center;
         gap: 13px;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 800;
       }
       .logo {
@@ -75,7 +76,7 @@
         display: flex;
         gap: 42px;
         color: #fff;
-        font-size: 12px;
+        font-size: 18px;
       }
       nav a.active {
         color: var(--orange);
@@ -87,7 +88,7 @@
         border-radius: 30px;
         background: var(--orange);
         font-weight: 700;
-        font-size: 12px;
+        font-size: 18px;
       }
       .hero {
         min-height: 520px;
@@ -97,6 +98,11 @@
           linear-gradient(90deg, rgba(0, 0, 0, 0.08), #090a0d 84%),
           url("https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=2000&q=88")
             center/cover;
+      }
+      @media (min-width: 761px) {
+        .hero {
+          padding-top: 74px;
+        }
       }
       .hero-copy {
         width: 52%;
@@ -112,27 +118,34 @@
       .hero-copy > p {
         color: #ddd;
         line-height: 1.75;
-        font-size: 14px;
+        font-size: 18px;
       }
       .event-meta {
-        width: min(390px, 100%);
+        width: min(430px, 100%);
         margin: 22px 0;
-        padding: 18px 24px;
+        padding: 18px 24px 20px;
         border-radius: 15px;
         background: rgba(48, 48, 48, 0.92);
       }
       .event-meta div {
         margin: 7px 0;
-        font-size: 13px;
+        font-size: 18px;
       }
       .actions {
         display: flex;
         gap: 12px;
       }
+      .actions .orange-btn {
+        gap: 8px;
+      }
+      .actions .orange-btn iconify-icon {
+        width: 20px;
+        height: 20px;
+      }
       .actions a {
         padding: 14px 28px;
         border-radius: 28px;
-        font-size: 13px;
+        font-size: 18px;
         font-weight: 700;
       }
       .dots {
@@ -163,51 +176,77 @@
       .recommended {
         display: grid;
         grid-template-columns: 1fr 1.05fr;
-        gap: 18px;
+        gap: 28px;
+        align-items: start;
       }
       .feature-event img {
-        height: 320px;
+        height: 340px;
         border-radius: 7px;
       }
-      .feature-event h3,
-      .side-copy h3 {
+      .feature-event h3 {
         margin: 16px 0 8px;
+        font-size: 22px;
+        line-height: 1.35;
+      }
+      .side-copy h3 {
+        margin: 0 0 8px;
+        font-size: 22px;
+        line-height: 1.35;
       }
       .desc {
+        margin: 0 0 14px;
         color: #a9a9ad;
-        font-size: 12px;
-        line-height: 1.7;
+        font-size: 18px;
+        line-height: 1.55;
       }
       .small-meta {
         display: flex;
         flex-wrap: wrap;
-        gap: 14px;
+        gap: 10px 18px;
         color: #c4c4c6;
-        font-size: 11px;
+        font-size: 18px;
+        line-height: 1.4;
+      }
+      .meta-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .meta-item iconify-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
       }
       .side-events {
         display: grid;
-        gap: 18px;
+        gap: 24px;
       }
       .side-event {
         display: grid;
-        grid-template-columns: 47% 1fr;
-        gap: 18px;
+        grid-template-columns: 44% 1fr;
+        gap: 20px;
+        align-items: start;
       }
       .side-event img {
-        height: 174px;
+        height: 190px;
         border-radius: 7px;
       }
       .all-head {
         display: flex;
-        align-items: end;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 24px;
+        flex-wrap: wrap;
         margin: 62px 0 24px;
+      }
+      .all-head h2 {
+        margin: 0;
       }
       .filters {
         display: flex;
         gap: 28px;
-        font-size: 12px;
+        font-size: 18px;
       }
       .filters .active {
         padding: 11px 22px;
@@ -215,38 +254,95 @@
         background: var(--orange);
       }
       .search {
-        width: 230px;
-        padding: 11px 17px;
+        width: 100%;
+        height: 48px;
+        padding: 0 18px 0 50px;
         border: 0;
-        border-radius: 24px;
+        border-radius: 999px;
+        color: #94a3b8;
+        background: #fff;
+        box-shadow: 0 4px 9px rgba(145, 145, 145, 0.2);
+        font-family: inherit;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1;
         outline: 0;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+      .search::placeholder {
+        color: #94a3b8;
+        opacity: 1;
+      }
+      .search::-webkit-search-cancel-button {
+        display: none;
+      }
+      .search-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: min(340px, 100%);
+        flex: 0 1 340px;
+      }
+      .search-icon {
+        position: absolute;
+        z-index: 1;
+        left: 21px;
+        width: 18px;
+        height: 18px;
+        color: #94a3b8;
+        pointer-events: none;
       }
       .event-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px 14px;
+        gap: 28px 20px;
       }
       .event-card {
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
         border-radius: 10px;
         background: var(--card);
         color: #151515;
       }
       .event-card img {
-        height: 180px;
+        height: 200px;
       }
       .event-info {
-        padding: 12px 14px 15px;
+        flex: 1;
+        padding: 18px 18px 20px;
       }
       .event-info h3 {
-        min-height: 38px;
-        margin: 0 0 9px;
-        font-size: 13px;
+        min-height: 54px;
+        margin: 0 0 14px;
+        overflow: hidden;
+        font-size: 20px;
+        line-height: 1.35;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
       }
       .event-info div {
-        margin-top: 5px;
-        font-size: 10px;
-        color: #444;
+        margin-top: 8px;
+        font-size: 18px;
+        line-height: 1.4;
+        color: #151515;
+      }
+      .event-meta-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .event-meta-row iconify-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+        color: #626262;
+      }
+      .event-meta .event-meta-row iconify-icon {
+        color: #d6d6d6;
       }
       .more {
         display: block;
@@ -255,7 +351,7 @@
         padding: 11px 27px;
         border-radius: 30px;
         background: var(--orange);
-        font-size: 12px;
+        font-size: 18px;
         font-weight: 700;
       }
       .registration-steps {
@@ -316,7 +412,7 @@
         border-radius: 50%;
         background: var(--orange);
         color: #fff;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
       }
       .registration-copy h3 {
@@ -327,7 +423,7 @@
       .registration-copy p {
         margin: 0;
         color: #a3a3a8;
-        font-size: 13px;
+        font-size: 18px;
         line-height: 1.5;
       }
       .registration-pagination {
@@ -354,7 +450,7 @@
         padding: 15px 21px;
         border: 2px solid #666;
         border-radius: 10px;
-        font-size: 29px;
+        font-size: 18px;
         font-weight: 700;
       }
       .app-showcase {
@@ -393,8 +489,14 @@
         filter: drop-shadow(0 24px 35px rgba(0, 0, 0, 0.4));
       }
       .app-copy .tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 18px;
+        border: 2px solid var(--orange);
+        border-radius: 999px;
         color: var(--orange);
-        font-size: 11px;
+        font-size: 18px;
         font-weight: 700;
       }
       .app-copy h2 {
@@ -505,14 +607,22 @@
           outline-offset: 4px;
         }
         .side-event {
-          grid-template-columns: 42% 1fr;
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .feature-event img,
+        .side-event img {
+          height: 220px;
         }
         .all-head {
-          display: block;
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 14px;
           margin: 52px 0 24px;
         }
         .all-head h2 {
-          margin-bottom: 20px;
+          margin-bottom: 0;
           font-size: 28px;
           line-height: 1.25;
         }
@@ -553,9 +663,12 @@
           box-shadow: 0 6px 18px rgba(255, 104, 29, .22);
         }
         .search {
-          width: 100%;
-          min-height: 42px;
-          border: 1px solid #292b30;
+          min-height: 48px;
+        }
+        .search-box {
+          width: min(340px, 100%);
+          flex: 0 0 auto;
+          align-self: flex-start;
         }
         .join-head {
           display: block;
@@ -568,7 +681,7 @@
         }
         .hashtag {
           margin-top: 25px;
-          font-size: 20px;
+          font-size: 18px;
         }
         .app-copy {
           order: -1;
@@ -580,26 +693,23 @@
       }
     </style>
     <link rel="stylesheet" href="/footer.css" />
+    <link rel="stylesheet" href="/buttons.css" />
     <link rel="stylesheet" href="/header.css" />
+    <style>
+      .app-btn,
+      .orange-btn,
+      .more {
+        font-size: 18px !important;
+      }
+    </style>
+    <script
+      src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"
+      defer
+    ></script>
+    <script src="/site-chrome.js" defer></script>
   </head>
   <body>
-    <header>
-      <div class="container nav">
-        <a class="brand" href="/"
-          ><img
-            class="logo"
-            src="/assets/Footer%20Square%20Logo.png"
-            alt="PEEP SHARE"
-          /><span class="brand-name">PEEP <em>SHARE</em></span></a
-        >
-        <nav>
-          <a href="/">Home</a><a class="active" href="/event/">Event</a
-          ><a href="/join/">Join with us</a
-          ><a href="/terms-and-conditions/">Term and Condition</a>
-        </nav>
-        <a class="app-btn" href="#download">Get the App</a>
-      </div>
-    </header>
+    <header data-site-header></header>
     <main>
       <section class="hero">
         <div class="container">
@@ -610,12 +720,24 @@
               ใส่เสื้อทีมโปรด แล้วมารวมพลังเชียร์สด
             </p>
             <div class="event-meta">
-              <div>▣ &nbsp;29 สิงหาคม 2026</div>
-              <div>◷ &nbsp;18:30 - 21:00</div>
-              <div>● &nbsp;MONO STUDIO แจ้งวัฒนะ</div>
+              <div class="event-meta-row">
+                <iconify-icon icon="solar:calendar-bold" aria-hidden="true"></iconify-icon>
+                <span>29 สิงหาคม 2026</span>
+              </div>
+              <div class="event-meta-row">
+                <iconify-icon icon="solar:clock-circle-bold" aria-hidden="true"></iconify-icon>
+                <span>18:30 - 21:00</span>
+              </div>
+              <div class="event-meta-row">
+                <iconify-icon icon="solar:map-point-bold" aria-hidden="true"></iconify-icon>
+                <span>MONO STUDIO แจ้งวัฒนะ</span>
+              </div>
             </div>
             <div class="actions">
-              <a class="orange-btn" href="/event/detail/">ดูรายละเอียด&nbsp;&nbsp; →</a>
+              <a class="orange-btn" href="/event/detail/">
+                ดูรายละเอียด
+                <iconify-icon icon="solar:arrow-right-linear" aria-hidden="true"></iconify-icon>
+              </a>
             </div>
           </div>
         </div>
@@ -636,7 +758,9 @@
                 แลกเปลี่ยนประสบการณ์กับผู้ใช้งานจริง
               </p>
               <div class="small-meta">
-                ▣ 12 ตุลาคม 2026　◷ 14:00 - 18:00　● Samyan Mitrtown Hall
+                <span class="meta-item"><iconify-icon icon="solar:calendar-bold" aria-hidden="true"></iconify-icon>12 ตุลาคม 2026</span>
+                <span class="meta-item"><iconify-icon icon="solar:clock-circle-bold" aria-hidden="true"></iconify-icon>14:00 - 18:00</span>
+                <span class="meta-item"><iconify-icon icon="solar:map-point-bold" aria-hidden="true"></iconify-icon>Samyan Mitrtown Hall</span>
               </div>
             </article>
             <div class="side-events">
@@ -652,7 +776,8 @@
                     พร้อมเทคนิคการใช้คูปองและโปรโมชั่น
                   </p>
                   <div class="small-meta">
-                    ▣ 26 ตุลาคม 2026　◷ 13:00 - 16:00
+                    <span class="meta-item"><iconify-icon icon="solar:calendar-bold" aria-hidden="true"></iconify-icon>26 ตุลาคม 2026</span>
+                    <span class="meta-item"><iconify-icon icon="solar:clock-circle-bold" aria-hidden="true"></iconify-icon>13:00 - 16:00</span>
                   </div>
                 </div>
               </article>
@@ -667,25 +792,28 @@
                     เปิดเวทีให้ครีเอเตอร์รุ่นใหม่มาแชร์ไอเดียและแรงบันดาลใจ
                   </p>
                   <div class="small-meta">
-                    ▣ 9 พฤศจิกายน 2026　◷ 19:00 - 22:00
+                    <span class="meta-item"><iconify-icon icon="solar:calendar-bold" aria-hidden="true"></iconify-icon>9 พฤศจิกายน 2026</span>
+                    <span class="meta-item"><iconify-icon icon="solar:clock-circle-bold" aria-hidden="true"></iconify-icon>19:00 - 22:00</span>
                   </div>
                 </div>
               </article>
             </div>
           </div>
           <div class="all-head">
-            <div>
-              <h2>กิจกรรมทั้งหมด</h2>
-              <div class="filters">
-                <span class="active">กิจกรรมทั้งหมด</span
-                ><span>งานสัมมนาและเวิร์กช็อป</span><span>งานกีฬา</span
-                ><span>งานแข่งขัน</span>
-              </div>
-            </div>
-            <input
-              class="search"
-              placeholder="⌕  ค้นหาชื่อกิจกรรม หรือ ประเภท"
-            />
+            <h2>กิจกรรมทั้งหมด</h2>
+            <label class="search-box">
+              <iconify-icon
+                class="search-icon"
+                icon="solar:magnifer-outline"
+                aria-hidden="true"
+              ></iconify-icon>
+              <input
+                class="search"
+                type="search"
+                aria-label="ค้นหากิจกรรม"
+                placeholder="ค้นหาชื่อกิจกรรม หรือ ประเภท"
+              />
+            </label>
           </div>
           <div class="event-grid" id="eventGrid">
             <article class="event-card">
@@ -695,9 +823,9 @@
               />
               <div class="event-info">
                 <h3>Smart Sharing: แชร์ไฟล์ปลอดภัยในยุคดิจิทัล</h3>
-                <div>▣　5 ตุลาคม 2026</div>
-                <div>◷　10:00 - 12:30</div>
-                <div>●　Siam Paragon Hall</div>
+                <div class="event-meta-row"><iconify-icon icon="solar:calendar-bold" aria-hidden="true"></iconify-icon><span>5 ตุลาคม 2026</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:clock-circle-bold" aria-hidden="true"></iconify-icon><span>10:00 - 12:30</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:map-point-bold" aria-hidden="true"></iconify-icon><span>Siam Paragon Hall</span></div>
               </div>
             </article>
             <article class="event-card">
@@ -707,9 +835,9 @@
               />
               <div class="event-info">
                 <h3>PEEP Share × Creator Camp</h3>
-                <div>▣　18 ตุลาคม 2026</div>
-                <div>◷　13:00 - 17:00</div>
-                <div>●　ICON SIAM ชั้น 6</div>
+                <div class="event-meta-row"><iconify-icon icon="solar:calendar-bold" aria-hidden="true"></iconify-icon><span>18 ตุลาคม 2026</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:clock-circle-bold" aria-hidden="true"></iconify-icon><span>13:00 - 17:00</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:map-point-bold" aria-hidden="true"></iconify-icon><span>ICON SIAM ชั้น 6</span></div>
               </div>
             </article>
             <article class="event-card">
@@ -719,9 +847,9 @@
               />
               <div class="event-info">
                 <h3>Cloud Storage Workshop: จัดการพื้นที่ให้เวิร์ค</h3>
-                <div>▣　25 ตุลาคม 2026</div>
-                <div>◷　14:00 - 16:00</div>
-                <div>●　AIS Design Center</div>
+                <div class="event-meta-row"><iconify-icon icon="solar:calendar-bold" aria-hidden="true"></iconify-icon><span>25 ตุลาคม 2026</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:clock-circle-bold" aria-hidden="true"></iconify-icon><span>14:00 - 16:00</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:map-point-bold" aria-hidden="true"></iconify-icon><span>AIS Design Center</span></div>
               </div>
             </article>
             <article class="event-card">
@@ -731,9 +859,9 @@
               />
               <div class="event-info">
                 <h3>AI Translate Masterclass สำหรับนักเดินทาง</h3>
-                <div>▣　2 พฤศจิกายน 2026</div>
-                <div>◷　10:00 - 12:00</div>
-                <div>●　Central World ชั้น 4</div>
+                <div class="event-meta-row"><iconify-icon icon="solar:calendar-bold" aria-hidden="true"></iconify-icon><span>2 พฤศจิกายน 2026</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:clock-circle-bold" aria-hidden="true"></iconify-icon><span>10:00 - 12:00</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:map-point-bold" aria-hidden="true"></iconify-icon><span>Central World ชั้น 4</span></div>
               </div>
             </article>
             <article class="event-card">
@@ -743,9 +871,9 @@
               />
               <div class="event-info">
                 <h3>PEEP Share Hackathon 2026</h3>
-                <div>▣　15-16 พฤศจิกายน 2026</div>
-                <div>◷　09:00 - 18:00</div>
-                <div>●　KX Knowledge Xchange</div>
+                <div class="event-meta-row"><iconify-icon icon="solar:calendar-bold" aria-hidden="true"></iconify-icon><span>15-16 พฤศจิกายน 2026</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:clock-circle-bold" aria-hidden="true"></iconify-icon><span>09:00 - 18:00</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:map-point-bold" aria-hidden="true"></iconify-icon><span>KX Knowledge Xchange</span></div>
               </div>
             </article>
             <article class="event-card">
@@ -755,9 +883,9 @@
               />
               <div class="event-info">
                 <h3>เทคนิคใช้คูปองเพิ่มยอดขายบน PEEP Share</h3>
-                <div>▣　22 พฤศจิกายน 2026</div>
-                <div>◷　18:00 - 20:30</div>
-                <div>●　The Commons ทองหล่อ</div>
+                <div class="event-meta-row"><iconify-icon icon="solar:calendar-bold" aria-hidden="true"></iconify-icon><span>22 พฤศจิกายน 2026</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:clock-circle-bold" aria-hidden="true"></iconify-icon><span>18:00 - 20:30</span></div>
+                <div class="event-meta-row"><iconify-icon icon="solar:map-point-bold" aria-hidden="true"></iconify-icon><span>The Commons ทองหล่อ</span></div>
               </div>
             </article>
           </div>
@@ -865,20 +993,20 @@
                 ๆ ไปด้วยกัน
               </p>
               <div class="stores">
-                <img
-                  src="/assets/Frame%2015978847379.png"
+                <a href="https://open.peepshare.ai/Yxf0/nhogdpsa" aria-label="Download on the App Store"><img
+                  src="/assets/Frame15978847379.png"
                   alt="Download on the App Store"
-                /><img
-                  src="/assets/Frame%201597884735.png"
+                /></a><a href="https://open.peepshare.ai/Yxf0/nhogdpsa" aria-label="Download for Android"><img
+                  src="/assets/Frame1597884735.png"
                   alt="Download for Android"
-                />
+                /></a>
               </div>
             </div>
           </div>
         </div>
       </section>
     </main>
-    <footer class="site-footer"><div class="site-footer__inner"><div class="site-footer__main"><div><a class="site-footer__brand" href="/"><img src="/assets/Footer%20Square%20Logo.png" alt=""><span>PEEP SHARE</span></a><p class="site-footer__tagline">Let’s “ PEEPSHARE ”<br>keep your memories.</p><a class="site-footer__email" href="mailto:support@peepshare.me">support@peepshare.me</a></div><nav class="site-footer__links" aria-label="Footer navigation"><a href="/terms-and-conditions/?document=privacy">นโยบายความเป็นส่วนตัว</a><a href="/join/#faq">ศูนย์ช่วยเหลือ</a><a href="/">เกี่ยวกับ</a><a href="/terms-and-conditions/?document=terms">ข้อกำหนดการใช้บริการ</a></nav></div><div class="site-footer__bottom"><span>© 2026 PEEP SHARE. All rights reserved.</span><div class="site-footer__socials"><a href="#" aria-label="Facebook"><img src="/assets/Frame%201597884737.png" alt=""></a><a href="#" aria-label="Instagram"><img src="/assets/Frame%201597884738.png" alt=""></a><a href="#" aria-label="TikTok"><img src="/assets/Frame%201597884739.png" alt=""></a></div></div></div></footer>
+    <footer data-site-footer></footer>
     <script>
       const registrationGrid = document.querySelector(".registration-grid");
       const registrationCards = [...registrationGrid.querySelectorAll(".registration-step")];

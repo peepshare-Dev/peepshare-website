@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
     <style>
       :root {
         --bg: #08090b;
@@ -31,11 +32,16 @@
         min-width: 320px;
         background: var(--bg);
         color: var(--text);
-        font-family: Inter, "Noto Sans Thai", sans-serif;
+        font-family: "Noto Sans Thai", sans-serif;
       }
       a {
         color: inherit;
         text-decoration: none;
+      }
+      iconify-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
       }
       img {
         display: block;
@@ -127,7 +133,7 @@
         bottom: -48px;
         left: 70px;
         width: 360px;
-        transform: rotate(-6deg);
+        transform: none;
         filter: drop-shadow(0 28px 48px #000);
       }
       .stat {
@@ -162,16 +168,18 @@
       }
       .hero-copy h1 {
         display: flex;
-        align-items: baseline;
-        gap: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
         margin: 0 0 24px;
         font-size: clamp(45px, 5vw, 72px);
         letter-spacing: -0.055em;
       }
       .hero-copy h1 .hero-subtitle {
-        color: #c1c2c5;
+        color: #fff;
         font-size: 0.3em;
         font-weight: 500;
+        line-height: 1.1;
         letter-spacing: 0;
         white-space: nowrap;
       }
@@ -563,7 +571,7 @@
         .phone {
           left: 50%;
           width: 280px;
-          transform: translateX(-50%) rotate(-6deg);
+          transform: translateX(-50%);
         }
         .stat {
           width: 104px;
@@ -692,7 +700,7 @@
         left: 115px;
         bottom: -6px;
         width: 335px;
-        transform: rotate(-10deg);
+        transform: none;
       }
       .stat {
         width: 166px;
@@ -752,7 +760,7 @@
       @media (min-width: 801px) {
         .hero-art,
         .hero-copy {
-          transform: translateY(-45px);
+          transform: none;
         }
       }
       .steps {
@@ -1082,9 +1090,9 @@
         width: 199px;
         height: 57px;
         background:
-          url("/assets/Frame%201597884737.png") left center/57px 57px no-repeat,
-          url("/assets/Frame%201597884738.png") center/57px 57px no-repeat,
-          url("/assets/Frame%201597884739.png") right center/57px 57px no-repeat;
+          url("/assets/Frame1597884737.png") left center/57px 57px no-repeat,
+          url("/assets/Frame1597884738.png") center/57px 57px no-repeat,
+          url("/assets/Frame1597884739.png") right center/57px 57px no-repeat;
       }
       body .copy {
         margin: 0;
@@ -1245,7 +1253,7 @@
         height: 68px;
         transform: translateY(-50%);
         border-radius: 50%;
-        background: url("/assets/Component%201.png") center/contain no-repeat;
+        background: url("/assets/Component1.png") center/contain no-repeat;
       }
       .grow .feature {
         min-height: 310px;
@@ -1279,6 +1287,19 @@
         color: #f1f1f2;
         font-size: 14px;
         line-height: 1.65;
+      }
+      .grow .benefit-description {
+        margin: 0;
+        color: #f1f1f2;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+      .grow .benefit-description ol {
+        margin: 0;
+        padding-left: 24px;
+      }
+      .grow .benefit-description li + li {
+        margin-top: 8px;
       }
       .grow .feature-copy:after {
         content: "‹   ›";
@@ -1635,7 +1656,8 @@
           padding: 54px 0 0;
         }
         .hero-copy h1 {
-          gap: 10px;
+          align-items: center;
+          gap: 2px;
           margin-bottom: 20px;
           font-size: 42px;
           line-height: 1.05;
@@ -1671,7 +1693,7 @@
           left: 50%;
           bottom: -8px;
           width: 255px;
-          transform: translateX(-50%) rotate(-6deg);
+          transform: translateX(-50%);
         }
         .stat {
           width: 112px;
@@ -1781,10 +1803,38 @@
           animation: none;
         }
       }
+      /* Keep Frame22 intact; remove only the page-level glow and overlays. */
+      .hero {
+        padding-top: 74px;
+        background: linear-gradient(
+          180deg,
+          #08090b 0%,
+          #090a0c 70%,
+          #160b07 100%
+        );
+      }
+      .hero-art .phone {
+        left: 50%;
+        bottom: 0;
+        width: min(520px, 100%);
+        height: auto;
+        max-width: 100%;
+        transform: translateX(-50%);
+        object-fit: contain;
+      }
+      @media (max-width: 800px) {
+        .hero {
+          padding-top: 64px;
+        }
+        .hero-art .phone {
+          width: min(380px, 94vw);
+        }
+      }
       /* Interactive Growth Together benefit card. */
       .grow .benefit-slider .feature-copy:before,
       .grow .benefit-slider .feature-copy:after {
-        content: none;
+        content: none !important;
+        display: none !important;
       }
       .grow .benefit-count {
         display: block;
@@ -2065,7 +2115,7 @@
         }
         html body .join .join-copy .btn {
           display: inline-flex;
-          margin: 36px 0 0 285px;
+          margin: 36px 0 0;
           padding: 12px 24px;
           background: #ff701b;
           color: #fff;
@@ -2085,44 +2135,80 @@
           filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.38));
         }
       }
+      html body a.btn,
+      html body a.shop-btn {
+        padding: 10px 15px !important;
+        font-size: 14px !important;
+        line-height: 20px !important;
+      }
+      main p,
+      main summary,
+      main .benefit-description,
+      main .benefit-count,
+      main .coupon-number {
+        font-size: 18px !important;
+      }
+      .steps .step h3,
+      .steps .step p {
+        font-size: 15px !important;
+      }
+      /* Prevent hero rules from other Nuxt routes from changing this layout. */
+      @media (min-width: 801px) {
+        .join-page .hero-copy {
+          width: 100%;
+          max-width: none;
+          margin-left: 0;
+          padding-left: 38px;
+          text-align: left;
+        }
+        .join-page .hero-copy h1 {
+          align-items: flex-start;
+          margin-right: 0;
+          margin-left: 0;
+          text-align: left;
+        }
+        .join-page .hero-copy p {
+          width: 100%;
+          max-width: 500px;
+          margin-right: 0;
+          margin-left: 0;
+          text-align: left;
+        }
+        .join-page .hero-copy .buttons {
+          justify-content: flex-start;
+        }
+      }
+      @media (max-width: 800px) {
+        .join-page .hero-copy {
+          width: 100%;
+          margin-left: 0;
+          text-align: center;
+        }
+        .join-page .hero-copy h1 {
+          align-items: center;
+          text-align: center;
+        }
+        .join-page .hero-copy p {
+          margin-right: auto;
+          margin-left: auto;
+          text-align: center;
+        }
+        .join-page .hero-copy .buttons {
+          justify-content: center;
+        }
+      }
     </style>
     <link rel="stylesheet" href="/footer.css" />
+    <link rel="stylesheet" href="/buttons.css" />
     <link rel="stylesheet" href="/header.css" />
+    <script src="/site-chrome.js" defer></script>
   </head>
   <body>
-    <header>
-      <nav class="nav container">
-        <a class="brand" href="/home"
-          ><img src="/assets/Footer%20Square%20Logo.png" alt="" /><span
-            >PEEP <span class="orange">SHARE</span></span
-          ></a
-        >
-        <div class="navlinks">
-          <a href="/">Home</a><a href="/event/">Event</a
-          ><a class="active" href="/join/">Join with Us</a
-          ><a href="/terms-and-conditions/">Terms and Conditions</a>
-        </div>
-        <a class="shop-btn" href="/partner/shop/">Get the App</a
-        ><button class="menu-btn" id="menuBtn">☰</button>
-      </nav>
-      <div class="mobile-menu" id="mobile">
-        <a href="/">Home</a><a href="/event/">Event</a
-        ><a class="active" href="/join/">Join with Us</a
-        ><a href="/terms-and-conditions/">Terms and Conditions</a
-        ><a href="/partner/shop/">Get the App</a>
-      </div>
-    </header>
-    <main>
+    <header data-site-header></header>
+    <main class="join-page">
       <section class="hero">
         <div class="hero-grid container">
           <div class="hero-art">
-            <div class="stat s1"><b>1M+</b><small>Total Downloads</small></div>
-            <div class="stat s2">
-              <b>4.8★</b><small>App Store Rating</small>
-            </div>
-            <div class="stat s3">
-              <b>20GB</b><small>Free Cloud Storage</small>
-            </div>
             <img
               class="phone"
               src="/assets/Frame22.svg"
@@ -2262,24 +2348,30 @@
             <div class="feature-copy">
               <span class="benefit-count" id="benefitCount">01 / 03</span>
               <h3 id="benefitTitle">ลูกค้าใหม่จากคนในพื้นที่</h3>
-              <p id="benefitDescription">
+              <div class="benefit-description" id="benefitDescription">
                 ร้านของคุณจะปรากฏต่อผู้ใช้ที่เข้ามาหาคูปอง พร้อมรูป เมนู
                 รายละเอียดร้านของคุณ เพิ่มโอกาสให้คนตัดสินใจเดินเข้าร้าน
-              </p>
+              </div>
               <div class="benefit-controls">
                 <button
                   id="benefitPrev"
                   type="button"
                   aria-label="ประโยชน์ก่อนหน้า"
                 >
-                  ‹
+                  <iconify-icon
+                    icon="solar:alt-arrow-left-linear"
+                    aria-hidden="true"
+                  ></iconify-icon>
                 </button>
                 <button
                   id="benefitNext"
                   type="button"
                   aria-label="ประโยชน์ถัดไป"
                 >
-                  ›
+                  <iconify-icon
+                    icon="solar:alt-arrow-right-linear"
+                    aria-hidden="true"
+                  ></iconify-icon>
                 </button>
               </div>
             </div>
@@ -2293,7 +2385,7 @@
             <li class="coupon-step">
               <div class="coupon-phone">
                 <img
-                  src="/assets/Group%201597885525.svg"
+                  src="/assets/Group1597885525.svg"
                   alt="หน้า Community ในแอป PEEP SHARE"
                   loading="lazy"
                 />
@@ -2309,7 +2401,7 @@
             <li class="coupon-step">
               <div class="coupon-phone">
                 <img
-                  src="/assets/Group%201597885526.svg"
+                  src="/assets/Group1597885526.svg"
                   alt="หน้าหมวดหมู่ Special Coupon"
                   loading="lazy"
                 />
@@ -2325,7 +2417,7 @@
             <li class="coupon-step">
               <div class="coupon-phone">
                 <img
-                  src="/assets/Group%201597885527.svg"
+                  src="/assets/Group1597885527.svg"
                   alt="หน้ารายละเอียดคูปองในแอป PEEP SHARE"
                   loading="lazy"
                 />
@@ -2341,7 +2433,7 @@
             <li class="coupon-step">
               <div class="coupon-phone">
                 <img
-                  src="/assets/Group%201597885528.svg"
+                  src="/assets/Group1597885528.svg"
                   alt="หน้าบาร์โค้ดสำหรับแลกรับคูปอง"
                   loading="lazy"
                 />
@@ -2422,77 +2514,10 @@
         </div>
       </section>
     </main>
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <a class="footer-brand" href="/home"
-              ><img src="/assets/Footer%20Square%20Logo.png" alt="" /><span
-                >PEEP SHARE</span
-              ></a
-            >
-            <p class="footer-text">
-              Let’s “PEEPSHARE ”<br />keep your memories.
-            </p>
-            <p class="footer-email">support@peepshare.me</p>
-          </div>
-          <nav class="footer-links">
-            <a href="#">นโยบายความเป็นส่วนตัว</a
-            ><a href="#faq">ศูนย์ช่วยเหลือ</a><a href="/partner/">เกี่ยวกับ</a
-            ><a href="#">ข้อกำหนดการใช้บริการ</a>
-          </nav>
-        </div>
-        <p class="copy">© 2026 PEEP SHARE. All rights reserved.</p>
-      </div>
-    </footer>
-    <footer class="site-footer">
-      <div class="site-footer__inner">
-        <div class="site-footer__main">
-          <div>
-            <a class="site-footer__brand" href="/"
-              ><img src="/assets/Footer%20Square%20Logo.png" alt="" /><span
-                >PEEP SHARE</span
-              ></a
-            >
-            <p class="site-footer__tagline">
-              Let’s “ PEEPSHARE ”<br />keep your memories.
-            </p>
-            <a class="site-footer__email" href="mailto:support@peepshare.me"
-              >support@peepshare.me</a
-            >
-          </div>
-          <nav class="site-footer__links" aria-label="Footer navigation">
-            <a href="/terms-and-conditions/?document=privacy"
-              >นโยบายความเป็นส่วนตัว</a
-            ><a href="/join/#faq">ศูนย์ช่วยเหลือ</a><a href="/">เกี่ยวกับ</a
-            ><a href="/terms-and-conditions/?document=terms"
-              >ข้อกำหนดการใช้บริการ</a
-            >
-          </nav>
-        </div>
-        <div class="site-footer__bottom">
-          <span>© 2026 PEEP SHARE. All rights reserved.</span>
-          <div class="site-footer__socials">
-            <a href="#" aria-label="Facebook"
-              ><img src="/assets/Frame%201597884737.png" alt="" /></a
-            ><a href="#" aria-label="Instagram"
-              ><img src="/assets/Frame%201597884738.png" alt="" /></a
-            ><a href="#" aria-label="TikTok"
-              ><img src="/assets/Frame%201597884739.png" alt=""
-            /></a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <footer data-site-footer></footer>
     <script>
       if (location.pathname === "/")
         history.replaceState(null, "", "/home" + location.hash);
-      const b = document.getElementById("menuBtn"),
-        m = document.getElementById("mobile");
-      b.onclick = () => {
-        m.classList.toggle("open");
-        b.textContent = m.classList.contains("open") ? "×" : "☰";
-      };
       document.querySelectorAll(".faq details").forEach((d) => {
         const s = d.querySelector("summary");
         s.onclick = (e) => {
@@ -2589,8 +2614,11 @@
         },
         {
           title: "รู้ว่าลูกค้าชอบอะไร",
-          description:
-            "ดูยอดเข้าชมร้าน เมนูยอดนิยม และผลตอบรับแต่ละดีลได้จาก Dashboard เพื่อจัดโปรโมชันรอบถัดไปได้แม่นยำขึ้นและตรงใจลูกค้ามากขึ้น",
+          items: [
+            "แบรนด์เพิ่มการรับรู้และขยายฐานลูกค้า ช่วยให้แบรนด์เป็นที่รู้จักมากขึ้น พร้อมเข้าถึงกลุ่มลูกค้าใหม่ ๆ ที่หลากหลาย",
+            "ติดตามความสนใจของลูกค้าได้ตลอด 24 ชั่วโมง ผ่านข้อมูลยอดเข้าชมร้านค้า สินค้า และบริการยอดนิยม",
+            "วิเคราะห์ผลลัพธ์ผ่าน Dashboard ติดตามผลตอบรับของแต่ละดีล เพื่อนำข้อมูลไปวางแผนโปรโมชันให้ตรงกลุ่มเป้าหมายและตอบโจทย์ความต้องการของลูกค้าได้ดียิ่งขึ้น",
+          ],
         },
       ];
       const benefitCard = document.querySelector(".benefit-slider");
@@ -2605,7 +2633,17 @@
           const slide = benefitSlides[benefitIndex];
           benefitCount.textContent = `0${benefitIndex + 1} / 03`;
           benefitTitle.textContent = slide.title;
-          benefitDescription.textContent = slide.description;
+          if (slide.items) {
+            const list = document.createElement("ol");
+            slide.items.forEach((item) => {
+              const listItem = document.createElement("li");
+              listItem.textContent = item;
+              list.append(listItem);
+            });
+            benefitDescription.replaceChildren(list);
+          } else {
+            benefitDescription.textContent = slide.description;
+          }
           benefitCard.classList.remove("is-changing");
         }, 160);
       }

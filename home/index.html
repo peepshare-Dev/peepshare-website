@@ -17,9 +17,10 @@
       fetchpriority="high"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
 <style>
       :root {
         --bg: #090a0c;
@@ -44,7 +45,7 @@
         overflow-x: hidden;
         color: var(--text);
         background: var(--bg);
-        font-family: Inter, Arial, sans-serif;
+        font-family: "Noto Sans Thai", sans-serif;
         -webkit-font-smoothing: antialiased;
       }
       a {
@@ -53,6 +54,11 @@
       }
       button {
         font: inherit;
+      }
+      iconify-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
       }
       img {
         display: block;
@@ -251,7 +257,7 @@
         max-width: 610px;
         margin: 24px auto 0;
         color: #a7a8ac;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 1.7;
       }
       .hero-device {
@@ -466,7 +472,7 @@
       .feature-copy p {
         margin: 0 0 22px;
         color: #d1d1d3;
-        font-size: 13px;
+        font-size: 18px;
         line-height: 1.65;
       }
       .feature-copy p span {
@@ -484,7 +490,7 @@
         border-radius: 999px;
         background: #55565d;
         color: #fff;
-        font-size: 10px;
+        font-size: 18px;
       }
 
       .reviews {
@@ -522,7 +528,7 @@
         gap: 18px;
       }
       .review-card {
-        min-height: 150px;
+        min-height: 0;
         padding: 24px;
         border-radius: 16px;
         background: #efeff3;
@@ -531,10 +537,10 @@
         flex-direction: column;
       }
       .review-card.tall {
-        min-height: 220px;
+        min-height: 0;
       }
       .review-card.medium {
-        min-height: 178px;
+        min-height: 0;
       }
       .review-card p {
         flex: 1;
@@ -678,6 +684,7 @@
         object-fit: cover;
       }
       .carousel-controls {
+        display: none !important;
         position: absolute;
         right: 28px;
         bottom: 26px;
@@ -733,7 +740,7 @@
         gap: 20px;
         cursor: pointer;
         list-style: none;
-        font-size: 15px;
+        font-size: 18px;
         font-weight: 700;
       }
       summary::-webkit-details-marker {
@@ -753,7 +760,7 @@
         max-width: 970px;
         margin: -4px 0 22px;
         color: #85868b;
-        font-size: 12px;
+        font-size: 18px;
         line-height: 1.75;
       }
 
@@ -984,7 +991,7 @@
           line-height: 1.02;
         }
         .hero-subtitle {
-          font-size: 12px;
+          font-size: 14px;
           max-width: 340px;
           margin-top: 18px;
           line-height: 1.6;
@@ -1033,7 +1040,7 @@
           display: flex;
         }
         .review-card {
-          min-height: 145px;
+          min-height: 0;
           padding: 19px;
         }
         .review-card p {
@@ -1078,7 +1085,7 @@
           font-size: 34px;
         }
         .hero-subtitle {
-          font-size: 11px;
+          font-size: 14px;
         }
         .reviews-viewport {
           max-height: 540px;
@@ -1115,43 +1122,12 @@
       }
     </style>
     <link rel="stylesheet" href="/footer.css" />
+    <link rel="stylesheet" href="/buttons.css" />
     <link rel="stylesheet" href="/header.css" />
+    <script src="/site-chrome.js" defer></script>
   </head>
   <body>
-    <header id="header">
-      <nav class="nav container" aria-label="Primary navigation">
-        <a class="brand" href="/" aria-label="PEEP SHARE home"
-          ><img
-            class="brand-logo"
-            src="/assets/Footer%20Square%20Logo.png"
-            alt=""
-          /><span
-            ><span class="brand-peep">PEEP</span>
-            <span class="brand-share">SHARE</span></span
-          ></a
-        >
-        <div class="nav-links">
-          <a class="active" href="/">Home</a><a href="/event/">Event</a
-          ><a href="/join/">Join with us</a
-          ><a href="/terms-and-conditions/">Term and Condition</a>
-        </div>
-        <a class="nav-cta" href="/partner/shop/">Get the App</a>
-        <button
-          class="menu-btn"
-          id="menuButton"
-          aria-label="Open navigation"
-          aria-expanded="false"
-        >
-          ☰
-        </button>
-      </nav>
-      <div class="mobile-menu" id="mobileMenu">
-        <a class="active" href="/">Home</a><a href="/event/">Event</a
-        ><a href="/join/">Join with us</a
-        ><a href="/terms-and-conditions/">Term and Condition</a
-        ><a href="/partner/shop/">Get the App</a>
-      </div>
-    </header>
+    <header data-site-header></header>
 
     <main>
       <section class="hero" id="home">
@@ -1189,7 +1165,7 @@
           </div>
           <img
             class="hero-device"
-            src="/assets/Group%201000002778.png"
+            src="/assets/Group1000002778.png"
             alt="PEEP SHARE mobile application"
           />
         </div>
@@ -1327,6 +1303,7 @@
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       <section class="reviews" id="reviews">
@@ -1341,7 +1318,7 @@
             <div class="reviews-columns">
               <div class="review-column">
                 <article class="review-card">
-                  <p>Habitline made my mornings feel manageable again.</p>
+                  <p>วิดีโอคอลลื่น ต่างจากแอปอื่น ๆ มาก เสถียรสุด ๆ</p>
                   <div class="review-person">
                     <img src="/assets/solar_user-circle-bold.png" alt="" /><b
                       >M****</b
@@ -1350,9 +1327,9 @@
                 </article>
                 <article class="review-card medium">
                   <p>
-                    The weekly insights are what sold me. They show exactly
-                    where I fall off and help me adjust without feeling guilty
-                    or overwhelmed.
+                    คือแอปดี ฟีเจอร์น่ารักหมดทุกอย่าง แต่บางทีฝ่ายตรงข้ามส่งข้อความมาหาแล้วไม่ขึ้น
+                    หรือข้อความหาย อยากให้แก้หน่อยค่ะ ส่วนฟอนต์และสติกเกอร์น่ารักมาก
+                    มีแปลภาษาด้วย เริ่ด
                   </p>
                   <div class="review-person">
                     <img src="/assets/solar_user-circle-bold.png" alt="" /><b
@@ -1361,10 +1338,7 @@
                   </div>
                 </article>
                 <article class="review-card tall">
-                  <p>
-                    This is the first habit app that doesn't overwhelm me.
-                    Everything feels calm, structured, and intentional.
-                  </p>
+                  <p>ชอบมากตอนแปลภาษา</p>
                   <div class="review-person">
                     <img src="/assets/solar_user-circle-bold.png" alt="" /><b
                       >A*******</b
@@ -1375,9 +1349,8 @@
               <div class="review-column">
                 <article class="review-card tall">
                   <p>
-                    I used to ignore reminders from other apps, but these feel
-                    calm and well-timed. It's like the app knows when I'm
-                    actually able to do something.
+                    แอปโคตรดีครับ ผมเอารูปภาพไปเก็บไว้ใน My Cloud
+                    จากพื้นที่ 47GB ลดลงมาเหลือแค่ 42GB ถือว่าลดลงไปเยอะมาก ตั้ง 5GB แหนะ
                   </p>
                   <div class="review-person">
                     <img src="/assets/solar_user-circle-bold.png" alt="" /><b
@@ -1386,10 +1359,7 @@
                   </div>
                 </article>
                 <article class="review-card medium">
-                  <p>
-                    Focus blocks changed the way I work. I get more done in two
-                    hours now than what used to take half a day.
-                  </p>
+                  <p>เยี่ยมเลย เวลานี้ใช้งานดีทีเดียวครับ</p>
                   <div class="review-person">
                     <img src="/assets/solar_user-circle-bold.png" alt="" /><b
                       >L******</b
@@ -1398,8 +1368,9 @@
                 </article>
                 <article class="review-card medium">
                   <p>
-                    The structured timelines help me manage my day easily.
-                    Highly recommended.
+                    ชอบแอปมากค่ะ อยากให้ที่ทำงานมาใช้แอปนี้เลย
+                    แต่แอปยังไม่เสถียรเท่าไหร่ สติกเกอร์ฟรีหลายอันน่ารักมาก
+                    การโทรและวิดีโอคอลไม่ติดปัญหาอะไรค่ะ แต่ตอนเพิ่มเพื่อนแอบหนืดนิดนึง
                   </p>
                   <div class="review-person">
                     <img src="/assets/solar_user-circle-bold.png" alt="" /><b
@@ -1410,7 +1381,7 @@
               </div>
               <div class="review-column">
                 <article class="review-card">
-                  <p>It's the first habit app that doesn't overwhelm me.</p>
+                  <p>ได้รับข้อมูลชัดเจน ค้นหาง่าย สะดวก ปลอดภัย ไร้กังวล</p>
                   <div class="review-person">
                     <img src="/assets/solar_user-circle-bold.png" alt="" /><b
                       >H******</b
@@ -1419,8 +1390,7 @@
                 </article>
                 <article class="review-card">
                   <p>
-                    I actually stick to my routines now. Small steps finally add
-                    up.
+                    ใช้งานง่าย ประหยัดเนื้อที่ได้เยอะ ชอบครับแอปนี้ 👍
                   </p>
                   <div class="review-person">
                     <img src="/assets/solar_user-circle-bold.png" alt="" /><b
@@ -1429,7 +1399,10 @@
                   </div>
                 </article>
                 <article class="review-card medium">
-                  <p>Feels tailored to my day and keeps me motivated.</p>
+                  <p>
+                    ส่งรูป วิดีโอ และไฟล์ได้สะดวก เปิดดูย้อนหลังง่าย
+                    ไม่ต้องคอยลบไฟล์บ่อย ๆ ใช้งานครบในแอปเดียวครับ
+                  </p>
                   <div class="review-person">
                     <img src="/assets/solar_user-circle-bold.png" alt="" /><b
                       >S********</b
@@ -1465,12 +1438,12 @@
               <div class="platform-icons">
                 <a
                   class="platform-icon"
-                  href="#"
+                  href="https://open.peepshare.ai/Yxf0/nhogdpsa"
                   aria-label="Download on the App Store"
                   ><img src="/assets/Frame 15978847379.png" alt="" /></a
                 ><a
                   class="platform-icon"
-                  href="#"
+                  href="https://open.peepshare.ai/Yxf0/nhogdpsa"
                   aria-label="Download for Android"
                   ><img src="/assets/Frame 1597884735.png" alt=""
                 /></a>
@@ -1481,11 +1454,11 @@
               <div class="platform-icons">
                 <img
                   class="platform-image"
-                  src="/assets/Frame%2015978847389.png"
+                  src="/assets/Frame15978847389.png"
                   alt="Windows coming soon"
                 /><img
                   class="platform-image"
-                  src="/assets/Frame%201597884740.png"
+                  src="/assets/Frame1597884740.png"
                   alt="Desktop coming soon"
                 />
               </div>
@@ -1494,7 +1467,7 @@
           <div class="download-grid">
             <img
               class="stats-image"
-              src="/assets/stats-card.png"
+              src="/assets/Frame11.svg"
               alt="PEEP SHARE download statistics"
             />
             <div
@@ -1505,11 +1478,10 @@
             >
               <div class="showcase-track" id="showcaseTrack">
                   <img
-                    src="/assets/Frame 2147227450.svg"
+                    src="/assets/Frame2147227450.svg"
                     alt="PEEP SHARE available across platforms"
                   />
                 </div>
-              </div>
               <div class="carousel-controls">
                 <button
                   class="carousel-btn"
@@ -1517,14 +1489,20 @@
                   type="button"
                   aria-label="Previous slide"
                 >
-                  ‹</button
+                  ><iconify-icon
+                    icon="solar:alt-arrow-left-linear"
+                    aria-hidden="true"
+                  ></iconify-icon></button
                 ><button
                   class="carousel-btn"
                   id="carouselNext"
                   type="button"
                   aria-label="Next slide"
                 >
-                  ›
+                  <iconify-icon
+                    icon="solar:alt-arrow-right-linear"
+                    aria-hidden="true"
+                  ></iconify-icon>
                 </button>
               </div>
             </div>
@@ -1538,10 +1516,8 @@
           <details open>
             <summary>What is PEEPSHARE?</summary>
             <p>
-              PeepShare
-              คือแอปพลิเคชันที่สร้างขึ้นเพื่อการสื่อสารส่วนตัวที่ปลอดภัย
-              เชื่อมต่อความสัมพันธ์อย่างง่ายดาย พร้อมรองรับ AI
-              และคลาวด์จัดเก็บไฟล์ความละเอียดสูง
+              PEEPSHARE แอปพลิเคชันที่จะทำให้ทุกการสื่อสารเป็นเรื่องที่ง่าย เป็นพื้นที่ปลอดภัยของทุกคน แชท โทร เก็บไฟล์ แชร์สิ่งที่ชอบกับคนอื่นๆ ด้วยฟีเจอร์ที่หลากหลาย และรองรับการแปลภาษา
+              อีกจุดเด่นที่น่าสนใจเรามี AI คู่ใจช่วยเป็นเพื่อนคิดในทุกช่วงเวลาของการใช้แอป ให้คุณได้สนุกไปกับการใช้ PEEPS ในทุกวัน
             </p>
           </details>
           <details>
@@ -1570,28 +1546,8 @@
       </section>
     </main>
 
-    <footer class="site-footer"><div class="site-footer__inner"><div class="site-footer__main"><div><a class="site-footer__brand" href="/"><img src="/assets/Footer%20Square%20Logo.png" alt=""><span>PEEP SHARE</span></a><p class="site-footer__tagline">Let’s “ PEEPSHARE ”<br>keep your memories.</p><a class="site-footer__email" href="mailto:support@peepshare.me">support@peepshare.me</a></div><nav class="site-footer__links" aria-label="Footer navigation"><a href="/terms-and-conditions/?document=privacy">นโยบายความเป็นส่วนตัว</a><a href="/join/#faq">ศูนย์ช่วยเหลือ</a><a href="/">เกี่ยวกับ</a><a href="/terms-and-conditions/?document=terms">ข้อกำหนดการใช้บริการ</a></nav></div><div class="site-footer__bottom"><span>© 2026 PEEP SHARE. All rights reserved.</span><div class="site-footer__socials"><a href="#" aria-label="Facebook"><img src="/assets/Frame%201597884737.png" alt=""></a><a href="#" aria-label="Instagram"><img src="/assets/Frame%201597884738.png" alt=""></a><a href="#" aria-label="TikTok"><img src="/assets/Frame%201597884739.png" alt=""></a></div></div></div></footer>
+    <footer data-site-footer></footer>
     <script>
-      const header = document.getElementById("header");
-      addEventListener(
-        "scroll",
-        () => header.classList.toggle("scrolled", scrollY > 10),
-        { passive: true },
-      );
-      const menuButton = document.getElementById("menuButton");
-      const mobileMenu = document.getElementById("mobileMenu");
-      menuButton.addEventListener("click", () => {
-        const open = mobileMenu.classList.toggle("open");
-        menuButton.setAttribute("aria-expanded", String(open));
-        menuButton.textContent = open ? "×" : "☰";
-      });
-      mobileMenu.querySelectorAll("a").forEach((link) =>
-        link.addEventListener("click", () => {
-          mobileMenu.classList.remove("open");
-          menuButton.setAttribute("aria-expanded", "false");
-          menuButton.textContent = "☰";
-        }),
-      );
       const observer = new IntersectionObserver(
         (entries) =>
           entries.forEach((entry) => {

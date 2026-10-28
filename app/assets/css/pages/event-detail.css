@@ -1,0 +1,52 @@
+html.page-event-detail { --bg:#08090b; --surface:#262626; --orange:#ff681d; --muted:#aaa9ad; --max:1280px; }
+      html.page-event-detail main * { box-sizing:border-box; }
+      html.page-event-detail { scroll-behavior:smooth; }
+      html.page-event-detail body { margin:0; overflow-x:hidden; background:var(--bg); color:#fff; font-family:"Noto Sans Thai",sans-serif; font-size:18px; }
+      html.page-event-detail main a { color:inherit; text-decoration:none; }
+      html.page-event-detail main img { display:block; max-width:100%; }
+      html.page-event-detail main .container { width:min(calc(100% - 160px),var(--max)); margin-inline:auto; }
+      html.page-event-detail main .register { padding:12px 25px; border-radius:999px; background:var(--orange); font-weight:700; }
+      html.page-event-detail main { background:radial-gradient(circle at 90% 54%,rgba(108,40,12,.24),transparent 29%),var(--bg); }
+      html.page-event-detail main .detail { padding:154px 0 40px; }
+      html.page-event-detail main .detail > .container { display:flex; flex-direction:column; gap:30px; }
+      html.page-event-detail main h1 { max-width:1180px; margin:0; font-size:clamp(44px,4.6vw,68px); line-height:1.08; letter-spacing:-.045em; }
+      html.page-event-detail main .event-layout { display:grid; grid-template-columns:1.14fr .96fr; gap:28px; align-items:start; }
+      html.page-event-detail main .poster { width:100%; aspect-ratio:1/1; border-radius:9px; background:linear-gradient(0deg,rgba(0,0,0,.12),rgba(0,0,0,.12)),url("https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=1300&q=90") center/cover; }
+      html.page-event-detail main .side { display:flex; flex-direction:column; height:100%; }
+      html.page-event-detail main .side h2 { margin:0 0 22px; font-size:30px; }
+      html.page-event-detail main .register { display:inline-flex; align-self:flex-start; align-items:center; gap:18px; margin-bottom:22px; font-size:14px; }
+      html.page-event-detail main .info-card { flex:1; display:flex; flex-direction:column; padding:24px; border-radius:17px; background:var(--surface); }
+      html.page-event-detail main .info-card h3 { margin:0 0 15px; font-size:17px; }
+      html.page-event-detail main .meta { display:grid; gap:13px; margin-bottom:24px; color:#d4d4d6; font-size:18px; }
+      html.page-event-detail main .meta span { display:flex; align-items:center; gap:10px; }
+      html.page-event-detail main .meta iconify-icon { width:20px; height:20px; flex:0 0 20px; }
+      html.page-event-detail main .place { margin:0 0 8px; font-weight:600; }
+      html.page-event-detail main .address { margin:0 0 18px; color:#c2c2c5; font-size:18px; line-height:1.7; }
+      html.page-event-detail main .map { flex:1; width:100%; min-height:180px; border:0; border-radius:13px; background:#ddd; }
+      html.page-event-detail main .description { margin:0; }
+      html.page-event-detail main .description h2 { margin:0 0 14px; font-size:20px; }
+      html.page-event-detail main .description p { margin:0 0 18px; color:#bbb; font-size:18px; line-height:1.85; }
+      html.page-event-detail main .download { padding:40px 0; overflow:hidden; background:linear-gradient(180deg,transparent 15%,#943e10 100%); }
+      html.page-event-detail main .download-grid { display:grid; grid-template-columns:1.08fr .92fr; align-items:center; min-height:551px; }
+      html.page-event-detail main .phones { align-self:end; width:min(560px,100%); margin:auto; }
+      html.page-event-detail main .download-copy .tag { display:inline-block; padding:6px 13px; border:1px solid var(--orange); border-radius:999px; color:var(--orange); font-size:18px; font-weight:700; }
+      html.page-event-detail main .download-copy h2 { margin:25px 0 20px; font-size:clamp(38px,4vw,55px); line-height:1.1; }
+      html.page-event-detail main .download-copy p { color:#ccc; font-size:18px; line-height:1.7; }
+      html.page-event-detail main .stores { display:flex; gap:13px; margin-top:26px; }
+      html.page-event-detail main .stores img { width:77px; }
+
+
+
+
+
+
+      @media(max-width:1000px) {
+        html.page-event-detail main .container { width:calc(100% - 80px); }
+      }
+      @media(max-width:760px) {
+        html.page-event-detail main .container { width:calc(100% - 32px); }
+        html.page-event-detail main .detail { padding:119px 0 40px; } html.page-event-detail main .detail > .container { gap:24px; } html.page-event-detail main h1 { font-size:38px; }
+        html.page-event-detail main .event-layout,html.page-event-detail main .download-grid { grid-template-columns:1fr; } html.page-event-detail main .poster { min-height:0; } html.page-event-detail main .side { height:auto; margin-top:5px; } html.page-event-detail main .map { height:240px; flex:none; }
+        html.page-event-detail main .download { padding:55px 0 0; } html.page-event-detail main .download-copy { order:-1; } html.page-event-detail main .phones { margin-top:45px; }
+
+      }

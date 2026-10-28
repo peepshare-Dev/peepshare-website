@@ -11,9 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -26,20 +27,8 @@
               mist: "#f7f7f7",
             },
             fontFamily: {
-              sans: [
-                "Noto Sans Thai",
-                "Inter",
-                "ui-sans-serif",
-                "system-ui",
-                "sans-serif",
-              ],
-              display: [
-                "Space Grotesk",
-                "Noto Sans Thai",
-                "ui-sans-serif",
-                "system-ui",
-                "sans-serif",
-              ],
+              sans: ["Noto Sans Thai", "sans-serif"],
+              display: ["Noto Sans Thai", "sans-serif"],
             },
           },
         },
@@ -68,14 +57,13 @@
       }
       body {
         background: #ffd5c7;
-      }
-      body > header,
-      .site-footer {
-        display: none;
+        color: #131313;
+        font-family: "Noto Sans Thai", sans-serif;
+        -webkit-font-smoothing: antialiased;
       }
       .form-bg {
         min-height: 100vh;
-        padding: 56px 20px 42px;
+        padding: 130px 20px 42px;
         background:
           radial-gradient(
             circle at 16% 14%,
@@ -97,7 +85,7 @@
         color: #ff681d;
       }
       .form-bg h1 {
-        font-family: "Noto Sans Thai", Inter, sans-serif;
+        font-family: "Noto Sans Thai", sans-serif;
         font-size: 32px;
         line-height: 1.25;
         color: #2b2725;
@@ -183,6 +171,9 @@
         padding: 12px 24px;
       }
       #shopForm .submit-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
         margin-right: 9px;
         font-size: 14px;
       }
@@ -262,35 +253,13 @@
         }
       }
     </style>
+    <link rel="stylesheet" href="/footer.css" />
     <link rel="stylesheet" href="/header.css" />
+    <link rel="stylesheet" href="/buttons.css" />
+    <script src="/site-chrome.js" defer></script>
   </head>
   <body class="font-sans text-ink antialiased">
-    <header
-      class="sticky top-0 z-40 border-b border-black/5 bg-paper/90 backdrop-blur-md"
-    >
-      <nav
-        class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5"
-      >
-        <a
-          href="/"
-          class="flex items-center gap-3 font-display text-xl font-bold"
-          aria-label="PEEP SHARE home"
-        >
-          <img
-            src="/assets/S__32882715.jpg"
-            alt=""
-            class="h-10 w-10 object-contain"
-          />
-          <span
-            ><span class="text-ink">PEEP</span>
-            <span class="text-accent">SHARE</span></span
-          >
-        </a>
-        <div
-          class="hidden items-center gap-8 text-sm text-gray-600 md:flex"
-        ></div>
-      </nav>
-    </header>
+    <header data-site-header></header>
 
     <main class="form-bg px-4 py-16 sm:px-6 sm:py-24">
       <div class="mx-auto max-w-5xl">
@@ -543,7 +512,11 @@
               data-idle-label="ส่งใบสมัครร้านค้า"
               data-loading-label="กำลังส่งข้อมูล..."
             >
-              <span class="submit-icon" aria-hidden="true">➤</span
+              <iconify-icon
+                class="submit-icon"
+                icon="solar:plain-2-linear"
+                aria-hidden="true"
+              ></iconify-icon
               ><span class="submit-label">ส่งใบสมัครร้านค้า</span>
             </button>
             <p
@@ -557,47 +530,9 @@
             </p>
           </div>
         </form>
-        <p class="mt-10 text-center text-xs text-gray-500">
-          © 2026 PEEP SHARE · JTS Team
-        </p>
       </div>
     </main>
-    <template>
-      <div class="site-footer__inner">
-        <div class="site-footer__main">
-          <div>
-            <a class="site-footer__brand" href="/"
-              ><img src="/assets/Footer%20Square%20Logo.png" alt="" /><span
-                >PEEP SHARE</span
-              ></a
-            >
-            <p class="site-footer__tagline">
-              Let’s “ PEEPSHARE ”<br />keep your memories.
-            </p>
-            <a class="site-footer__email" href="mailto:support@peepshare.me"
-              >support@peepshare.me</a
-            >
-          </div>
-          <nav class="site-footer__links" aria-label="Footer navigation">
-            <a href="/terms-and-conditions/?document=privacy">นโยบายความเป็นส่วนตัว</a
-            ><a href="/join/#faq">ศูนย์ช่วยเหลือ</a><a href="/">เกี่ยวกับ</a
-            ><a href="/terms-and-conditions/?document=terms">ข้อกำหนดการใช้บริการ</a>
-          </nav>
-        </div>
-        <div class="site-footer__bottom">
-          <span>© 2026 PEEP SHARE. All rights reserved.</span>
-          <div class="site-footer__socials">
-            <a href="#" aria-label="Facebook"
-              ><img src="/assets/Frame%201597884737.png" alt="" /></a
-            ><a href="#" aria-label="Instagram"
-              ><img src="/assets/Frame%201597884738.png" alt="" /></a
-            ><a href="#" aria-label="TikTok"
-              ><img src="/assets/Frame%201597884739.png" alt=""
-            /></a>
-          </div>
-        </div>
-      </div>
-    </template>
+    <footer data-site-footer></footer>
     <script type="module">
       import {
         validatePartnerForm,

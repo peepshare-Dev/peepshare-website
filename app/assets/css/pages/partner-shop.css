@@ -1,0 +1,214 @@
+html.page-partner-shop {
+        scroll-behavior: smooth;
+      }
+      html.page-partner-shop main .field:focus {
+        border-color: #ff4d00;
+        box-shadow: none;
+      }
+      html.page-partner-shop main .field::placeholder {
+        color: rgba(19, 19, 19, 0.35);
+      }
+      html.page-partner-shop main .upload:hover {
+        border-color: #ff4d00;
+        background: rgba(255, 77, 0, 0.03);
+      }
+      html.page-partner-shop main section,html.page-partner-shop main #shopForm {
+        box-shadow:
+          0 22px 55px rgba(107, 54, 20, 0.14),
+          0 6px 18px rgba(255, 110, 45, 0.08);
+      }
+      html.page-partner-shop body {
+        background: #ffd5c7;
+        color: #131313;
+        font-family: "Noto Sans Thai", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      html.page-partner-shop main.form-bg {
+        min-height: 100vh;
+        padding: 130px 20px 42px;
+        background:
+          radial-gradient(
+            circle at 16% 14%,
+            rgba(255, 255, 255, 0.65),
+            transparent 31%
+          ),
+          linear-gradient(120deg, #ffd0c9 0%, #fff3dc 48%, #ffd79d 100%);
+      }
+      html.page-partner-shop main.form-bg > div {
+        max-width: 810px;
+      }
+      html.page-partner-shop main.form-bg > div > div:first-child {
+        margin-bottom: 32px;
+      }
+      html.page-partner-shop main.form-bg > div > div:first-child > div {
+        margin-bottom: 20px;
+        padding: 9px 17px;
+        background: #fff0dc;
+        color: #ff681d;
+      }
+      html.page-partner-shop main.form-bg h1 {
+        font-family: "Noto Sans Thai", sans-serif;
+        font-size: 32px;
+        line-height: 1.25;
+        color: #2b2725;
+      }
+      html.page-partner-shop main.form-bg h1 + p {
+        margin-top: 12px;
+        font-size: 15px;
+        color: #8d7770;
+      }
+      html.page-partner-shop main.form-bg section,html.page-partner-shop main #shopForm {
+        border: 1px solid rgba(122, 82, 56, 0.08);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.94);
+      }
+      html.page-partner-shop main.form-bg section {
+        margin-bottom: 24px;
+        padding: 28px 30px;
+      }
+      html.page-partner-shop main.form-bg section h2 {
+        margin-bottom: 20px;
+        font-family: "Noto Sans Thai", sans-serif;
+      }
+      html.page-partner-shop main .benefit-grid {
+        gap: 18px 54px;
+      }
+      html.page-partner-shop main .benefit-grid > div {
+        gap: 13px;
+      }
+      html.page-partner-shop main .benefit-grid > div > span {
+        width: 34px;
+        height: 34px;
+        font-size: 0;
+        background-position: center;
+        background-size: 34px 34px;
+        background-repeat: no-repeat;
+      }
+      html.page-partner-shop main .benefit-grid > div:nth-child(1) > span {
+        background-image: url("/assets/Text_margin.png");
+      }
+      html.page-partner-shop main .benefit-grid > div:nth-child(2) > span {
+        background-image: url("/assets/paint.png");
+      }
+      html.page-partner-shop main .benefit-grid > div:nth-child(3) > span {
+        background-image: url("/assets/voice.png");
+      }
+      html.page-partner-shop main .benefit-grid > div:nth-child(4) > span {
+        background-image: url("/assets/condition.png");
+      }
+      html.page-partner-shop main #shopForm {
+        padding: 32px;
+      }
+      html.page-partner-shop main .field {
+        width: 100%;
+        border: 1px solid rgba(19, 19, 19, 0.14);
+        color: #131313;
+        outline: none;
+        transition: 0.2s;
+        height: 42px;
+        border-color: #e5d8d0;
+        border-radius: 12px;
+        background: #fffdfb;
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+      html.page-partner-shop main textarea.field {
+        height: auto;
+      }
+      html.page-partner-shop main .upload {
+        border: 2px dashed rgba(19, 19, 19, 0.14);
+        transition: 0.2s;
+        border-color: #e4d5ca;
+        border-width: 1.5px;
+        border-radius: 16px;
+        background: #fffdfb;
+      }
+      html.page-partner-shop main #shopForm .space-y-7 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 25px;
+      }
+      html.page-partner-shop main #shopForm button[type="submit"] {
+        border-radius: 12px;
+        background: linear-gradient(90deg, #ffb67c, #ffa18c);
+        padding: 12px 24px;
+      }
+      html.page-partner-shop main #shopForm .submit-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        margin-right: 9px;
+        font-size: 14px;
+      }
+      html.page-partner-shop main #shopLogo + * {
+        color: #ff681d;
+      }
+      html.page-partner-shop main label:has(> input[name="consent"]) {
+        border-color: #eaded6;
+        background: #fffdfb;
+      }
+      html.page-partner-shop main input[name="consent"] {
+        appearance: none;
+        border: 1.5px solid #ff681d;
+        border-radius: 50%;
+        background: #fff;
+      }
+      html.page-partner-shop main input[name="consent"]:checked {
+        box-shadow: inset 0 0 0 4px #fff;
+        background: #ff681d;
+      }
+      html.page-partner-shop main .partner-field-invalid {
+        border-color: #ef4444;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.16);
+      }
+      html.page-partner-shop main .partner-popup-backdrop {
+        position: fixed;
+        z-index: 9999;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(4px);
+      }
+      html.page-partner-shop main .partner-popup {
+        width: min(100%, 420px);
+        padding: 28px;
+        border-radius: 20px;
+        background: #fff;
+        color: #171717;
+        text-align: center;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      }
+      html.page-partner-shop main .partner-popup p {
+        margin: 0 0 22px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.6;
+      }
+      html.page-partner-shop main .partner-popup button {
+        min-width: 120px;
+        padding: 11px 24px;
+        border: 0;
+        border-radius: 999px;
+        background: #ff4d00;
+        color: #fff;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      html.page-partner-shop main #shopForm > p:first-child {
+        margin-bottom: 27px;
+      }
+      @media (max-width: 640px) {
+        html.page-partner-shop main.form-bg {
+          padding: 36px 14px;
+        }
+        html.page-partner-shop main.form-bg h1 {
+          font-size: 26px;
+        }
+        html.page-partner-shop main.form-bg section,html.page-partner-shop main #shopForm {
+          padding: 22px 18px;
+        }
+        html.page-partner-shop main .benefit-grid {
+          gap: 16px;
+        }
+      }

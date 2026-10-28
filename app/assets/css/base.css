@@ -1,0 +1,20 @@
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#__nuxt {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans Thai", sans-serif;
+  background: #08090b;
+  color: #fff;
+}
+
+body.menu-open {
+  overflow: hidden;
+}

@@ -161,37 +161,6 @@ languageButtons.forEach((button) => {
   });
 });
 
-const siteHeader = document.getElementById("siteHeader");
-const menuButton = document.getElementById("menuButton");
-const mobileMenu = document.getElementById("mobileMenu");
-
-function closeMenu() {
-  menuButton.setAttribute("aria-expanded", "false");
-  mobileMenu.classList.remove("open");
-  document.body.classList.remove("menu-open");
-}
-
-menuButton.addEventListener("click", () => {
-  const shouldOpen = menuButton.getAttribute("aria-expanded") !== "true";
-  menuButton.setAttribute("aria-expanded", String(shouldOpen));
-  mobileMenu.classList.toggle("open", shouldOpen);
-  document.body.classList.toggle("menu-open", shouldOpen);
-});
-
-mobileMenu.addEventListener("click", (event) => {
-  if (event.target.closest("a")) closeMenu();
-});
-
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 820) closeMenu();
-});
-
-window.addEventListener(
-  "scroll",
-  () => siteHeader.classList.toggle("scrolled", window.scrollY > 10),
-  { passive: true },
-);
-
 window.addEventListener("popstate", () => {
   const nextParams = new URLSearchParams(window.location.search);
   const nextDocument = nextParams.get("document");

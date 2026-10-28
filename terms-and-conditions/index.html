@@ -12,9 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
     <style>
       :root {
         --background: #08090b;
@@ -41,7 +42,7 @@
         min-width: 320px;
         color: var(--text);
         background: var(--background);
-        font-family: Inter, "Noto Sans Thai", Arial, sans-serif;
+        font-family: "Noto Sans Thai", sans-serif;
         -webkit-font-smoothing: antialiased;
       }
 
@@ -56,6 +57,11 @@
 
       button {
         font: inherit;
+      }
+      iconify-icon {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
       }
 
       img {
@@ -438,7 +444,7 @@
 
       .footer-brand {
         gap: 13px;
-        font-size: 17px;
+        font-size: 18px;
       }
 
       .footer-brand img {
@@ -450,12 +456,12 @@
       .footer-tagline {
         margin: 27px 0 20px;
         color: #77777c;
-        font-size: 12px;
+        font-size: 18px;
         line-height: 1.6;
       }
 
       .footer-email {
-        font-size: 11px;
+        font-size: 18px;
         font-weight: 700;
       }
 
@@ -463,7 +469,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        font-size: 13px;
+        font-size: 18px;
       }
 
       .footer-links a {
@@ -479,7 +485,7 @@
         align-items: flex-end;
         justify-content: space-between;
         color: #686268;
-        font-size: 10px;
+        font-size: 18px;
       }
 
       .footer-socials {
@@ -517,8 +523,8 @@
           width: 42px;
           height: 42px;
           padding: 11px 9px;
-          flex-direction: column;
-          justify-content: space-around;
+          align-items: center;
+          justify-content: center;
           border: 1px solid rgba(255, 255, 255, 0.15);
           border-radius: 50%;
           color: #fff;
@@ -526,23 +532,8 @@
           cursor: pointer;
         }
 
-        .menu-button span {
-          width: 100%;
-          height: 1px;
-          background: currentColor;
-          transition: transform 180ms ease, opacity 180ms ease;
-        }
-
-        .menu-button[aria-expanded="true"] span:nth-child(1) {
-          transform: translateY(6px) rotate(45deg);
-        }
-
-        .menu-button[aria-expanded="true"] span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .menu-button[aria-expanded="true"] span:nth-child(3) {
-          transform: translateY(-6px) rotate(-45deg);
+        .menu-button iconify-icon {
+          font-size: 22px;
         }
 
         .mobile-menu {
@@ -672,44 +663,26 @@
         }
       }
 
+      /* Keep the legal-document hierarchy and spacing while improving readability. */
+      .document-tab,
+      .last-updated,
+      .loading-state,
+      .legal-content,
+      .legal-content h1,
+      .legal-content h2,
+      .legal-content h3,
+      .legal-content table {
+        font-size: 18px;
+      }
+
     </style>
+    <link rel="stylesheet" href="/footer.css" />
+    <link rel="stylesheet" href="/buttons.css" />
+    <link rel="stylesheet" href="/header.css" />
+    <script src="/site-chrome.js" defer></script>
   </head>
   <body>
-    <header class="site-header" id="siteHeader">
-      <nav class="navbar shell" aria-label="Primary navigation">
-        <a class="brand" href="/" aria-label="PEEP SHARE home">
-          <img src="/assets/Footer%20Square%20Logo.png" alt="" />
-          <span>PEEP <em>SHARE</em></span>
-        </a>
-
-        <div class="desktop-nav">
-          <a href="/">Home</a>
-          <a href="/event/">Event</a>
-          <a href="/join/">Join with us</a>
-          <a class="active" href="/terms-and-conditions/">Term and Condition</a>
-        </div>
-
-        <a class="get-app" href="/partner/shop/">Get the App</a>
-        <button
-          class="menu-button"
-          id="menuButton"
-          type="button"
-          aria-label="Open navigation"
-          aria-controls="mobileMenu"
-          aria-expanded="false"
-        >
-          <span></span><span></span><span></span>
-        </button>
-      </nav>
-
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="/">Home</a>
-        <a href="/event/">Event</a>
-        <a href="/join/">Join with us</a>
-        <a class="active" href="/terms-and-conditions/">Term and Condition</a>
-        <a href="/partner/shop/">Get the App</a>
-      </div>
-    </header>
+    <header data-site-header></header>
 
     <main>
       <section class="title-hero">
@@ -811,34 +784,7 @@
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-inner shell">
-        <div class="footer-main">
-          <div>
-            <a class="footer-brand" href="/">
-              <img src="/assets/Footer%20Square%20Logo.png" alt="" />
-              <span>PEEP SHARE</span>
-            </a>
-            <p class="footer-tagline">Let’s “ PEEPSHARE ”<br />keep your memories.</p>
-            <a class="footer-email" href="mailto:support@peepshare.me">support@peepshare.me</a>
-          </div>
-          <nav class="footer-links" aria-label="Footer navigation">
-            <a href="/terms-and-conditions/?document=privacy">นโยบายความเป็นส่วนตัว</a>
-            <a href="/join/#faq">ศูนย์ช่วยเหลือ</a>
-            <a href="/">เกี่ยวกับ</a>
-            <a href="/terms-and-conditions/?document=terms">ข้อกำหนดการใช้บริการ</a>
-          </nav>
-        </div>
-        <div class="footer-bottom">
-          <span>© 2026 PEEP SHARE. All rights reserved.</span>
-          <div class="footer-socials">
-            <a href="#" aria-label="Facebook"><img src="/assets/Frame%201597884737.png" alt="" /></a>
-            <a href="#" aria-label="Instagram"><img src="/assets/Frame%201597884738.png" alt="" /></a>
-            <a href="#" aria-label="TikTok"><img src="/assets/Frame%201597884739.png" alt="" /></a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <footer data-site-footer></footer>
 
     <script type="module" src="/terms-and-conditions/script.js"></script>
   </body>

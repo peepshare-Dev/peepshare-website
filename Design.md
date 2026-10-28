@@ -16,7 +16,7 @@
 - Semantic HTML5
 - CSS และ CSS custom properties ภายใน `index.html`
 - Vanilla JavaScript สำหรับ navigation, tabs, reviews, carousel, reveal และ FAQ
-- Font หลักคือ `Inter` จาก Google Fonts
+- Font หลักคือ `Noto Sans Thai` จาก Google Fonts รองรับน้ำหนัก 100–900
 - Vite ใช้สำหรับ development server และ production build
 - รูปภาพอ้างจาก `public/assets`
 - หน้าแรกปัจจุบันไม่ใช้ Tailwind, Framer runtime หรือ component framework
@@ -51,7 +51,7 @@
 
 ## Typography
 
-- Font: `Inter, Arial, sans-serif`
+- Font: `"Noto Sans Thai", sans-serif`
 - Body: weight 400–500
 - UI/navigation: weight 500–700
 - Heading: weight 700–800
@@ -192,7 +192,7 @@ box-shadow: 0 0 10px rgba(107, 107, 107, .25);
 - ใช้ token จาก `:root` ก่อนเพิ่มสีใหม่
 - เก็บรูปใน `public/assets` และอ้างด้วย `/assets/...`
 - Component ใหม่ต้องรักษา dark/orange visual language
-- ใช้ `Inter` สำหรับ heading, body และ UI
+- ใช้ `Noto Sans Thai` สำหรับ heading, body และ UI
 - รักษา container width และ vertical rhythm เดิม
 - ตรวจ responsive อย่างน้อยที่ desktop, `820px` และ `560px`
 - Motion ใหม่ต้องไม่ทำให้ layout กระตุกและต้องรองรับ reduced motion
