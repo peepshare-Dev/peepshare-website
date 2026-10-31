@@ -1,6 +1,15 @@
+const apiBaseUrl = (
+  process.env.NUXT_PUBLIC_API_BASE_URL || "http://localhost:3000"
+).replace(/\/+$/, "");
+
 export default defineNuxtConfig({
   compatibilityDate: "2026-10-27",
   devtools: { enabled: false },
+  runtimeConfig: {
+    public: {
+      apiBaseUrl,
+    },
+  },
   css: [
     "~/assets/css/base.css",
     "~/assets/css/pages/home.css",
@@ -38,8 +47,8 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
-      "/api/**": { proxy: "http://localhost:3000/api/**" },
-      "/images/**": { proxy: "http://localhost:3000/images/**" },
+      "/api/**": { proxy: `${apiBaseUrl}/api/**` },
+      "/images/**": { proxy: `${apiBaseUrl}/images/**` },
     },
     prerender: {
       routes: [

@@ -1,6 +1,10 @@
 node_modules/
 .nuxt/
 .output/
+.vercel/
 dist/
 .data/
 *.log
+.env
+.env.*
+!.env.example
