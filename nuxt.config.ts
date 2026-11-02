@@ -1,7 +1,4 @@
-const defaultApiBaseUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://peepshare-website-back.vercel.app"
-    : "http://localhost:3000";
+const defaultApiBaseUrl = "https://peepshare-website-back.vercel.app";
 
 const apiBaseUrl = (
   process.env.NUXT_PUBLIC_API_BASE_URL || defaultApiBaseUrl
