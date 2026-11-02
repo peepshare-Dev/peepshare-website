@@ -12,18 +12,47 @@ type PartnerLogo = {
   imagePath: string;
 };
 
+type LogoState = "loading" | "ready" | "empty" | "error";
+
 const partnerLogos = ref<PartnerLogo[]>([]);
+const logoState = ref<LogoState>("loading");
 const repeatedPartnerLogos = computed(() =>
   Array.from({ length: 4 }, () => partnerLogos.value).flat(),
 );
+const logoStatusMessage = computed(() => {
+  if (logoState.value === "loading") return "กำลังโหลดโลโก้พาร์ทเนอร์…";
+  if (logoState.value === "empty") return "ยังไม่มีโลโก้พาร์ทเนอร์";
+  return "ไม่สามารถโหลดโลโก้พาร์ทเนอร์ได้ในขณะนี้";
+});
+
+function isPartnerLogo(value: unknown): value is PartnerLogo {
+  if (!value || typeof value !== "object") return false;
+
+  const { id, imagePath } = value as Partial<PartnerLogo>;
+  return (
+    (typeof id === "number" || typeof id === "string") &&
+    typeof imagePath === "string" &&
+    imagePath.startsWith("/images/")
+  );
+}
 
 onMounted(async () => {
   try {
     const response = await fetch("/api/logos");
     if (!response.ok) throw new Error("Unable to load partner logos");
-    const payload = await response.json();
-    partnerLogos.value = Array.isArray(payload.data) ? payload.data : [];
+
+    const payload: unknown = await response.json();
+    const data =
+      payload && typeof payload === "object" && "data" in payload
+        ? (payload as { data: unknown }).data
+        : undefined;
+
+    if (!Array.isArray(data)) throw new Error("Invalid partner logo response");
+
+    partnerLogos.value = data.filter(isPartnerLogo);
+    logoState.value = partnerLogos.value.length > 0 ? "ready" : "empty";
   } catch (error) {
+    logoState.value = "error";
     console.error("Partner logos:", error);
   }
 });
@@ -103,7 +132,15 @@ onMounted(async () => {
       </section>
       <section class="logos">
         <p>ร่วมเติบโตไปกับพาร์ทเนอร์ของเรา</p>
-        <div class="track">
+        <p
+          v-if="logoState !== 'ready'"
+          class="logo-status"
+          role="status"
+          aria-live="polite"
+        >
+          {{ logoStatusMessage }}
+        </p>
+        <div v-else class="track">
           <div class="set" id="partnerLogosPrimary">
             <span
               v-for="(logo, index) in repeatedPartnerLogos"

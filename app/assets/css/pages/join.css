@@ -253,6 +253,12 @@ html.page-join {
         color: #999;
         font-size: 11px;
       }
+      html.page-join main .logos .logo-status {
+        display: grid;
+        min-height: 66px;
+        margin: 0;
+        place-items: center;
+      }
       html.page-join main .track {
         display: flex;
         width: max-content;

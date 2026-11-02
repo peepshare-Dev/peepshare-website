@@ -1,5 +1,10 @@
+const defaultApiBaseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://peepshare-website-back.vercel.app"
+    : "http://localhost:3000";
+
 const apiBaseUrl = (
-  process.env.NUXT_PUBLIC_API_BASE_URL || "http://localhost:3000"
+  process.env.NUXT_PUBLIC_API_BASE_URL || defaultApiBaseUrl
 ).replace(/\/+$/, "");
 
 export default defineNuxtConfig({
@@ -46,10 +51,6 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    routeRules: {
-      "/api/**": { proxy: `${apiBaseUrl}/api/**` },
-      "/images/**": { proxy: `${apiBaseUrl}/images/**` },
-    },
     prerender: {
       routes: [
         "/",

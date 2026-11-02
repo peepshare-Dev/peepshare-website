@@ -49,41 +49,6 @@ if (location.pathname === "/")
       window.addEventListener("popstate", setActiveMenu);
       setActiveMenu();
 
-      async function loadPartnerLogos() {
-        const primary = document.getElementById("partnerLogosPrimary");
-        const duplicate = document.getElementById("partnerLogosDuplicate");
-
-        try {
-          const response = await fetch("/api/logos");
-          if (!response.ok) throw new Error("Unable to load partner logos");
-
-          const { data } = await response.json();
-          if (!Array.isArray(data) || data.length === 0) return;
-
-          const renderLogos = () =>
-            Array.from({ length: 4 }, () => data)
-              .flat()
-              .map(({ id, imagePath }) => {
-                const item = document.createElement("span");
-                item.className = "logo";
-
-                const image = document.createElement("img");
-                image.src = imagePath;
-                image.alt = `Partner logo ${id}`;
-                image.loading = "lazy";
-                item.append(image);
-                return item;
-              });
-
-          primary.replaceChildren(...renderLogos());
-          duplicate.replaceChildren(...renderLogos());
-        } catch (error) {
-          console.error("Partner logos:", error.message);
-        }
-      }
-
-      loadPartnerLogos();
-
       const benefitSlides = [
         {
           title: "ลูกค้าใหม่จากคนในพื้นที่",
